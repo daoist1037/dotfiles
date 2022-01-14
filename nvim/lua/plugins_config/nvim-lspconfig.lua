@@ -91,6 +91,20 @@ return function()
             }
         }
     end
+    
+    local server_path = "/home/daoist/.local/share/nvim/lsp_servers"
+
+    nvim_lsp['pyright'].setup {
+        cmd = {
+            server_path .. "/python/node_modules/.bin/pyright-langserver",
+            "--stdio",
+        },
+        on_attach = on_attach,
+        capabilities = capabilities,
+        flags = {
+            debounce_text_changes = 150,
+        }
+    }
     nvim_lsp['clangd'].setup {
         on_attach = on_attach,
         -- capabilities = capabilities,
@@ -109,12 +123,10 @@ return function()
     -- -- local runtime_path = "/home/daoist/dotfiles/nvim"
     -- table.insert(runtime_path, "lua/?.lua")
     -- table.insert(runtime_path, "lua/?/init.lua")
-
-    local lua_server_path = "/home/daoist/.local/share/nvim/lsp_servers/sumneko_lua/"
     nvim_lsp['sumneko_lua'].setup {
-        cmd = {lua_server_path .. "/extension/server/bin/lua-language-server",
+        cmd = {server_path .. "/sumneko_lua/extension/server/bin/lua-language-server",
                 "-E",
-                lua_server_path .. "/extension/server/bin/main.lua"
+                server_path .. "/sumneko_lua/extension/server/bin/main.lua"
             },
         filetypes = {"lua"},
         single_file_support = true,

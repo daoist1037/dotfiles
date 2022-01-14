@@ -4,9 +4,10 @@
 vim.cmd [[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 vim.g.python_host_skip_check=1
 vim.g.python3_host_skip_check=1
-vim.g.python3_host_prog = '/usr/bin/python'
+-- vim.g.python3_host_prog = '/usr/bin/python'
 -- vim.g.python3_host_prog = '/home/daoist/Programs/miniconda3/bin/python3'
 -- vim.g.python3_host_prog = '/home/daoist/.conda/envs/neovim/bin/python3'
+vim.g.python3_host_prog = "/home/daoist/.conda/envs/tools/bin/python"
 local options = require('core.options')
 for o,v in pairs(options) do
    vim.opt[o] = v

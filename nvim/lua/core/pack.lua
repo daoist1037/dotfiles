@@ -55,11 +55,11 @@ return packer.startup(function()
     use {
         'navarasu/onedark.nvim',
         config = function()
-            vim.g.onedark_style = 'warmer'
-            vim.g.onedark_toggle_style_keymap = '<nop>'
-            vim.g.onedark_italic_comment = false
-            vim.g.onedark_transparent_background = true
-            require('onedark').setup()
+            require('onedark').setup{
+                style = 'warmer',
+                transparent = true,
+            }
+            require('onedark').load()
         end,
     }
     use {
@@ -179,8 +179,9 @@ return packer.startup(function()
     }
     use {
         'simrat39/symbols-outline.nvim',
-        opt = true,
-        cmd = {'SymbolsOutline', 'SymbolsOutlineOpen'},
+        -- opt = true,
+        -- cmd = {'SymbolsOutline', 'SymbolsOutlineOpen'},
+        after = 'nvim-lspconfig',
     }
     -------------------------------------
     ------------- Tools -----------------

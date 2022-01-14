@@ -6,12 +6,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
-export PATH="/opt/android-sdk/platform-tools:$PATH"
-export CUDA_HOME=/usr/local/cuda
-export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
-export PATH=${CUDA_HOME}bin:${PATH}
+#export PATH="/opt/android-sdk/platform-tools:$PATH"
+#export CUDA_HOME=/usr/local/cuda
+#export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+#export PATH=${CUDA_HOME}bin:${PATH}
 export EDITOR=nvim
-# source /home/daoist/dotfiles/ranger/plugins/z/z.sh
+# export PYTHONPATH=/opt/miniconda/bin/python
 source ~/dotfiles/zsh/antigen/antigen.zsh
 
 antigen use oh-my-zsh
@@ -33,32 +33,28 @@ antigen bundle skywind3000/z.lua
 source ~/dotfiles/zsh/powerlevel10k/powerlevel10k.zsh-theme
 antigen apply
 
-alias lzg='lazygit'
 alias vim=nvim
 alias vi=nvim
-alias alacritty-colorscheme=/home/daoist/.local/bin/alacritty-colorscheme
-# alias z='z -i'
+alias activate="source /opt/miniconda/bin/activate"
 # alias cnpm="npm --registry=https://registry.npmmirror.com \
 # --cache=$HOME/.npm/.cache/cnpm \
 # --disturl=https://npmmirror.com/dist \
 #--userconfig=$HOME/.cnpmrc"
-# alias python3=/home/daoist/Programs/miniconda3/bin/python3
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/dotfiles/zsh/.p10k.zsh ]] || source ~/dotfiles/zsh/.p10k.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/daoist/Programs/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/daoist/Programs/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/daoist/Programs/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/daoist/Programs/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/opt/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/opt/miniconda/etc/profile.d/conda.sh" ]; then
+#         . "/opt/miniconda/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/opt/miniconda/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
-
