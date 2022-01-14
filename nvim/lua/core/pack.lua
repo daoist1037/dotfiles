@@ -181,6 +181,7 @@ return packer.startup(function()
         'simrat39/symbols-outline.nvim',
         -- opt = true,
         -- cmd = {'SymbolsOutline', 'SymbolsOutlineOpen'},
+        config = require('plugins_config.symbolsoutline'),
         after = 'nvim-lspconfig',
     }
     -------------------------------------
@@ -191,6 +192,7 @@ return packer.startup(function()
         "lewis6991/gitsigns.nvim",
         config = require('plugins_config.gitsigns'),
         event = {'BufReadPre', 'BufRead'},
+        -- ft = {'lua', 'python','cpp','c'},
         -- opt = true,
     }
     use {

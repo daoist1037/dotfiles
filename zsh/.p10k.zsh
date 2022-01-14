@@ -55,7 +55,7 @@
     command_execution_time    # previous command duration
     # =========================[ Line #2 ]=========================
     newline                   # \n
-    virtualenv                # python virtual environment
+    # virtualenv                # python virtual environment
     prompt_char               # prompt symbol
   )
 
@@ -65,6 +65,7 @@
     # command_execution_time  # previous command duration
     # virtualenv              # python virtual environment
     # context                 # user@host
+    anaconda
     time                      # current time
     # =========================[ Line #2 ]=========================
     newline                   # \n
@@ -96,6 +97,7 @@
 
   # Grey Python Virtual Environment.
   typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=$grey
+  typeset -g POWERLEVEL9K_ANACONDA_FOREGROUND=$blue
   # Don't show Python version.
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=

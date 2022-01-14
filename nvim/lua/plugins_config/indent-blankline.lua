@@ -17,6 +17,8 @@ return function()
             "lspinfo",
             "TelescopePrompt",
             "TelescopeResults",
+            "Outline",
+            "lsp-installer",
             "",
         },
         buftype_exclude = { "terminal", "alpha" },

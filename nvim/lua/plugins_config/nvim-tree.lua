@@ -9,14 +9,14 @@ return function()
     g.nvim_tree_indent_markers = 1
     g.nvim_tree_git_hl = 1 -- Will enable file highlight for git attributes (can be used without the icons).
     g.nvim_tree_window_picker_exclude = {
-        filetype = { 'notify', 'packer', 'qf', 'vista_kind' },
+        filetype = { 'notify', 'packer', 'qf', 'vista_kind','Outline' },
         buftype = {'terminal' },
     }
     g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
     g.nvim_tree_show_icons = {
         folders = 1,
         files = 1,
-        git = git_status,
+        -- git = git_status,
         folder_arrows = 1,
     }
     -- g.nvim_tree_icons = {
