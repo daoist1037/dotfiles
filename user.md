@@ -4,4 +4,6 @@ systemctl --user enable imwheel
 
 nm-connection-editor
 network-manager-applet
-
+optimus-manager
+os-prober
+xprop | grep WM_CLASS
