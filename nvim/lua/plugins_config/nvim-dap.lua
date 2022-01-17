@@ -26,7 +26,7 @@ return function()
     dap.configurations.rust = dap.configurations.cpp
     dap.adapters.python = {
         type = 'executable';
-        command = '/opt/miniconda/bin/python';
+        command = '/home/daoist/.conda/envs/tools/bin/python';
         args = { '-m', 'debugpy.adapter' };
     }
     dap.configurations.python = {

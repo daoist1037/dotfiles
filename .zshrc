@@ -36,6 +36,9 @@ antigen apply
 alias vim=nvim
 alias vi=nvim
 alias activate="source /opt/miniconda/bin/activate"
+# alias deactivate="source /opt/miniconda/bin/deactivate"
+alias deactivate="conda deactivate"
+# alias conda="/opt/miniconda/bin/conda"
 # alias cnpm="npm --registry=https://registry.npmmirror.com \
 # --cache=$HOME/.npm/.cache/cnpm \
 # --disturl=https://npmmirror.com/dist \
