@@ -19,6 +19,7 @@ return function()
             "TelescopeResults",
             "Outline",
             "lsp-installer",
+            "Nvimtree",
             "",
         },
         buftype_exclude = { "terminal", "alpha" },

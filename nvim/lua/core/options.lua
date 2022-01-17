@@ -47,6 +47,7 @@ return {
     [[i-ci:ver25-Cursor/lCursor,]]..
     [[r:hor50-Cursor/lCursor]],
     completeopt = 'menuone,noinsert',
+    clipboard ='unnamedplus',
     -- noswapfile = true,
     -- nobackup = true,
 

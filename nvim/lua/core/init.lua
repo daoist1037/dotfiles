@@ -26,7 +26,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
 
-mappings = require('core.mappings')
+local mappings = require('core.mappings')
 for _,list in pairs(mappings) do
 	map(list[1], list[2], list[3])
 end

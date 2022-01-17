@@ -6,7 +6,7 @@ return function()
     g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
     g.nvim_tree_highlight_opened_files = 3
     g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
-    g.nvim_tree_indent_markers = 1
+    g.nvim_tree_indent_markers = 0
     g.nvim_tree_git_hl = 1 -- Will enable file highlight for git attributes (can be used without the icons).
     g.nvim_tree_window_picker_exclude = {
         filetype = { 'notify', 'packer', 'qf', 'vista_kind','Outline' },
