@@ -16,12 +16,10 @@ source ~/dotfiles/zsh/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
-antigen bundle git
-antigen bundle heroku
-antigen bundle pip
+# antigen bundle heroku
 antigen bundle sudo
 antigen bundle extract
-antigen bundle lein
+# antigen bundle lein
 antigen bundle command-not-found
 
 antigen bundle zsh-users/zsh-completions
