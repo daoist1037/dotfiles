@@ -56,7 +56,7 @@ return packer.startup(function()
         'navarasu/onedark.nvim',
         config = function()
             require('onedark').setup{
-                style = 'warmer',
+                style = 'warm',
                 transparent = true,
             }
             require('onedark').load()
@@ -188,6 +188,9 @@ return packer.startup(function()
     ------------- Tools -----------------
     -------------------------------------
     -- use { "nvim-lua/popup.nvim" }
+    -- use {
+    --     'lilydjwg/fcitx.vim',
+    -- }
     use {
         "lewis6991/gitsigns.nvim",
         config = require('plugins_config.gitsigns'),

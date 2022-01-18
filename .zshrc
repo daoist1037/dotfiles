@@ -19,6 +19,8 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle heroku
 antigen bundle pip
+antigen bundle sudo
+antigen bundle extract
 antigen bundle lein
 antigen bundle command-not-found
 

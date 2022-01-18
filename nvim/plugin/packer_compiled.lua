@@ -386,7 +386,7 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
-    config = { "\27LJ\1\2o\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\2\16transparent\2\nstyle\vwarmer\nsetup\fonedark\frequire\0" },
+    config = { "\27LJ\1\2m\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\2\16transparent\2\nstyle\twarm\nsetup\fonedark\frequire\0" },
     loaded = true,
     path = "/home/daoist/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
@@ -486,7 +486,7 @@ try_loadstring("\27LJ\1\2|\0\0\3\0\5\0\b4\0\0\0%\1\1\0>\0\2\0027\0\2\0%\1\3\0003
 time([[Config for kommentary]], false)
 -- Config for: onedark.nvim
 time([[Config for onedark.nvim]], true)
-try_loadstring("\27LJ\1\2o\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\2\16transparent\2\nstyle\vwarmer\nsetup\fonedark\frequire\0", "config", "onedark.nvim")
+try_loadstring("\27LJ\1\2m\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\2\16transparent\2\nstyle\twarm\nsetup\fonedark\frequire\0", "config", "onedark.nvim")
 time([[Config for onedark.nvim]], false)
 -- Config for: filetype.nvim
 time([[Config for filetype.nvim]], true)

@@ -1,5 +1,20 @@
-".*"
+"^microsoft-edge"
     None, Up, Button4, 3
     None, Down, Button5, 3
+    None, Thumb1, Alt_L|Left
+    None, Thumb2, Alt_L|Right
+    
+
+    
+"^wps"
+    None, Up, Button4, 1
+    None, Down, Button5, 1
+    None, Thumb1, Alt_L|Left
+    None, Thumb2, Alt_L|Right
+
+
+".*"
+    None, Up, Button4, 2
+    None, Down, Button5, 2
     None, Thumb1, Alt_L|Left
     None, Thumb2, Alt_L|Right
