@@ -148,8 +148,8 @@ return function()
                     library = {
                         [vim.fn.expand "$VIMRUNTIME/lua"] = true,
                         [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-                        [vim.fn.expand "$HOME/dotfiles/nvim/lua"] = true,
-                        [vim.fn.expand "$HOME/.local/share/nvim/site/pack/packer/"] = true,
+                        -- [vim.fn.expand "$HOME/dotfiles/nvim/lua"] = true,
+                        -- [vim.fn.expand "$HOME/.local/share/nvim/site/pack/packer/"] = true,
                     },
                     maxPreload = 100000,
                     preloadFileSize = 10000

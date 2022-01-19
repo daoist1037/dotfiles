@@ -8,12 +8,12 @@ return function()
             disabled_filetypes = {
                 "toggleterm",
                 "NvimTree",
-                "vista_kind",
-                "dapui_scopes",
-                "dapui_breakpoints",
-                "dapui_stacks",
-                "dapui_watches",
-                "dap-repl"
+                -- "vista_kind",
+                -- "dapui_scopes",
+                -- "dapui_breakpoints",
+                -- "dapui_stacks",
+                -- "dapui_watches",
+                -- "dap-repl"
             }
         },
         sections = {

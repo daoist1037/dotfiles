@@ -6,7 +6,7 @@ return {
     cursorcolumn = true,
     showmode = true,
     showcmd = true,
-    mouse = a,
+    mouse = 'a',
     autoindent = true,
     tabstop = 2,
     shiftwidth = 4,

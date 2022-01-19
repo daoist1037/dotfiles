@@ -4,7 +4,7 @@ return function()
     saga.init_lsp_saga(
         {
             border_style = "round",
-            code_action_icon = '💡',
+            -- code_action_icon = '💡',
             max_preview_lines = 10,
         }
 

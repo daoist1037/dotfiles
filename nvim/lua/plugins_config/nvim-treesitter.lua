@@ -27,7 +27,6 @@ return function()
                 enable = true,
                 lookahead = true,
                 keymaps = {
-                    ...
                     ["iq"] = "@parameter.inner",
                     ["aq"] = "@parameter.outer",
                 }

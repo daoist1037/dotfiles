@@ -18,16 +18,19 @@ return function()
                     size = 0.25, -- Can be float or integer > 1
                 },
                 { id = "breakpoints", size = 0.25 },
-                { id = "stacks", size = 0.25 },
-                { id = "watches", size = 00.25 },
+                -- { id = "stacks", size = 0.25 },
+                { id = "watches", size = 0.50 },
             },
             size = 40,
             position = "left", -- Can be "left", "right", "top", "bottom"
         },
+        -- tray = {
+        --     elements = { "repl" },
+        --     size = 10,
+        --     position = "bottom", -- Can be "left", "right", "top", "bottom"
+        -- },
         tray = {
-            elements = { "repl" },
-            size = 10,
-            position = "bottom", -- Can be "left", "right", "top", "bottom"
+            elements = { },
         },
         floating = {
             max_height = nil, -- These can be integers or a float between 0 and 1.

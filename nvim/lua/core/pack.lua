@@ -232,7 +232,7 @@ return packer.startup(function()
         'nvim-treesitter/nvim-treesitter',
         -- config = require('plugins_config.nvim-treesitter'),
         opt = true,
-        run = 'TSUpdate',
+        -- run = 'TSUpdate',
         event = 'BufRead',
     }
     use {
