@@ -3,41 +3,41 @@ vim.cmd "packadd packer.nvim"
 local present, packer = pcall(require, "packer")
 
 if not present then
-   local packer_path = vim.fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
+    local packer_path = vim.fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
 
-   print "Cloning packer.."
-   -- remove the dir before cloning
-   vim.fn.delete(packer_path, "rf")
-   vim.fn.system {
-      "git",
-      "clone",
-      "https://github.com/wbthomason/packer.nvim",
-      "--depth",
-      "20",
-      packer_path,
-   }
+    print "Cloning packer.."
+    -- remove the dir before cloning
+    vim.fn.delete(packer_path, "rf")
+    vim.fn.system {
+        "git",
+        "clone",
+        "https://github.com/wbthomason/packer.nvim",
+        "--depth",
+        "20",
+        packer_path,
+    }
 
-   vim.cmd "packadd packer.nvim"
-   present, packer = pcall(require, "packer")
+    vim.cmd "packadd packer.nvim"
+    present, packer = pcall(require, "packer")
 
-   if present then
-      print "Packer cloned successfully."
-   else
-      error("Couldn't clone packer !\nPacker path: " .. packer_path)
-   end
+    if present then
+        print "Packer cloned successfully."
+    else
+        error("Couldn't clone packer !\nPacker path: " .. packer_path)
+    end
 end
 
 packer.init {
-   display = {
-      open_fn = function()
-         return require("packer.util").float { border = "single" }
-      end,
-      prompt_border = "single",
-   },
-   git = {
-      clone_timeout = 600, -- Timeout, in seconds, for git clones
-   },
-   auto_clean = true,
+    display = {
+        open_fn = function()
+            return require("packer.util").float { border = "single" }
+        end,
+        prompt_border = "single",
+    },
+    git = {
+        clone_timeout = 600, -- Timeout, in seconds, for git clones
+    },
+    auto_clean = true,
 }
 
 local use = packer.use
@@ -57,7 +57,7 @@ return packer.startup(function()
         config = function()
             require('onedark').setup{
                 style = 'warm',
-                -- transparent = true,
+                transparent = true,
             }
             require('onedark').load()
         end,
@@ -190,167 +190,171 @@ return packer.startup(function()
     -------------------------------------
     -- use { "nvim-lua/popup.nvim" }
     -- use {
-    --     'lilydjwg/fcitx.vim',
-    -- }
-    use {
-        'h-hg/fcitx.nvim',
-        event = {'BufReadPre', 'BufNewFile'},
-    }    use {
-        "lewis6991/gitsigns.nvim",
-        config = require('plugins.Gitsigns'),
-        event = {'BufReadPre', 'BufRead'},
-        -- ft = {'lua', 'python','cpp','c'},
-        -- opt = true,
-    }
-    use {
-        'rhysd/accelerated-jk',
-        -- opt = true,
-    }
-    use {
-        "max397574/better-escape.nvim",
-        config = function()
-            require("better_escape").setup()
-        end,
-        event = "InsertEnter",
-    }
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = require('plugins.Nvim-tree'),
-        cmd = {'NvimTreeToggle',  'NvimTreeFindFile'},
-    }
-    --[[ use {
-        "nvim-lua/plenary.nvim",
-        opt = false,
-    } ]]
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            {'nvim-lua/plenary.nvim', opt = false,},
-            {'nvim-lua/popup.nvim', opt = true,}
-        },
-        config = require('plugins.Telescope'),
-        cmd = 'Telescope',
-    }
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        config = require('plugins.Nvim-treesitter'),
-        opt = true,
-        run = 'TSUpdate',
-        event = 'BufRead',
-    }
-    use {
-        "nvim-treesitter/playground",
-        opt = true,
-        after = 'nvim-treesitter',
-        -- requires = "nvim-treesitter",
-    }
-    use {
-        "nvim-treesitter/completion-treesitter",
-        opt = true,
-        after = 'nvim-treesitter',
-        -- requires = "nvim-treesitter",
-    }
-    use {
-        "nvim-treesitter/nvim-treesitter-refactor",
-        opt = true,
-        after = 'nvim-treesitter',
-        -- requires = "nvim-treesitter",
-    }
-    use {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        opt = true,
-        after = 'nvim-treesitter',
-        -- requires = "nvim-treesitter",
-    }
-    use {
-        "dstein64/vim-startuptime",
-        cmd = "StartupTime",
-        opt = true,
-    }
-    -------------------------------------
-    --------------- Keys ----------------
-    -------------------------------------
-    use {
-        "folke/which-key.nvim",
-        config = require('plugins.Which-key'),
-        event = 'VimEnter',
-    }
-    use {
-        'phaazon/hop.nvim',
-        -- as = 'hop',
-        config = function()
-            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-            -- vim.api.nvim_set_keymap('n', '<leader><leader>w', "<cmd>lua require'hop'.hint_words()<cr>", {})
-        end,
-        cmd = {
-            'HopLine', 'HopLineStart', 'HopWord','HopPattern', 'HopChar1', 'HopChar2',
+        --     'lilydjwg/fcitx.vim',
+        -- }
+        use {
+            'h-hg/fcitx.nvim',
+            event = {'BufReadPre', 'BufNewFile'},
+        }    use {
+            "lewis6991/gitsigns.nvim",
+            config = require('plugins.Gitsigns'),
+            event = {'BufReadPre', 'BufRead'},
+            -- ft = {'lua', 'python','cpp','c'},
+            -- opt = true,
         }
-    }
-    -- 'tabout' is incompatible with 'nvim-autopairs'
+        use {
+            'rhysd/accelerated-jk',
+            -- opt = true,
+        }
+        use {
+            "max397574/better-escape.nvim",
+            config = function()
+                require("better_escape").setup()
+            end,
+            event = "InsertEnter",
+        }
+        use {
+            'kyazdani42/nvim-tree.lua',
+            requires = 'kyazdani42/nvim-web-devicons',
+            config = require('plugins.Nvim-tree'),
+            cmd = {'NvimTreeToggle',  'NvimTreeFindFile'},
+        }
+        --[[ use {
+            "nvim-lua/plenary.nvim",
+            opt = false,
+        } ]]
+        use {
+            'nvim-telescope/telescope.nvim',
+            requires = {
+                {'nvim-lua/plenary.nvim', opt = false,},
+                {'nvim-lua/popup.nvim', opt = true,}
+            },
+            config = require('plugins.Telescope'),
+            cmd = 'Telescope',
+        }
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            config = require('plugins.Nvim-treesitter'),
+            opt = true,
+            run = 'TSUpdate',
+            event = 'BufRead',
+        }
+        use {
+            "nvim-treesitter/playground",
+            opt = true,
+            after = 'nvim-treesitter',
+            -- requires = "nvim-treesitter",
+        }
+        use {
+            "nvim-treesitter/completion-treesitter",
+            opt = true,
+            after = 'nvim-treesitter',
+            -- requires = "nvim-treesitter",
+        }
+        use {
+            "nvim-treesitter/nvim-treesitter-refactor",
+            opt = true,
+            after = 'nvim-treesitter',
+            -- requires = "nvim-treesitter",
+        }
+        use {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            opt = true,
+            after = 'nvim-treesitter',
+            -- requires = "nvim-treesitter",
+        }
+        use {
+            "dstein64/vim-startuptime",
+            cmd = "StartupTime",
+            opt = true,
+        }
+        -------------------------------------
+        --------------- Keys ----------------
+        -------------------------------------
+        use {
+            "folke/which-key.nvim",
+            config = require('plugins.Which-key'),
+            event = 'VimEnter',
+        }
+        use {
+            'phaazon/hop.nvim',
+            -- as = 'hop',
+            config = function()
+                require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+                -- vim.api.nvim_set_keymap('n', '<leader><leader>w', "<cmd>lua require'hop'.hint_words()<cr>", {})
+            end,
+            cmd = {
+                'HopLine', 'HopLineStart', 'HopWord','HopPattern', 'HopChar1', 'HopChar2',
+            }
+        }
+        -- 'tabout' is incompatible with 'nvim-autopairs'
 
-    -------------------------------------
-    --------------- Edit ----------------
-    -------------------------------------
-    use {
-        'machakann/vim-highlightedyank',
-        event = 'TextYankPost *',
-    }
-    use {
-        'windwp/nvim-autopairs',
-        config = require('plugins.Nvim-autopairs'),
-        after = 'nvim-cmp',
-        -- event = 'InsertEnter',
-    }
-    use {
-        'b3nj5m1n/kommentary',
-        config = require('plugins.Kommentary'),
-    }
-    use {
-        "blackCauldron7/surround.nvim",
-        config = function()
-            require("surround").setup { mappings_style = "sandwich" }
-        end,
-        event = 'BufRead',
-        --- add: sa{motion/textobject}{delimiter}
-        --- delete: sd{delimiter}
-        --- replace: sr{old}{new}
-        --- ss repeats last surround command.
-    }
-    -------------------------------------
-    ------------- discard ---------------
-    -------------------------------------
-    -- use {
-    --     'goolord/alpha-nvim',
-    --     config = require('plugins.alpha'),
-    -- }
-    -- use {
-    --     'numToStr/Comment.nvim',
-    --     config = function()
-    --         require('Comment').setup()
-    --     end
-    -- }
-    -- use {
-    --     'norcalli/nvim-colorizer.lua',
-    --     ft = { 'css', 'javascript', 'vim', 'html' },
-    --     config = [[require('colorizer').setup {'css', 'javascript', 'vim', 'html'}]],
-    --     -- event = 'BufRead',
-    -- }
-    --[[ use {
-        'NTBBloodbath/doom-one.nvim',
-        config = function()
-            require('doom-one').setup()
-        end
-    } ]]
-    -- use {
-        -- 'folke/tokyonight.nvim',
-        -- config = function()
-            -- vim.g.tokyonight_style = "night"
-            -- vim.cmd[[colorscheme tokyonight]]
-        -- end
-    -- }
-    -- use {
-    --     'yamatsum/nvim-cursorline',
-    --     event={ 'BufReadPre', 'BufNewFile'},
-    -- }
-end)
+        -------------------------------------
+        --------------- Edit ----------------
+        -------------------------------------
+        use {
+            'machakann/vim-highlightedyank',
+            event = 'TextYankPost *',
+        }
+        use {
+            'windwp/nvim-autopairs',
+            config = require('plugins.Nvim-autopairs'),
+            after = 'nvim-cmp',
+            -- event = 'InsertEnter',
+        }
+        use {
+            'b3nj5m1n/kommentary',
+            config = require('plugins.Kommentary'),
+            event = {'BufReadPre', 'BufNewFile'},
+        }
+        use {
+            "blackCauldron7/surround.nvim",
+            config = function()
+                require("surround").setup { mappings_style = "sandwich" }
+            end,
+            event = 'BufRead',
+            --- add: sa{motion/textobject}{delimiter}
+            --- delete: sd{delimiter}
+            --- replace: sr{old}{new}
+            --- ss repeats last surround command.
+        }
+
+        -------------------------------------
+        ------------- discard ---------------
+        -------------------------------------
+        -- use {
+        --     'goolord/alpha-nvim',
+        --     config = require('plugins.alpha'),
+        -- }
+        -- use {
+        --     'numToStr/Comment.nvim',
+        --     config = function()
+        --         require('Comment').setup()
+        --     end
+        -- }
+        -- use {
+        --     'norcalli/nvim-colorizer.lua',
+        --     ft = { 'css', 'javascript', 'vim', 'html' },
+        --     config = [[require('colorizer').setup {'css', 'javascript', 'vim', 'html'}]],
+        --     -- event = 'BufRead',
+        -- }
+        -- [[ use {
+        --     'NTBBloodbath/doom-one.nvim',
+        --     config = function()
+        --         require('doom-one').setup()
+        --     end
+        -- } ]]
+        -- use {
+        --     'folke/tokyonight.nvim',
+        --     config = function()
+        --         vim.g.tokyonight_style = "night"
+        --         vim.cmd[[colorscheme tokyonight]]
+        --     end
+        -- }
+        -- use {
+        --     'yamatsum/nvim-cursorline',
+        --     event={ 'BufReadPre', 'BufNewFile'},
+        -- }
+
+
+    end)

@@ -87,7 +87,7 @@ return function()
 
         ["<leader>s"] = { name = "+Symbols" },
         ["<leader>st"] = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
-        ["<leader>l"] = { name = "+Lsp" },
+        -- ["<leader>l"] = { name = "+Lsp" },
         -- ["<leader>lD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "declaration" },
         -- ["<leader>ld"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "definition" },
         -- ["<leader>lk"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "hover" },
@@ -98,9 +98,9 @@ return function()
         -- ["<leader>l["] = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", "goto_prev" },
         -- ["<leader>l]"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "goto_next" },
         -- ["<leader>lq"] = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "set_loclist" },
-        ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "formatting" },
+        -- ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "formatting" },
 
-        ["<leader>c"] = { name = "+kommentary" },
+        ["<leader>c"] = { name = "+comment" },
         ["<leader>ci"] = { "<Plug>kommentary_line_increase", "increase" },
         ["<leader>cd"] = { "<Plug>kommentary_line_decrease", "decrease" },
     }

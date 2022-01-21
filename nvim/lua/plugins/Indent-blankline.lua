@@ -6,7 +6,7 @@ return function()
     vim.g.indent_blankline_use_treesitter = true
     local indent_blankline = require('indent_blankline')
     indent_blankline.setup{
-        show_end_of_line = true,
+        show_end_of_line = false,
         indentLine_enabled = 1,
         char = "▏",
         use_treesitter = true,

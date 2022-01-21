@@ -240,7 +240,7 @@ _G.packer_plugins = {
     url = "https://github.com/phaazon/hop.nvim"
   },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\1\2�\4\0\0\4\0\19\0 4\0\0\0007\0\1\0)\1\2\0:\1\2\0004\0\0\0007\0\1\0)\1\2\0:\1\3\0004\0\0\0007\0\1\0007\0\4\0\16\1\0\0007\0\5\0%\2\6\0>\0\3\0014\0\0\0007\0\a\0)\1\2\0:\1\b\0004\0\t\0%\1\n\0>\0\2\0027\1\v\0003\2\f\0003\3\r\0:\3\14\0023\3\15\0:\3\16\0023\3\17\0:\3\18\2>\1\2\1G\0\1\0\27context_highlight_list\1\3\0\0\nError\fWarning\20buftype_exclude\1\3\0\0\rterminal\nalpha\21filetype_exclude\1\f\0\0\thelp\nalpha\rterminal\vpacker\flspinfo\20TelescopePrompt\21TelescopeResults\fOutline\18lsp-installer\rNvimtree\5\1\0\b\19use_treesitter\2\21show_end_of_line\2\31show_current_context_start\2\tchar\b▏\23indentLine_enabled\3\1#show_trailing_blankline_indent\1\25show_current_context\2\28show_first_indent_level\1\nsetup\21indent_blankline\frequire$indent_blankline_use_treesitter\6g\feol:↴\vappend\14listchars\tlist\18termguicolors\bopt\bvim\0" },
+    config = { "\27LJ\1\2�\4\0\0\4\0\19\0 4\0\0\0007\0\1\0)\1\2\0:\1\2\0004\0\0\0007\0\1\0)\1\2\0:\1\3\0004\0\0\0007\0\1\0007\0\4\0\16\1\0\0007\0\5\0%\2\6\0>\0\3\0014\0\0\0007\0\a\0)\1\2\0:\1\b\0004\0\t\0%\1\n\0>\0\2\0027\1\v\0003\2\f\0003\3\r\0:\3\14\0023\3\15\0:\3\16\0023\3\17\0:\3\18\2>\1\2\1G\0\1\0\27context_highlight_list\1\3\0\0\nError\fWarning\20buftype_exclude\1\3\0\0\rterminal\nalpha\21filetype_exclude\1\f\0\0\thelp\nalpha\rterminal\vpacker\flspinfo\20TelescopePrompt\21TelescopeResults\fOutline\18lsp-installer\rNvimtree\5\1\0\b\19use_treesitter\2\21show_end_of_line\1\31show_current_context_start\2\tchar\b▏\23indentLine_enabled\3\1#show_trailing_blankline_indent\1\25show_current_context\2\28show_first_indent_level\1\nsetup\21indent_blankline\frequire$indent_blankline_use_treesitter\6g\feol:↴\vappend\14listchars\tlist\18termguicolors\bopt\bvim\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -248,9 +248,11 @@ _G.packer_plugins = {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   kommentary = {
-    config = { "\27LJ\1\2|\0\0\4\0\5\0\b4\0\0\0%\1\1\0>\0\2\0027\1\2\0%\2\3\0003\3\4\0>\1\3\1G\0\1\0\1\0\1 prefer_single_line_comments\2\fdefault\23configure_language\22kommentary.config\frequire\0" },
-    loaded = true,
-    path = "/home/daoist/.local/share/nvim/site/pack/packer/start/kommentary",
+    config = { "\27LJ\1\2�\1\0\0\4\0\b\0\f4\0\0\0007\0\1\0)\1\1\0:\1\2\0004\0\3\0%\1\4\0>\0\2\0027\1\5\0%\2\6\0003\3\a\0>\1\3\1G\0\1\0\1\0\1 prefer_single_line_comments\2\fdefault\23configure_language\22kommentary.config\frequire'kommentary_create_default_mappings\6g\bvim\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/daoist/.local/share/nvim/site/pack/packer/opt/kommentary",
     url = "https://github.com/b3nj5m1n/kommentary"
   },
   ["lsp_signature.nvim"] = {
@@ -263,7 +265,7 @@ _G.packer_plugins = {
     url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["lspsaga.nvim"] = {
-    config = { "\27LJ\1\2k\0\0\3\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\3\0>\1\2\1G\0\1\0\1\0\2\17border_style\nround\22max_preview_lines\3\n\18init_lsp_saga\flspsaga\frequire\0" },
+    config = { "\27LJ\1\2�\5\0\0\4\0\r\0\0174\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\3\0003\3\4\0:\3\5\0023\3\6\0:\3\a\0023\3\b\0:\3\t\0023\3\n\0:\3\v\0022\3\0\0:\3\f\2>\1\2\1G\0\1\0\24server_filetype_map\23rename_action_keys\1\0\2\tquit\n<C-c>\texec\t<CR>\21code_action_keys\1\0\2\tquit\6q\texec\t<CR>\23finder_action_keys\1\0\6\tquit\6q\16scroll_down\n<C-f>\vvsplit\6s\topen\6o\14scroll_up\n<C-b>\nsplit\6i\23code_action_prompt\1\0\4\18sign_priority\3(\17virtual_text\2\tsign\2\venable\2\1\0\15\28definition_preview_icon\n  \ndebug\1\17border_style\vsingle\15error_sign\b\29use_saga_diagnostic_sign\2\14hint_sign\b\27diagnostic_header_icon\v   \25rename_prompt_prefix\b➤\29diagnostic_prefix_format\t%d. \15infor_sign\b\26finder_reference_icon\n  \14warn_sign\b\22max_preview_lines\3\n\21code_action_icon\t \27finder_definition_icon\n  \nsetup\flspsaga\frequire\0" },
     load_after = {
       ["nvim-lspconfig"] = true
     },
@@ -397,7 +399,7 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
-    config = { "\27LJ\1\2`\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\1\nstyle\twarm\nsetup\fonedark\frequire\0" },
+    config = { "\27LJ\1\2m\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\2\16transparent\2\nstyle\twarm\nsetup\fonedark\frequire\0" },
     loaded = true,
     path = "/home/daoist/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
@@ -481,7 +483,7 @@ _G.packer_plugins = {
     url = "https://github.com/dstein64/vim-startuptime"
   },
   ["which-key.nvim"] = {
-    config = { "\27LJ\1\2�\25\0\0\5\0y\0�\0014\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0003\4\a\0:\4\b\3:\3\t\0023\3\n\0:\3\v\0023\3\f\0003\4\r\0:\4\14\0033\4\15\0:\4\16\3:\3\17\0023\3\19\0003\4\18\0:\4\20\0033\4\21\0:\4\22\3:\3\23\2>\1\2\0017\1\24\0003\2\26\0003\3\25\0:\3\27\0023\3\28\0:\3\29\0023\3\30\0:\3\31\0023\3 \0:\3!\0023\3\"\0:\3#\0023\3$\0:\3%\0023\3&\0:\3'\0023\3(\0:\3)\0023\3*\0:\3+\0023\3,\0:\3-\0023\3.\0:\3/\0023\0030\0:\0031\0023\0032\0:\0033\0023\0034\0:\0035\0023\0036\0:\0037\0023\0038\0:\0039\0023\3:\0:\3;\0023\3<\0:\3=\0023\3>\0:\3?\0023\3@\0:\3A\0023\3B\0:\3C\0023\3D\0:\3E\0023\3F\0:\3G\0023\3H\0:\3I\0023\3J\0:\3K\0023\3L\0:\3M\0023\3N\0:\3O\0023\3P\0:\3Q\0023\3R\0:\3S\0023\3T\0:\3U\0023\3V\0:\3W\0023\3X\0:\3Y\0023\3Z\0:\3[\0023\3\\\0:\3]\0023\3^\0:\3_\0023\3`\0:\3a\0023\3b\0:\3c\0023\3d\0:\3e\0023\3f\0:\3g\0023\3h\0:\3i\0023\3j\0:\3k\0023\3l\0:\3m\0023\3n\0:\3o\0023\3p\0:\3q\0023\3r\0:\3s\2>\1\2\0017\1\24\0003\2u\0003\3t\0:\3o\0023\3v\0:\3q\0023\3w\0:\3s\0023\3x\0>\1\3\1G\0\1\0\1\0\1\tmode\6v\1\3\0\0%<plug>kommentary_visual_decrease\rdecrease\1\3\0\0%<Plug>kommentary_visual_increase\rincrease\1\0\0\1\0\1\tname\16+kommentary\15<leader>cd\1\3\0\0#<Plug>kommentary_line_decrease\rdecrease\15<leader>ci\1\3\0\0#<Plug>kommentary_line_increase\rincrease\14<leader>c\1\0\1\tname\16+kommentary\15<leader>lf\1\3\0\0*<cmd>lua vim.lsp.buf.formatting()<CR>\15formatting\14<leader>l\1\0\1\tname\t+Lsp\15<leader>st\1\3\0\0\28<cmd>SymbolsOutline<cr>\19SymbolsOutline\14<leader>s\1\0\1\tname\r+Symbols\15<leader>tr\1\3\0\0\28<cmd>TroubleRefresh<cr>\19TroubleRefresh\15<leader>tt\1\3\0\0\27<cmd>TroubleToggle<cr>\18TroubleToggle\14<leader>t\1\0\1\tname\r+Trouble\22<leader><Leader>l\1\3\0\0\21<cmd>HopLine<cr>\fHopLine\22<leader><Leader>p\1\3\0\0\24<cmd>HopPattern<cr>\15HopPattern\22<leader><Leader>w\1\3\0\0\21<cmd>HopWord<cr>\fHopWord\21<leader><leader>\1\0\1\tname\t+hop\15<leader>pu\1\3\0\0@<Cmd>lua require 'core.pack' require('packer').update()<CR>\17PackerUpdate\15<leader>pS\1\3\0\0><Cmd>lua require 'core.pack' require('packer').sync()<CR>\15PackerSync\15<leader>ps\1\3\0\0@<Cmd>lua require 'core.pack' require('packer').status()<CR>\17PackerStatus\15<leader>pC\1\3\0\0?<Cmd>lua require 'core.pack' require('packer').clean()<CR>\16PackerClean\15<leader>pc\1\3\0\0A<Cmd>lua require 'core.pack' require('packer').compile()<CR>\18PackerCompile\15<leader>pi\1\3\0\0A<Cmd>lua require 'core.pack' require('packer').install()<CR>\18PackerInstall\14<leader>p\1\0\1\tname\f+Packer\15<leader>nf\1\3\0\0\30<Cmd>NvimTreeFindFile<CR>\22NvimTree FindFile\15<leader>nt\1\3\0\0\28<Cmd>NvimTreeToggle<CR>\20NvimTree Toggle\14<leader>n\1\0\1\tname\14+nvimtree\15<leader>w\\\1\3\0\0\23<Cmd>vsp<CR><C-w>l\vvsplit\15<leader>w-\1\3\0\0\22<Cmd>sp<CR><C-w>j\nsplit\15<leader>wl\1\3\0\0\v<C-w>l\17window right\15<leader>wk\1\3\0\0\v<C-w>k\14window up\15<leader>wj\1\3\0\0\v<C-w>j\16window down\15<leader>wh\1\3\0\0\v<C-w>h\16window left\15<leader>ww\1\3\0\0\v<C-w>w\16window next\15<leader>wc\1\3\0\0\19<Cmd>quit!<CR>\19window conceal\15<leader>wq\1\3\0\0\19<Cmd>qall!<CR>\16window Exit\14<leader>w\1\0\1\tname\f+window\15<leader>fd\1\3\0\0+<cmd>edit ~/dotfiles/nvim/init.lua<cr>\18Edit init.lua\15<leader>fn\1\3\0\0\18<cmd>enew<cr>\rNew File\15<leader>fs\1\3\0\0\16<cmd>w!<cr>\14Save File\15<leader>ft\1\3\0\0\30<cmd>Telescope notify<cr>\vnotify\15<leader>fh\1\3\0\0!<cmd>Telescope help_tags<cr>\14help tags\15<leader>fg\1\3\0\0!<cmd>Telescope live_grep<cr>\14Live grep\15<leader>fb\1\3\0\0\31<cmd>Telescope buffers<cr>\17Find buffers\15<leader>fr\1\3\0\0 <cmd>Telescope oldfiles<cr>\21Open Recent File\15<leader>fl\1\3\0\0001<cmd>Telescope current_buffer_fuzzy_find<cr>\17fuzzy search\15<leader>ff\1\3\0\0\"<cmd>Telescope find_files<cr>\14Find File\14<leader>f\1\0\0\1\0\1\tname\n+file\rregister\vlayout\nwidth\1\0\2\bmax\0032\bmin\3\20\vheight\1\0\2\fspacing\3\3\nalign\tleft\1\0\2\bmax\3\25\bmin\3\1\vwindow\fpadding\1\5\0\0\3\1\3\1\3\1\3\1\vmargin\1\5\0\0\3\0\3\0\3\0\3\0\1\0\2\rposition\vbottom\vborder\vdouble\nicons\1\0\3\ngroup\6+\14separator\b➜\15breadcrumb\a»\fplugins\rspelling\1\0\2\fenabled\1\16suggestions\3\20\1\0\2\14registers\2\nmarks\2\rtriggers\1\0\0\1\2\0\0\r<leader>\nsetup\14which-key\frequire\0" },
+    config = { "\27LJ\1\2�\24\0\0\5\0u\0~4\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0003\4\a\0:\4\b\3:\3\t\0023\3\n\0:\3\v\0023\3\f\0003\4\r\0:\4\14\0033\4\15\0:\4\16\3:\3\17\0023\3\19\0003\4\18\0:\4\20\0033\4\21\0:\4\22\3:\3\23\2>\1\2\0017\1\24\0003\2\26\0003\3\25\0:\3\27\0023\3\28\0:\3\29\0023\3\30\0:\3\31\0023\3 \0:\3!\0023\3\"\0:\3#\0023\3$\0:\3%\0023\3&\0:\3'\0023\3(\0:\3)\0023\3*\0:\3+\0023\3,\0:\3-\0023\3.\0:\3/\0023\0030\0:\0031\0023\0032\0:\0033\0023\0034\0:\0035\0023\0036\0:\0037\0023\0038\0:\0039\0023\3:\0:\3;\0023\3<\0:\3=\0023\3>\0:\3?\0023\3@\0:\3A\0023\3B\0:\3C\0023\3D\0:\3E\0023\3F\0:\3G\0023\3H\0:\3I\0023\3J\0:\3K\0023\3L\0:\3M\0023\3N\0:\3O\0023\3P\0:\3Q\0023\3R\0:\3S\0023\3T\0:\3U\0023\3V\0:\3W\0023\3X\0:\3Y\0023\3Z\0:\3[\0023\3\\\0:\3]\0023\3^\0:\3_\0023\3`\0:\3a\0023\3b\0:\3c\0023\3d\0:\3e\0023\3f\0:\3g\0023\3h\0:\3i\0023\3j\0:\3k\0023\3l\0:\3m\0023\3n\0:\3o\2>\1\2\0017\1\24\0003\2q\0003\3p\0:\3k\0023\3r\0:\3m\0023\3s\0:\3o\0023\3t\0>\1\3\1G\0\1\0\1\0\1\tmode\6v\1\3\0\0%<plug>kommentary_visual_decrease\rdecrease\1\3\0\0%<Plug>kommentary_visual_increase\rincrease\1\0\0\1\0\1\tname\16+kommentary\15<leader>cd\1\3\0\0#<Plug>kommentary_line_decrease\rdecrease\15<leader>ci\1\3\0\0#<Plug>kommentary_line_increase\rincrease\14<leader>c\1\0\1\tname\r+comment\15<leader>st\1\3\0\0\28<cmd>SymbolsOutline<cr>\19SymbolsOutline\14<leader>s\1\0\1\tname\r+Symbols\15<leader>tr\1\3\0\0\28<cmd>TroubleRefresh<cr>\19TroubleRefresh\15<leader>tt\1\3\0\0\27<cmd>TroubleToggle<cr>\18TroubleToggle\14<leader>t\1\0\1\tname\r+Trouble\22<leader><Leader>l\1\3\0\0\21<cmd>HopLine<cr>\fHopLine\22<leader><Leader>p\1\3\0\0\24<cmd>HopPattern<cr>\15HopPattern\22<leader><Leader>w\1\3\0\0\21<cmd>HopWord<cr>\fHopWord\21<leader><leader>\1\0\1\tname\t+hop\15<leader>pu\1\3\0\0@<Cmd>lua require 'core.pack' require('packer').update()<CR>\17PackerUpdate\15<leader>pS\1\3\0\0><Cmd>lua require 'core.pack' require('packer').sync()<CR>\15PackerSync\15<leader>ps\1\3\0\0@<Cmd>lua require 'core.pack' require('packer').status()<CR>\17PackerStatus\15<leader>pC\1\3\0\0?<Cmd>lua require 'core.pack' require('packer').clean()<CR>\16PackerClean\15<leader>pc\1\3\0\0A<Cmd>lua require 'core.pack' require('packer').compile()<CR>\18PackerCompile\15<leader>pi\1\3\0\0A<Cmd>lua require 'core.pack' require('packer').install()<CR>\18PackerInstall\14<leader>p\1\0\1\tname\f+Packer\15<leader>nf\1\3\0\0\30<Cmd>NvimTreeFindFile<CR>\22NvimTree FindFile\15<leader>nt\1\3\0\0\28<Cmd>NvimTreeToggle<CR>\20NvimTree Toggle\14<leader>n\1\0\1\tname\14+nvimtree\15<leader>w\\\1\3\0\0\23<Cmd>vsp<CR><C-w>l\vvsplit\15<leader>w-\1\3\0\0\22<Cmd>sp<CR><C-w>j\nsplit\15<leader>wl\1\3\0\0\v<C-w>l\17window right\15<leader>wk\1\3\0\0\v<C-w>k\14window up\15<leader>wj\1\3\0\0\v<C-w>j\16window down\15<leader>wh\1\3\0\0\v<C-w>h\16window left\15<leader>ww\1\3\0\0\v<C-w>w\16window next\15<leader>wc\1\3\0\0\19<Cmd>quit!<CR>\19window conceal\15<leader>wq\1\3\0\0\19<Cmd>qall!<CR>\16window Exit\14<leader>w\1\0\1\tname\f+window\15<leader>fd\1\3\0\0+<cmd>edit ~/dotfiles/nvim/init.lua<cr>\18Edit init.lua\15<leader>fn\1\3\0\0\18<cmd>enew<cr>\rNew File\15<leader>fs\1\3\0\0\16<cmd>w!<cr>\14Save File\15<leader>ft\1\3\0\0\30<cmd>Telescope notify<cr>\vnotify\15<leader>fh\1\3\0\0!<cmd>Telescope help_tags<cr>\14help tags\15<leader>fg\1\3\0\0!<cmd>Telescope live_grep<cr>\14Live grep\15<leader>fb\1\3\0\0\31<cmd>Telescope buffers<cr>\17Find buffers\15<leader>fr\1\3\0\0 <cmd>Telescope oldfiles<cr>\21Open Recent File\15<leader>fl\1\3\0\0001<cmd>Telescope current_buffer_fuzzy_find<cr>\17fuzzy search\15<leader>ff\1\3\0\0\"<cmd>Telescope find_files<cr>\14Find File\14<leader>f\1\0\0\1\0\1\tname\n+file\rregister\vlayout\nwidth\1\0\2\bmax\0032\bmin\3\20\vheight\1\0\2\fspacing\3\3\nalign\tleft\1\0\2\bmax\3\25\bmin\3\1\vwindow\fpadding\1\5\0\0\3\1\3\1\3\1\3\1\vmargin\1\5\0\0\3\0\3\0\3\0\3\0\1\0\2\rposition\vbottom\vborder\vdouble\nicons\1\0\3\ngroup\6+\14separator\b➜\15breadcrumb\a»\fplugins\rspelling\1\0\2\fenabled\1\16suggestions\3\20\1\0\2\14registers\2\nmarks\2\rtriggers\1\0\0\1\2\0\0\r<leader>\nsetup\14which-key\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -491,18 +493,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: kommentary
-time([[Config for kommentary]], true)
-try_loadstring("\27LJ\1\2|\0\0\4\0\5\0\b4\0\0\0%\1\1\0>\0\2\0027\1\2\0%\2\3\0003\3\4\0>\1\3\1G\0\1\0\1\0\1 prefer_single_line_comments\2\fdefault\23configure_language\22kommentary.config\frequire\0", "config", "kommentary")
-time([[Config for kommentary]], false)
--- Config for: onedark.nvim
-time([[Config for onedark.nvim]], true)
-try_loadstring("\27LJ\1\2`\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\1\nstyle\twarm\nsetup\fonedark\frequire\0", "config", "onedark.nvim")
-time([[Config for onedark.nvim]], false)
 -- Config for: filetype.nvim
 time([[Config for filetype.nvim]], true)
 try_loadstring("\27LJ\1\2O\0\0\3\0\5\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0002\2\0\0:\2\4\1>\0\2\1G\0\1\0\14overrides\1\0\0\nsetup\rfiletype\frequire\0", "config", "filetype.nvim")
 time([[Config for filetype.nvim]], false)
+-- Config for: onedark.nvim
+time([[Config for onedark.nvim]], true)
+try_loadstring("\27LJ\1\2m\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\2\16transparent\2\nstyle\twarm\nsetup\fonedark\frequire\0", "config", "onedark.nvim")
+time([[Config for onedark.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -525,10 +523,10 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-lspconfig', 'fcitx.nvim'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
+vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-lspconfig', 'fcitx.nvim', 'kommentary'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
 vim.cmd [[au TextYankPost * ++once lua require("packer.load")({'vim-highlightedyank'}, { event = "TextYankPost *" }, _G.packer_plugins)]]
 vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim', 'gitsigns.nvim', 'surround.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
-vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'gitsigns.nvim', 'nvim-lspconfig', 'fcitx.nvim'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
+vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'gitsigns.nvim', 'nvim-lspconfig', 'fcitx.nvim', 'kommentary'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'packer.nvim', 'which-key.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'better-escape.nvim', 'friendly-snippets'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufEnter * ++once lua require("packer.load")({'nvim-web-devicons'}, { event = "BufEnter *" }, _G.packer_plugins)]]
