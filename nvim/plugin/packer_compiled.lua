@@ -353,6 +353,7 @@ _G.packer_plugins = {
   },
   ["nvim-treesitter"] = {
     after = { "completion-treesitter", "nvim-treesitter-textobjects", "playground", "nvim-treesitter-refactor" },
+    config = { "\27LJ\1\2ó\3\0\0\5\0\22\0\0254\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0003\2\4\0:\2\5\0013\2\6\0003\3\a\0:\3\b\2:\2\t\0013\2\15\0003\3\n\0003\4\v\0:\4\f\0033\4\r\0:\4\14\3:\3\16\0023\3\17\0003\4\18\0:\4\19\3:\3\20\2:\2\21\1>\0\2\1G\0\1\0\16textobjects\vselect\fkeymaps\1\0\2\aaq\21@parameter.outer\aiq\21@parameter.inner\1\0\2\14lookahead\2\venable\2\tmove\1\0\0\20goto_next_start\1\0\1\a]]\21@parameter.inner\24goto_previous_start\1\0\1\a[[\21@parameter.inner\1\0\2\14set_jumps\2\venable\2\14highlight\fdisable\1\3\0\0\6c\trust\1\0\2&additional_vim_regex_highlighting\1\venable\2\19ignore_install\1\2\0\0\15javascript\1\0\2\21ensure_installed\15maintained\17sync_install\1\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = false,
     needs_bufread = true,
     only_cond = false,
@@ -386,7 +387,7 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
-    config = { "\27LJ\1\2m\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\2\16transparent\2\nstyle\twarm\nsetup\fonedark\frequire\0" },
+    config = { "\27LJ\1\2`\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\1\nstyle\twarm\nsetup\fonedark\frequire\0" },
     loaded = true,
     path = "/home/daoist/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
@@ -486,7 +487,7 @@ try_loadstring("\27LJ\1\2|\0\0\3\0\5\0\b4\0\0\0%\1\1\0>\0\2\0027\0\2\0%\1\3\0003
 time([[Config for kommentary]], false)
 -- Config for: onedark.nvim
 time([[Config for onedark.nvim]], true)
-try_loadstring("\27LJ\1\2m\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\2\16transparent\2\nstyle\twarm\nsetup\fonedark\frequire\0", "config", "onedark.nvim")
+try_loadstring("\27LJ\1\2`\0\0\2\0\5\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\0014\0\0\0%\1\1\0>\0\2\0027\0\4\0>\0\1\1G\0\1\0\tload\1\0\1\nstyle\twarm\nsetup\fonedark\frequire\0", "config", "onedark.nvim")
 time([[Config for onedark.nvim]], false)
 -- Config for: filetype.nvim
 time([[Config for filetype.nvim]], true)

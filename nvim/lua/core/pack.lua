@@ -57,7 +57,7 @@ return packer.startup(function()
         config = function()
             require('onedark').setup{
                 style = 'warm',
-                transparent = true,
+                -- transparent = true,
             }
             require('onedark').load()
         end,
@@ -70,12 +70,12 @@ return packer.startup(function()
     use {
         'hoob3rt/lualine.nvim',
         -- requires = {'kyazdani42/nvim-web-devicons', opt = true},
-        config = require('plugins_config.lualine'),
+        config = require('plugins.Lualine'),
         after = 'nvim-web-devicons',
     }
     use {
         'akinsho/bufferline.nvim',
-        config = require('plugins_config.bufferline'),
+        config = require('plugins.Bufferline'),
         after = 'nvim-web-devicons',
         -- event = 'BufRead',
         -- event = 'User ActuallyEditing',
@@ -86,7 +86,7 @@ return packer.startup(function()
     }
     use {
         'lukas-reineke/indent-blankline.nvim',
-        config = require('plugins_config.indent-blankline'),
+        config = require('plugins.Indent-blankline'),
         event = 'BufRead',
         -- after = 'nvim-treesitter',
     }
@@ -95,14 +95,14 @@ return packer.startup(function()
     -------------------------------------
     use {
         'neovim/nvim-lspconfig',
-        config = require('plugins_config.nvim-lspconfig'),
+        config = require('plugins.Nvim-lspconfig'),
         -- opt = true,
         event = {'BufReadPre', 'BufNewFile'},
         -- event = 'BufRead',
     }
     use {
         'tami5/lspsaga.nvim',
-        config = require('plugins_config.lspsaga'),
+        config = require('plugins.Lspsaga'),
         -- opt = true,
         after = 'nvim-lspconfig',
         -- cmd = 'Lspsaga',
@@ -127,7 +127,7 @@ return packer.startup(function()
             { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' },
             {"hrsh7th/cmp-nvim-lua", after = 'nvim-cmp'}
         },
-        config = require('plugins_config.nvim-cmp'),
+        config = require('plugins.Nvim-cmp'),
         after = "friendly-snippets",
         -- event = 'InsertEnter *',
     }
@@ -153,13 +153,13 @@ return packer.startup(function()
     use {
         'mfussenegger/nvim-dap',
         after = 'nvim-lspconfig',
-        config = require('plugins_config.nvim-dap'),
+        config = require('plugins.Nvim-dap'),
         -- module = 'dap',
     }
     use {
         "rcarriga/nvim-dap-ui",
         after = 'nvim-dap',
-        config = require('plugins_config.nvim-dap-ui'),
+        config = require('plugins.Nvim-dap-ui'),
         -- after = 'nvim-dap',
         -- module = 'dapui',
     }
@@ -181,7 +181,7 @@ return packer.startup(function()
         'simrat39/symbols-outline.nvim',
         -- opt = true,
         -- cmd = {'SymbolsOutline', 'SymbolsOutlineOpen'},
-        config = require('plugins_config.symbolsoutline'),
+        config = require('plugins.Symbolsoutline'),
         after = 'nvim-lspconfig',
     }
     -------------------------------------
@@ -193,7 +193,7 @@ return packer.startup(function()
     -- }
     use {
         "lewis6991/gitsigns.nvim",
-        config = require('plugins_config.gitsigns'),
+        config = require('plugins.Gitsigns'),
         event = {'BufReadPre', 'BufRead'},
         -- ft = {'lua', 'python','cpp','c'},
         -- opt = true,
@@ -212,7 +212,7 @@ return packer.startup(function()
     use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
-        config = require('plugins_config.nvim-tree'),
+        config = require('plugins.Nvim-tree'),
         cmd = {'NvimTreeToggle',  'NvimTreeFindFile'},
     }
     --[[ use {
@@ -225,14 +225,14 @@ return packer.startup(function()
             {'nvim-lua/plenary.nvim', opt = false,},
             {'nvim-lua/popup.nvim', opt = true,}
         },
-        config = require('plugins_config.telescope'),
+        config = require('plugins.Telescope'),
         cmd = 'Telescope',
     }
     use {
         'nvim-treesitter/nvim-treesitter',
-        -- config = require('plugins_config.nvim-treesitter'),
+        config = require('plugins.Nvim-treesitter'),
         opt = true,
-        -- run = 'TSUpdate',
+        run = 'TSUpdate',
         event = 'BufRead',
     }
     use {
@@ -269,7 +269,7 @@ return packer.startup(function()
     -------------------------------------
     use {
         "folke/which-key.nvim",
-        config = require('plugins_config.which-key'),
+        config = require('plugins.Which-key'),
         event = 'VimEnter',
     }
     use {
@@ -294,13 +294,13 @@ return packer.startup(function()
     }
     use {
         'windwp/nvim-autopairs',
-        config = require('plugins_config.nvim-autopairs'),
+        config = require('plugins.Nvim-autopairs'),
         after = 'nvim-cmp',
         -- event = 'InsertEnter',
     }
     use {
         'b3nj5m1n/kommentary',
-        config = require('plugins_config.kommentary'),
+        config = require('plugins.Kommentary'),
     }
     use {
         "blackCauldron7/surround.nvim",
@@ -318,7 +318,7 @@ return packer.startup(function()
     -------------------------------------
     -- use {
     --     'goolord/alpha-nvim',
-    --     config = require('plugins_config.alpha'),
+    --     config = require('plugins.alpha'),
     -- }
     -- use {
     --     'numToStr/Comment.nvim',
@@ -347,7 +347,7 @@ return packer.startup(function()
     -- }
     -- use {
     --     'theHamsta/nvim-dap-virtual-text',
-    --     config = require('plugins_config.nvim-dap-virtual-text'),
+    --     config = require('plugins.nvim-dap-virtual-text'),
     --     after = 'nvim-dap',
     -- }
 end)
