@@ -1,5 +1,6 @@
 return function ()
-    require('symbols-outline').setup{
+    local symbols_outline = require('symbols-outline')
+    symbols_outline.setup{
 
         highlight_hovered_item = true,
         show_guides = false,

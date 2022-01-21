@@ -81,10 +81,6 @@ return packer.startup(function()
         -- event = 'User ActuallyEditing',
     }
     use {
-        'yamatsum/nvim-cursorline',
-        event={ 'BufReadPre', 'BufNewFile'},
-    }
-    use {
         'lukas-reineke/indent-blankline.nvim',
         config = require('plugins.Indent-blankline'),
         event = 'BufRead',
@@ -164,6 +160,11 @@ return packer.startup(function()
         -- module = 'dapui',
     }
     use {
+        'theHamsta/nvim-dap-virtual-text',
+        config = require('plugins.Nvim-dap-virtual-text'),
+        after = 'nvim-dap',
+    }
+    use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         -- after = 'nvim-lspconfig',
@@ -192,6 +193,9 @@ return packer.startup(function()
     --     'lilydjwg/fcitx.vim',
     -- }
     use {
+        'h-hg/fcitx.nvim',
+        event = {'BufReadPre', 'BufNewFile'},
+    }    use {
         "lewis6991/gitsigns.nvim",
         config = require('plugins.Gitsigns'),
         event = {'BufReadPre', 'BufRead'},
@@ -346,8 +350,7 @@ return packer.startup(function()
         -- end
     -- }
     -- use {
-    --     'theHamsta/nvim-dap-virtual-text',
-    --     config = require('plugins.nvim-dap-virtual-text'),
-    --     after = 'nvim-dap',
+    --     'yamatsum/nvim-cursorline',
+    --     event={ 'BufReadPre', 'BufNewFile'},
     -- }
 end)

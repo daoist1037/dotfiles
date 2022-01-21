@@ -91,7 +91,7 @@ return function()
             }
         }
     end
-    
+
     local server_path = "/home/daoist/.local/share/nvim/lsp_servers"
 
     nvim_lsp['pyright'].setup {

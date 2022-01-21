@@ -2,13 +2,13 @@ return function()
     local dap = require('dap')
     dap.adapters.lldb = {
         type = 'executable',
-        command = '/usr/bin/gdb', -- adjust as needed
-        name = "gdb"
+        command = 'lldb-mi', -- adjust as needed
+        name = "lldb"
     }
     dap.configurations.cpp = {
         {
             name = "Launch",
-            type = "gdb",
+            type = "lldb",
             request = "launch",
             program = vim.fn.getcwd() .. '/' .. '${fileBasenameNoExtension}.out',
             --[[ program = function()

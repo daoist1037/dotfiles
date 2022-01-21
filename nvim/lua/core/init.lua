@@ -5,6 +5,7 @@ vim.cmd [[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe 
 vim.g.python_host_skip_check=1
 vim.g.python3_host_skip_check=1
 vim.g.python3_host_prog = "/home/daoist/.conda/envs/tools/bin/python"
+vim.g.fcitx5_remote = "/usr/bin/fcitx5-remote"
 local options = require('core.options')
 for o,v in pairs(options) do
    vim.opt[o] = v

@@ -1,10 +1,11 @@
 return function()
     vim.opt.termguicolors = true
     vim.opt.list = true
-    vim.opt.listchars:append("space:⋅")
+    -- vim.opt.listchars:append("space:⋅")
     vim.opt.listchars:append("eol:↴")
     vim.g.indent_blankline_use_treesitter = true
-    require('indent_blankline').setup{
+    local indent_blankline = require('indent_blankline')
+    indent_blankline.setup{
         show_end_of_line = true,
         indentLine_enabled = 1,
         char = "▏",
@@ -25,8 +26,8 @@ return function()
         buftype_exclude = { "terminal", "alpha" },
         show_trailing_blankline_indent = false,
         show_first_indent_level = false,
-        -- context_highlight_list = {'Error', 'Warning'},
-        space_char_blankline = " ",
+        context_highlight_list = {'Error', 'Warning'},
+        -- space_char_blankline = " ",
         show_current_context = true,
         show_current_context_start = true,
     }

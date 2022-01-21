@@ -44,7 +44,8 @@ return function()
     -- }
 
 
-    require'nvim-tree'.setup {
+    local nvim_tree = require('nvim-tree')
+    nvim_tree.setup {
         disable_netrw       = true,
         hijack_netrw        = true,
         open_on_setup       = true,

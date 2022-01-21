@@ -1,6 +1,6 @@
 return function()
-
-    require("nvim-dap-virtual-text").setup {
+    local nvim_dap_virtual_text = require('nvim-dap-virtual-text')
+    nvim_dap_virtual_text.setup {
         enabled = true,                     -- enable this plugin (the default)
         enabled_commands = true,            -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
         highlight_changed_variables = false, -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText

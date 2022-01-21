@@ -1,5 +1,6 @@
 return function()
-    require'lualine'.setup {
+    local lualine = require('lualine')
+    lualine.setup {
         options = {
             icons_enabled = true,
             theme = 'onedark',

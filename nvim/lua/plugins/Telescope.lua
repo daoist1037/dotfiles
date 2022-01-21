@@ -1,5 +1,6 @@
 return function()
-    require('telescope').setup {
+    local telescope = require('telescope')
+    telescope.setup {
         defaults = {
             dynamic_preview_title = true,
 

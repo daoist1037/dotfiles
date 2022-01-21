@@ -1,5 +1,6 @@
 return function()
-    require("dapui").setup({
+    local dapui = require('dapui')
+    dapui.setup({
         icons = { expanded = "▾", collapsed = "▸" },
         mappings = {
             -- Use a table to apply multiple mappings
