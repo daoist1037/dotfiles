@@ -10,7 +10,7 @@ fi
 #export CUDA_HOME=/usr/local/cuda
 #export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
 #export PATH=${CUDA_HOME}bin:${PATH}
-export EDITOR=nvim
+export EDITOR=/usr/bin/nvim
 # export PYTHONPATH=/opt/miniconda/bin/python
 source ~/dotfiles/zsh/antigen/antigen.zsh
 
@@ -33,11 +33,12 @@ antigen bundle skywind3000/z.lua
 source ~/dotfiles/zsh/powerlevel10k/powerlevel10k.zsh-theme
 antigen apply
 
-alias vim=nvim
-alias vi=nvim
+alias vim=/usr/bin/nvim
+alias vi=/usr/bin/nvim
 alias activate="source /opt/miniconda/bin/activate"
 # alias deactivate="source /opt/miniconda/bin/deactivate"
 alias deactivate="conda deactivate"
+alias stylua="/home/daoist/dotfiles/stylua"
 # alias conda="/opt/miniconda/bin/conda"
 # alias cnpm="npm --registry=https://registry.npmmirror.com \
 # --cache=$HOME/.npm/.cache/cnpm \

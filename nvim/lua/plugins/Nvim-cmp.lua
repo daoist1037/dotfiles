@@ -4,7 +4,7 @@ return function()
         Method = " ",
         Function = " ",
         Constructor = " ",
-        Field = "ﰠ" ,
+        Field = "ﰠ",
         Variable = " ",
         Class = " ",
         Interface = " ",
@@ -21,18 +21,18 @@ return function()
         Folder = " ",
         EnumMember = " ",
         Constant = " ",
-        Struct = "פּ" ,
+        Struct = "פּ",
         Event = " ",
         Operator = " ",
         TypeParameter = " ",
     }
-    local cmp = require'cmp'
+    local cmp = require("cmp")
     cmp.setup({
         formatting = {
             fields = { "abbr", "kind", "menu" },
             format = function(entry, vim_item)
                 -- Kind icons
-                vim_item.kind = string.format('%s %s', vim_item.kind, cmp_kinds[vim_item.kind]) -- This concatonates the icons with the name of the item kind
+                vim_item.kind = string.format("%s %s", vim_item.kind, cmp_kinds[vim_item.kind]) -- This concatonates the icons with the name of the item kind
                 -- Source
                 vim_item.menu = ({
                     buffer = "[Buffer]",
@@ -43,17 +43,17 @@ return function()
                 })[entry.source.name]
 
                 return vim_item
-            end
+            end,
         },
         confirm_opts = {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
         completion = {
-            completeopt = "menu,menuone,noinsert"
+            completeopt = "menu,menuone,noinsert",
         },
         documentation = {
-            border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"}
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         },
         snippet = {
             expand = function(args)
@@ -61,7 +61,7 @@ return function()
                 -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
 
                 -- For `luasnip` user.
-                require('luasnip').lsp_expand(args.body)
+                require("luasnip").lsp_expand(args.body)
 
                 -- For `ultisnips` user.
                 -- vim.fn["UltiSnips#Anon"](args.body)
@@ -70,19 +70,22 @@ return function()
         mapping = {
             --[[ ['<Tab>'] = cmp.mapping.select_next_item(),
             ['<S-Tab>'] = cmp.mapping.select_prev_item(),  ]]
-            ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+            ["<C-f>"] = cmp.mapping.scroll_docs(4),
             ["<C-e>"] = cmp.mapping.close(),
             -- ['<C-<space>>'] = cmp.mapping.complete(),
             -- ['<C-e>'] = cmp.mapping.close(),
-            ['<CR>'] = cmp.mapping.confirm({
+            ["<CR>"] = cmp.mapping.confirm({
                 select = true,
             }),
             ["<Tab>"] = function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
                 elseif require("luasnip").expand_or_jumpable() then
-                    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+                    vim.fn.feedkeys(
+                        vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
+                        ""
+                    )
                 else
                     fallback()
                 end
@@ -99,24 +102,22 @@ return function()
         },
         sources = {
             -- { name = 'orgmode' },
-            { name = 'nvim_lsp' },
-            { name = 'treesitter' },
-            { name = 'cmdline' },
-
+            { name = "nvim_lsp" },
+            { name = "treesitter" },
+            { name = "cmdline" },
             -- For vsnip user.
             --   { name = 'vsnip' },
 
             -- For luasnip user.
-            { name = 'luasnip' },
-
+            { name = "luasnip" },
             -- For ultisnips user.
             -- { name = 'ultisnips' },
 
-            { name = 'buffer' },
-            { name = 'path' },
-        }
+            { name = "buffer" },
+            { name = "path" },
+        },
     })
 end
-        -- formatting = {
-            -- format = lspkind.cmp_format({with_text = false, maxwidth = 50})
-        -- },
+-- formatting = {
+-- format = lspkind.cmp_format({with_text = false, maxwidth = 50})
+-- },

@@ -1,5 +1,5 @@
 return function()
-    local dapui = require('dapui')
+    local dapui = require("dapui")
     dapui.setup({
         icons = { expanded = "▾", collapsed = "▸" },
         mappings = {
@@ -19,8 +19,8 @@ return function()
                     size = 0.25, -- Can be float or integer > 1
                 },
                 { id = "breakpoints", size = 0.25 },
-                -- { id = "stacks", size = 0.25 },
-                { id = "watches", size = 0.50 },
+                { id = "stacks", size = 0.25 },
+                { id = "watches", size = 0.25 },
             },
             size = 40,
             position = "left", -- Can be "left", "right", "top", "bottom"
@@ -31,7 +31,7 @@ return function()
         --     position = "bottom", -- Can be "left", "right", "top", "bottom"
         -- },
         tray = {
-            elements = { },
+            elements = {},
         },
         floating = {
             max_height = nil, -- These can be integers or a float between 0 and 1.
@@ -43,5 +43,4 @@ return function()
         },
         windows = { indent = 1 },
     })
-
 end

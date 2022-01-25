@@ -1,5 +1,12 @@
+-- local  ok, bufferline = pcall(require, "bufferline")
+-- if not ok then
+--     vim.notify("Fail to load bufferline", vim.log.levels.ERROR, { title = "plugins" })
+--     return
+-- end
+
+
 return function()
-    local bufferline = require('bufferline')
+    local bufferline = require("bufferline")
     bufferline.setup({
         options = {
             show_buffer_icons = true,
@@ -9,8 +16,7 @@ return function()
             diagnostics_indicator = function(count, level, diagnostics_dict, context)
                 local s = " "
                 for e, n in pairs(diagnostics_dict) do
-                    local sym = e == "error" and "" or
-                    (e == "warning" and "" or "")
+                    local sym = e == "error" and "" or (e == "warning" and "" or "")
                     s = s .. sym .. n
                 end
                 return s
@@ -18,21 +24,21 @@ return function()
             offsets = {
                 {
                     filetype = "NvimTree",
-                    text = "File Explorer",
+                    text = " File Explorer",
                     highlight = "Directory",
-                    text_align = "left"
+                    text_align = "left",
                 },
-            }
+            },
         },
         highlights = {
             fill = {
-                guifg = '#282c34',
-                guibg = '#202328',
+                guifg = "#282c34",
+                guibg = "#202328",
             },
             indicator_selected = {
-                guifg = '#51afef',
-                guibg = '#282c34'
+                guifg = "#51afef",
+                guibg = "#282c34",
             },
-        }
+        },
     })
 end

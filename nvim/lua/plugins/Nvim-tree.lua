@@ -9,10 +9,10 @@ return function()
     g.nvim_tree_indent_markers = 0
     g.nvim_tree_git_hl = 1 -- Will enable file highlight for git attributes (can be used without the icons).
     g.nvim_tree_window_picker_exclude = {
-        filetype = { 'notify', 'packer', 'qf', 'vista_kind','Outline' },
-        buftype = {'terminal' },
+        filetype = { "notify", "packer", "qf", "vista_kind", "OUTLINE" },
+        buftype = { "terminal" },
     }
-    g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
+    g.nvim_tree_root_folder_modifier = table.concat({ ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" })
     g.nvim_tree_show_icons = {
         folders = 1,
         files = 1,
@@ -43,29 +43,28 @@ return function()
     --     },
     -- }
 
-
-    local nvim_tree = require('nvim-tree')
-    nvim_tree.setup {
-        disable_netrw       = true,
-        hijack_netrw        = true,
-        open_on_setup       = true,
-        ignore_ft_on_setup  = {''},
-        auto_close          = false,
-        open_on_tab         = false,
-        update_to_buf_dir   = {
+    local nvim_tree = require("nvim-tree")
+    nvim_tree.setup({
+        disable_netrw = true,
+        hijack_netrw = true,
+        open_on_setup = false,
+        ignore_ft_on_setup = { "" },
+        auto_close = false,
+        open_on_tab = false,
+        update_to_buf_dir = {
             enable = true,
             auto_open = true,
         },
-        hijack_cursor       = true,
-        update_cwd          = true,
+        hijack_cursor = true,
+        update_cwd = true,
         update_focused_file = {
-            enable      = true,
-            update_cwd  = false,
-            ignore_list = {}
+            enable = true,
+            update_cwd = true,
+            ignore_list = {},
         },
         system_open = {
-            cmd  = nil,
-            args = {}
+            cmd = nil,
+            args = {},
         },
         diagnostics = {
             enable = true,
@@ -74,7 +73,7 @@ return function()
                 info = "",
                 warning = "",
                 error = "",
-            }
+            },
         },
         git = {
             enable = true,
@@ -86,21 +85,25 @@ return function()
                 ".git",
                 "node_modules",
                 ".cache",
-                "__pycache__"
-            }
+                "__pycache__",
+                ".vscode",
+            },
         },
         view = {
             width = 30,
-            side = 'left',
+            side = "left",
             auto_resize = true,
             mappings = {
                 custom_only = false,
-                list = {}
+                list = {},
             },
-            number = true,
-            relativenumber = true,
+            number = false,
+            relativenumber = false,
             signcolumn = "yes",
-        }
-    }
+        },
+        trash = {
+            cmd = "trash",
+            require_confirm = true,
+        },
+    })
 end
-

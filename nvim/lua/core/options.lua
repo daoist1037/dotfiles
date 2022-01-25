@@ -6,7 +6,7 @@ return {
     cursorcolumn = true,
     showmode = true,
     showcmd = true,
-    mouse = 'a',
+    mouse = "a",
     autoindent = true,
     tabstop = 2,
     shiftwidth = 4,
@@ -39,17 +39,17 @@ return {
     ttimeout = true,
     timeoutlen = 500,
     ttimeoutlen = 0,
-    termguicolors=true,
+    termguicolors = true,
     -- fillchars = "vert:\\|,eob:\\",
-    gcr = [[n-v-c:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,]]..
-    [[ve:ver35-Cursor,]]..
-    [[o:hor50-Cursor,]]..
-    [[i-ci:ver25-Cursor/lCursor,]]..
-    [[r:hor50-Cursor/lCursor]],
-    completeopt = 'menuone,noinsert',
-    clipboard ='unnamedplus',
+    gcr = [[n-v-c:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,]]
+        .. [[ve:ver35-Cursor,]]
+        .. [[o:hor50-Cursor,]]
+        .. [[i-ci:ver25-Cursor/lCursor,]]
+        .. [[r:hor50-Cursor/lCursor]],
+    completeopt = "menuone,noinsert",
+    clipboard = "unnamedplus",
+    splitbelow = true,
+    splitright = true,
     -- noswapfile = true,
     -- nobackup = true,
-
-
 }
