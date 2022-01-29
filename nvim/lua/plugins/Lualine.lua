@@ -4,12 +4,13 @@ return function()
         options = {
             icons_enabled = true,
             theme = "onedark",
-            component_separators = { "", "" },
-            section_separators = { "", "" },
+            component_separators = { left = "", right = "" },
+            section_separators = { left = "", right = "" },
             disabled_filetypes = {
                 "toggleterm",
                 "NvimTree",
                 "Outline",
+                "Trouble",
                 -- "vista_kind",
                 -- "dapui_scopes",
                 -- "dapui_breakpoints",
@@ -21,7 +22,7 @@ return function()
         sections = {
             lualine_a = { "mode" },
             lualine_b = { "branch" },
-            lualine_c = { { "filename" }, { "lsp_progress" } },
+            lualine_c = { { "filename" } },
             lualine_x = { "encoding", "fileformat", "filetype" },
             lualine_y = { "progress" },
             lualine_z = { "location" },
@@ -29,7 +30,7 @@ return function()
         inactive_sections = {
             lualine_a = {},
             lualine_b = {},
-            lualine_c = { "filename" },
+            lualine_c = {"filename" },
             lualine_x = { "location" },
             lualine_y = {},
             lualine_z = {},

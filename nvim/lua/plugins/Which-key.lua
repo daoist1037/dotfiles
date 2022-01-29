@@ -22,8 +22,8 @@ return function()
             padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
         },
         layout = {
-            height = { min = 1, max = 25 }, -- min and max height of the columns
-            width = { min = 20, max = 50 }, -- min and max width of the columns
+            height = { min = 1, max = 6 }, -- min and max height of the columns
+            width = { min = 30, max = 50 }, -- min and max width of the columns
             spacing = 3, -- spacing between columns
             align = "left", -- align columns left, center or right
         },
@@ -73,23 +73,11 @@ return function()
         ["<leader><Leader>p"] = { "<cmd>HopPattern<cr>", "HopPattern" },
         ["<leader><Leader>l"] = { "<cmd>HopLine<cr>", "HopLine" },
         ["<leader>t"] = { name = "+Trouble" },
-        ["<leader>tt"] = { "<cmd>TroubleToggle<cr>", "TroubleToggle" },
+        ["<leader>tf"] = { "<cmd>Trouble<cr>", "Trouble Focus" },
+        ["<leader>tt"] = { "<cmd>TroubleToggle<cr>", "TroubleToggle Close" },
         ["<leader>tr"] = { "<cmd>TroubleRefresh<cr>", "TroubleRefresh" },
         ["<leader>s"] = { name = "+Symbols" },
         ["<leader>st"] = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
-        -- ["<leader>l"] = { name = "+Lsp" },
-        -- ["<leader>lD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "declaration" },
-        -- ["<leader>ld"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "definition" },
-        -- ["<leader>lk"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "hover" },
-        -- ["<leader>ls"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "signature_help" },
-        -- ["<leader>lR"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "rename" },
-        -- ["<leader>lr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "references" },
-        -- ["<leader>le"] = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "show_line_diagnostics" },
-        -- ["<leader>l["] = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", "goto_prev" },
-        -- ["<leader>l]"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "goto_next" },
-        -- ["<leader>lq"] = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "set_loclist" },
-        -- ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "formatting" },
-
         ["<leader>l"] = { name = "+lspsaga" },
         ["<leader>lh"] = { "<cmd>Lspsaga lsp_finder<CR>", "lsp finder" },
         ["<leader>la"] = { "<cmd>Lspsaga code_action<CR>", "code action" },
@@ -112,3 +100,17 @@ return function()
         mode = "v",
     })
 end
+-- ["<leader>so"] = { "<cmd>SymbolsOutlineOpen<cr>", "SymbolsOutlineOpen" },
+-- ["<leader>sc"] = { "<cmd>SymbolsOutlineClose<cr>", "SymbolsOutlineClose" },
+-- ["<leader>l"] = { name = "+Lsp" },
+-- ["<leader>lD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "declaration" },
+-- ["<leader>ld"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "definition" },
+-- ["<leader>lk"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "hover" },
+-- ["<leader>ls"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "signature_help" },
+-- ["<leader>lR"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "rename" },
+-- ["<leader>lr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "references" },
+-- ["<leader>le"] = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "show_line_diagnostics" },
+-- ["<leader>l["] = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", "goto_prev" },
+-- ["<leader>l]"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "goto_next" },
+-- ["<leader>lq"] = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "set_loclist" },
+-- ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "formatting" },

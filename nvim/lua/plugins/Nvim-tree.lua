@@ -2,14 +2,14 @@ return function()
     -- vim.g.nvim_tree_respect_buf_cwd = 1
     local g = vim.g
     -- g.nvim_tree_ignore = 1
-    g.nvim_tree_auto_ignore_ft = { "alpha" } -- Don't open tree on specific fiypes.
+    -- g.nvim_tree_auto_ignore_ft = { "alpha" } -- Don't open tree on specific fiypes.
     g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
     g.nvim_tree_highlight_opened_files = 3
     g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
-    g.nvim_tree_indent_markers = 0
+    g.nvim_tree_indent_markers = 1
     g.nvim_tree_git_hl = 1 -- Will enable file highlight for git attributes (can be used without the icons).
     g.nvim_tree_window_picker_exclude = {
-        filetype = { "notify", "packer", "qf", "vista_kind", "OUTLINE" },
+        filetype = { "notify", "packer", "qf", "vista_kind", "Outline", "Trouble" },
         buftype = { "terminal" },
     }
     g.nvim_tree_root_folder_modifier = table.concat({ ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" })
@@ -87,10 +87,11 @@ return function()
                 ".cache",
                 "__pycache__",
                 ".vscode",
+                ".ipynb_checkpoints",
             },
         },
         view = {
-            width = 30,
+            width = 25,
             side = "left",
             auto_resize = true,
             mappings = {

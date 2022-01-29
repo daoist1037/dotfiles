@@ -50,7 +50,7 @@ return function()
         --         text = string.format('%s, %s - %s', blame_info.author, date_time, blame_info.summary)
         --     end
 
-        --     return {{' '..'\t>>>   '..text, 'GitSignsCurrentLineBlame'}}
+        --     return {{' '..' 》'..text, 'GitSignsCurrentLineBlame'}}
         -- end,
         current_line_blame_formatter_opts = {
             relative_time = false,

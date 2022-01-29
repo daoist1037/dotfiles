@@ -3,6 +3,8 @@ return function()
     telescope.setup({
         defaults = {
             dynamic_preview_title = true,
+            prompt_prefix = "   ",
+            -- selection_caret = "  ",
         },
         pickers = {
             find_files = {

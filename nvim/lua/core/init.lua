@@ -13,13 +13,6 @@ end
 -- local disable = require('core.disable')
 require("core.disable")
 
--- local function map(mode, lhs, rhs, opts)
---     local options = { noremap = true, silent = true }
---     if opts then
---         options = vim.tbl_extend("force", options, opts)
---     end
---     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
--- end
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
@@ -32,3 +25,5 @@ for _, list in pairs(mappings) do
 end
 
 require("core.pack")
+-- vim.cmd("colorscheme kanagawa")
+

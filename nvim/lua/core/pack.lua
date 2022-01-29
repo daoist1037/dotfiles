@@ -53,11 +53,15 @@ return packer.startup(function()
     -------------- UI -------------------
     -------------------------------------
     use({
+        "rebelot/kanagawa.nvim",
+        opt = true,
+    })
+    use({
         "navarasu/onedark.nvim",
         config = function()
             require("onedark").setup({
-                style = "warm",
-                transparent = true,
+                style = "dark",
+                -- transparent = true,
                 -- toggle_style_key = "", Default keybinding to toggle
             })
             require("onedark").load()
@@ -99,6 +103,7 @@ return packer.startup(function()
     use({
         "neovim/nvim-lspconfig",
         config = require("plugins.Nvim-lspconfig"),
+        -- after = "lsp-status",
         -- after = "lsp_signature.nvim",
         -- requires = {
         --     {"ray-x/lsp_signature.nvim",}

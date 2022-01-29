@@ -31,7 +31,7 @@ return function()
         flags = {
             debounce_text_changes = 150,
         },
-        root_dir = lspconfig.util.root_pattern( "__pycache__", ".git", ".vscode"),
+        root_dir = lspconfig.util.root_pattern("__pycache__", ".git", ".vscode"),
     })
     lspconfig["clangd"].setup({
         -- on_attach = on_attach,
