@@ -11,6 +11,7 @@ return function()
         char = "▏",
         use_treesitter = true,
         filetype_exclude = {
+            "vista",
             "help",
             "alpha",
             "terminal",

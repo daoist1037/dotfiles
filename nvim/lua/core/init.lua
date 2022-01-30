@@ -13,7 +13,6 @@ end
 -- local disable = require('core.disable')
 require("core.disable")
 
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
@@ -26,4 +25,4 @@ end
 
 require("core.pack")
 -- vim.cmd("colorscheme kanagawa")
-
+-- vim.cmd([[highlight HighlightedyankRegion cterm=reverse gui=reverse]])

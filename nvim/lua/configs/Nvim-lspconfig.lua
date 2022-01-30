@@ -8,15 +8,23 @@ return function()
     capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
     local lspconfig = require("lspconfig")
 
-    -- local on_attach = function(client, bufnr)
-    --     local cfg = {
-    --         bind = true,
-    --         floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
-    --         -- floating_window_above_cur_line = false, -- try to place the floating above the current line when possible Note:
-    --         use_lspsaga = false, -- set to true if you want to use lspsaga popup
-    --     }
-    --     require("lsp_signature").on_attach(cfg, bufnr)
-    -- end
+    local on_attach = function(client, bufnr)
+        local lsp_publish_diagnostics_options = {
+            virtual_text = {
+                -- prefix = "",
+                prefix = "●",
+                spacing = 0,
+            },
+            signs = true,
+            underline = true,
+            update_in_insert = false, -- update diagnostics insert mode
+        }
+
+        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+            vim.lsp.diagnostic.on_publish_diagnostics,
+            lsp_publish_diagnostics_options
+        )
+    end
 
     local server_path = "/home/daoist/.local/share/nvim/lsp_servers"
     -- local server_path = "/home/daoist/dotfiles/lsp_servers"
@@ -26,7 +34,7 @@ return function()
             server_path .. "/python/node_modules/.bin/pyright-langserver",
             "--stdio",
         },
-        -- on_attach = on_attach,
+        on_attach = on_attach,
         capabilities = capabilities,
         flags = {
             debounce_text_changes = 150,
@@ -34,7 +42,7 @@ return function()
         root_dir = lspconfig.util.root_pattern("__pycache__", ".git", ".vscode"),
     })
     lspconfig["clangd"].setup({
-        -- on_attach = on_attach,
+        on_attach = on_attach,
         -- capabilities = capabilities,
         cmd = {
             "clangd",
@@ -53,7 +61,7 @@ return function()
     -- table.insert(runtime_path, "lua/?.lua")
     -- table.insert(runtime_path, "lua/?/init.lua")
     lspconfig["sumneko_lua"].setup({
-        -- on_attach = on_attach,
+        on_attach = on_attach,
         cmd = {
             server_path .. "/sumneko_lua/extension/server/bin/lua-language-server",
             "-E",

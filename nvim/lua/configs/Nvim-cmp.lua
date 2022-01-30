@@ -40,6 +40,8 @@ return function()
                     luasnip = "[LuaSnip]",
                     nvim_lua = "[Lua]",
                     path = "[Path]",
+                    rg = "[Rg]",
+                    -- spell = "[spell]"
                 })[entry.source.name]
 
                 return vim_item
@@ -115,6 +117,8 @@ return function()
 
             { name = "buffer" },
             { name = "path" },
+            { name = "rg" },
+            -- { name = "spell" },
         },
     })
 end

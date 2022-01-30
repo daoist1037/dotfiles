@@ -3,7 +3,7 @@ return function()
     telescope.setup({
         defaults = {
             dynamic_preview_title = true,
-            prompt_prefix = "   ",
+            -- prompt_prefix = " ",
             -- selection_caret = "  ",
         },
         pickers = {
@@ -19,6 +19,6 @@ return function()
             live_grep = {},
         },
     })
-
+    -- require("telescope").load_extension("projects")
     -- require('telescope').load_extension('file_browser')
 end
