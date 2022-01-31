@@ -47,27 +47,27 @@ return packer.startup({
             event = "VimEnter",
         })
 
-        local ui = require("modules.ui.plugins")
+        local ui = require("modules.ui")
         for _, v in pairs(ui) do
             use(v)
         end
 
-        local lsp = require("modules.lsp.plugins")
+        local lsp = require("modules.lsp")
         for _, v in pairs(lsp) do
             use(v)
         end
 
-        local dap = require("modules.daps.plugins")
+        local dap = require("modules.daps")
         for _, v in pairs(dap) do
             use(v)
         end
 
-        local lang = require("modules.lang.plugins")
+        local lang = require("modules.lang")
         for _, v in pairs(lang) do
             use(v)
         end
 
-        local tool = require("modules.tool.plugins")
+        local tool = require("modules.tool")
         for _, v in pairs(tool) do
             use(v)
         end
@@ -77,7 +77,7 @@ return packer.startup({
         --     use(v)
         -- end
 
-        local edit = require("modules.edit.plugins")
+        local edit = require("modules.edit")
         for _, v in pairs(edit) do
             use(v)
         end

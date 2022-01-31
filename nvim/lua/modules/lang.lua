@@ -16,20 +16,20 @@ M.trouble = {
     -- after = "nvim-lspconfig",
     opt = true,
     cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
-    config = require("modules.lang.Trouble"),
+    config = require("configs.Trouble"),
 }
 
 M.symbols = {
     "simrat39/symbols-outline.nvim",
     -- opt = true,
     -- cmd = {"SymbolsOutline", "SymbolsOutlineOpen"},
-    config = require("modules.lang.Symbolsoutline"),
+    config = require("configs.Symbolsoutline"),
     after = "nvim-lspconfig",
 }
 
 M.formatter = {
     "mhartington/formatter.nvim",
-    config = require("modules.lang.Formatter"),
+    config = require("configs.Formatter"),
     after = "nvim-lspconfig",
 }
 

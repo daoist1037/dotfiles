@@ -21,13 +21,13 @@ M.highlightedyank = {
 }
 M.autopairs = {
     "windwp/nvim-autopairs",
-    config = require("modules.edit.Nvim-autopairs"),
+    config = require("configs.Nvim-autopairs"),
     after = "nvim-cmp",
     -- event = "InsertEnter",
 }
 M.kommentary = {
     "b3nj5m1n/kommentary",
-    config = require("modules.edit.Kommentary"),
+    config = require("configs.Kommentary"),
     event = { "BufReadPre", "BufNewFile" },
 }
 M.surround = {

@@ -3,25 +3,25 @@ local M = {}
 M.edge = {
     "sainnhe/edge",
     -- opt = true,
-    config = require("modules.ui.Colorscheme").edge,
+    config = require("configs.Colorscheme").edge,
 }
 
 M.sonokai = {
     "sainnhe/sonokai",
     opt = true,
-    config = require("modules.ui.Colorscheme").sonokai,
+    config = require("configs.Colorscheme").sonokai,
 }
 
 M.material = {
     "marko-cerovac/material.nvim",
     opt = true,
-    config = require("modules.ui.Colorscheme").material,
+    config = require("configs.Colorscheme").material,
 }
 
 M.onedark = {
     "navarasu/onedark.nvim",
     opt = true,
-    config = require("modules.ui.Colorscheme").onedark,
+    config = require("configs.Colorscheme").onedark,
 }
 
 M.devicons = {
@@ -30,20 +30,20 @@ M.devicons = {
 
 M.lualine = {
     "hoob3rt/lualine.nvim",
-    config = require("modules.ui.Lualine"),
+    config = require("configs.Lualine"),
     event = "BufRead",
 }
 
 M.bufferline = {
     "akinsho/bufferline.nvim",
-    config = require("modules.ui.Bufferline"),
+    config = require("configs.Bufferline"),
     event = "BufRead",
     -- event = "User ActuallyEditing",
 }
 
 M.indent = {
     "lukas-reineke/indent-blankline.nvim",
-    config = require("modules.ui.Indent-blankline"),
+    config = require("configs.Indent-blankline"),
     event = "BufRead",
     -- after = "nvim-treesitter",
 }

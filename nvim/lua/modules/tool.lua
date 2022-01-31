@@ -2,7 +2,7 @@ local M = {}
 
 M.window = {
     "https://gitlab.com/yorickpeterse/nvim-window.git",
-    config = require("modules.tool.Nvim-window"),
+    config = require("configs.Nvim-window"),
     event = "BufRead",
 }
 
@@ -13,7 +13,7 @@ M.fcitx = {
 
 M.gitsigns = {
     "lewis6991/gitsigns.nvim",
-    config = require("modules.tool.Gitsigns"),
+    config = require("configs.Gitsigns"),
     event = { "BufReadPre", "BufRead" },
     -- ft = {"lua", "python","cpp","c"},
     -- opt = true,
@@ -22,7 +22,7 @@ M.gitsigns = {
 M.tree = {
     "kyazdani42/nvim-tree.lua",
     -- requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    config = require("modules.tool.Nvim-tree"),
+    config = require("configs.Nvim-tree"),
     cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
 }
 
@@ -32,13 +32,13 @@ M.telescope = {
         { "nvim-lua/plenary.nvim", opt = false },
         { "nvim-lua/popup.nvim", opt = false },
     },
-    config = require("modules.tool.Telescope"),
+    config = require("configs.Telescope"),
     cmd = "Telescope",
 }
 
 M.treesitter = {
     "nvim-treesitter/nvim-treesitter",
-    config = require("modules.tool.Nvim-treesitter"),
+    config = require("configs.Nvim-treesitter"),
     -- opt = true,
     run = ":TSUpdate",
     -- after = "impatient.nvim",
@@ -75,7 +75,7 @@ M.treesitter_textobjects = {
 
 M.whick_key = {
     "folke/which-key.nvim",
-    config = require("modules.tool.Which-key"),
+    config = require("configs.Which-key"),
     event = "VimEnter",
 }
 

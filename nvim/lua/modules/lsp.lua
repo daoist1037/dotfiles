@@ -5,14 +5,14 @@ end
 
 M.lspconfig = {
     "neovim/nvim-lspconfig",
-    config = require("modules.lsp.Nvim-lspconfig"),
+    config = require("configs.Nvim-lspconfig"),
     event = { "BufReadPre", "BufNewFile" },
     -- event = "BufRead",
 }
 
 M.lspsaga = {
     "tami5/lspsaga.nvim",
-    config = require("modules.lsp.Lspsaga"),
+    config = require("configs.Lspsaga"),
     -- opt = true,
     after = "nvim-lspconfig",
     -- cmd = "Lspsaga",
@@ -39,7 +39,7 @@ M.cmp = {
         { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
         { "lukas-reineke/cmp-rg", after = "nvim-cmp" },
     },
-    config = require("modules.lsp.Nvim-cmp"),
+    config = require("configs.Nvim-cmp"),
     after = "friendly-snippets",
     -- event = "InsertEnter *",
 }
