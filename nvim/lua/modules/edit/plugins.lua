@@ -21,13 +21,13 @@ M.highlightedyank = {
 }
 M.autopairs = {
     "windwp/nvim-autopairs",
-    config = require("configs.Nvim-autopairs"),
+    config = require("modules.edit.Nvim-autopairs"),
     after = "nvim-cmp",
     -- event = "InsertEnter",
 }
 M.kommentary = {
     "b3nj5m1n/kommentary",
-    config = require("configs.Kommentary"),
+    config = require("modules.edit.Kommentary"),
     event = { "BufReadPre", "BufNewFile" },
 }
 M.surround = {
@@ -41,4 +41,15 @@ M.surround = {
     --- replace: sr{old}{new}
     --- ss repeats last surround command.
 }
+
+M.hop = {
+    "phaazon/hop.nvim",
+    -- as = "hop",
+    config = function()
+        require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+        -- vim.api.nvim_set_keymap("n", "<leader><leader>w", "<cmd>lua require"hop".hint_words()<cr>", {})
+    end,
+    cmd = { "HopLine", "HopLineStart", "HopWord", "HopPattern", "HopChar1", "HopChar2" },
+}
+-- "tabout" is incompatible with "nvim-autopairs"
 return M

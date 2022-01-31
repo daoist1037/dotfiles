@@ -27,7 +27,6 @@ return function()
     end
 
     local server_path = "/home/daoist/.local/share/nvim/lsp_servers"
-    -- local server_path = "/home/daoist/dotfiles/lsp_servers"
 
     lspconfig["pyright"].setup({
         cmd = {

@@ -21,5 +21,7 @@ return {
     -- {'n', '<F5>', "<cmd>luafile /home/daoist/dotfiles/nvim/lua/daoist1037/core/tasksrun.lua<CR><cmd>lua require'dap'.continue()<CR>" },
     -- { "n", "<F12>", "<cmd>lua require'dap'.step_into()<CR>" },
     { "n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>" },
+    { "n", "<F11>", "<cmd>lua require'dap'.step_into()<CR>" },
+    { "n", "<F12>", "<cmd>lua require'dap'.close()<CR>" },
     { "n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>" },
 }
