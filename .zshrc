@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
+export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890
 #export PATH="/opt/android-sdk/platform-tools:$PATH"
 #export CUDA_HOME=/usr/local/cuda
 #export LD_LIBRARY_PATH=${CUDA_HOME}/lib64

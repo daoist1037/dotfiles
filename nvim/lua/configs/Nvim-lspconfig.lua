@@ -12,7 +12,7 @@ return function()
         local lsp_publish_diagnostics_options = {
             virtual_text = {
                 -- prefix = "",
-                prefix = "●",
+                -- prefix = "●",
                 spacing = 0,
             },
             signs = true,
@@ -44,7 +44,8 @@ return function()
         on_attach = on_attach,
         -- capabilities = capabilities,
         cmd = {
-            "clangd",
+            server_path .. "/clangd/clangd/bin/clangd",
+            -- "clangd",
             "--background-index",
             "--suggest-missing-includes",
             "--clang-tidy",

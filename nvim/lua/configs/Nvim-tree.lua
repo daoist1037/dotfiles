@@ -16,8 +16,9 @@ return function()
     g.nvim_tree_show_icons = {
         folders = 1,
         files = 1,
-        -- git = git_status,
+        -- git = 1,
         folder_arrows = 1,
+        tree_width = 30,
     }
     -- g.nvim_tree_icons = {
     --     default = "",
@@ -53,7 +54,7 @@ return function()
         open_on_tab = false,
         update_to_buf_dir = {
             enable = true,
-            auto_open = false,
+            auto_open = true,
         },
         hijack_cursor = true,
         update_cwd = true,
@@ -69,7 +70,8 @@ return function()
         diagnostics = {
             enable = true,
             icons = {
-                hint = "",
+                -- hint = "",
+                hint = "",
                 info = "",
                 warning = "",
                 error = "",

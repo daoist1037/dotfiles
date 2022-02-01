@@ -7,14 +7,7 @@ if not present then
 
     print("Cloning packer..") -- remove the dir before cloning
     vim.fn.delete(packer_path, "rf")
-    vim.fn.system({
-        "git",
-        "clone",
-        "https://github.com/wbthomason/packer.nvim",
-        "--depth",
-        "20",
-        packer_path,
-    })
+    vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", "--depth", "20", packer_path })
 
     vim.cmd("packadd packer.nvim")
     present, packer = pcall(require, "packer")
@@ -27,6 +20,7 @@ if not present then
 end
 
 packer.init({
+    compile_path = vim.fn.stdpath("config") .. "/lua/compiled.lua",
     display = {
         open_fn = function()
             return require("packer.util").float({ border = "none" })
@@ -72,14 +66,12 @@ return packer.startup({
             use(v)
         end
 
-        -- local key = require("modules.key.plugins")
-        -- for _, v in pairs(key) do
-        --     use(v)
-        -- end
-
         local edit = require("modules.edit")
         for _, v in pairs(edit) do
             use(v)
         end
     end,
+    config = {
+        compile_path = vim.fn.stdpath("config") .. "/lua/compiled.lua",
+    },
 })

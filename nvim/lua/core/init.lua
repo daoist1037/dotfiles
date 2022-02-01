@@ -24,5 +24,6 @@ for _, list in pairs(mappings) do
 end
 
 require("core.pack")
+require("compiled")
 -- vim.cmd("colorscheme kanagawa")
 -- vim.cmd([[highlight HighlightedyankRegion cterm=reverse gui=reverse]])

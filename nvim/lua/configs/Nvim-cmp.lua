@@ -76,8 +76,8 @@ return function()
                         vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
                         ""
                     )
-                elseif has_words_before() then
-                    cmp.complete()
+                -- elseif has_words_before() then
+                --     cmp.complete()
                 else
                     fallback()
                 end
@@ -96,7 +96,7 @@ return function()
             -- { name = 'orgmode' },
             { name = "nvim_lsp" },
             { name = "treesitter" },
-            { name = "cmdline" },
+            -- { name = "cmdline" },
             -- For vsnip user.
             --   { name = 'vsnip' },
 
@@ -107,8 +107,8 @@ return function()
 
             { name = "buffer" },
             { name = "path" },
-            { name = "rg" },
-            { name = "spell" },
+            -- { name = "rg" },
+            -- { name = "spell" },
         },
     })
 end

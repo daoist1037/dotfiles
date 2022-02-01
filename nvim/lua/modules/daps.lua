@@ -20,5 +20,11 @@ M.virtualtext = {
     config = require("configs.Nvim-dap-virtual-text"),
     after = "nvim-dap",
 }
+M.yabs = {
+    "pianocomposer321/yabs.nvim",
+    config = require("configs.Yabs"),
+    ft = {"cpp"},
+    -- cmd = "YabsTask",
+}
 
 return M

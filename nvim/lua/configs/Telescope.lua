@@ -1,6 +1,3 @@
--- telescope.load_extension("media_files")
--- telescope.load_extension("find_directories")
--- telescope.load_extension("fzf")
 return function()
     local telescope = require("telescope")
     local previewers = require("telescope.previewers")
@@ -29,7 +26,7 @@ return function()
 
     telescope.setup({
         defaults = {
-            -- dynamic_preview_title = false,
+            dynamic_preview_title = true,
             preview = previewers,
             treesitter = false,
             -- buffer_previewer_maker = new_maker,
@@ -50,15 +47,28 @@ return function()
         pickers = {
             find_files = {
                 hidden = true,
+                theme = "dropdown",
                 no_ignore = true,
                 find_command = { "fd", "--type=file", "--hidden", "--follow", "--exclude=.git" },
             },
-            -- file_browser = {
-            --     hidden = true,
-            --     no_ignore = true,
-            -- },
-            oldfiles = {},
-            live_grep = {},
+            oldfiles = {
+                theme = "dropdown",
+            },
+            buffers = {
+                theme = "dropdown",
+            },
+            current_buffer_fuzzy_find = {
+                theme = "dropdown",
+            },
+            commands = {
+                -- theme = "dropdown",
+            },
+            help_tags = {
+                theme = "dropdown",
+            },
+            live_grep = {
+                theme = "dropdown",
+            },
         },
     })
     -- require("telescope").load_extension("projects")

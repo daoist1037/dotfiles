@@ -1,0 +1,5 @@
+[url "https://github.com.cnpmjs.org/"]
+	insteadof = https://github.com/
+[user]
+	email = zhilu826@gmail.com
+	name = daoist1037

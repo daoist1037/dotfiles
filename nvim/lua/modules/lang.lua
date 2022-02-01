@@ -33,4 +33,17 @@ M.formatter = {
     after = "nvim-lspconfig",
 }
 
+
+-- M.asynctasks = {
+--     "skywind3000/asynctasks.vim",
+--     after = "asyncrun.vim",
+--     config = function()
+--         vim.g.asyncrun_rootmarks = { ".git", ".svn", ".root", ".project", ".hg" }
+--     end,
+-- }
+-- M.asyncrun = {
+--     "skywind3000/asyncrun.vim",
+--     cmd = "AsyncTask",
+-- }
+
 return M

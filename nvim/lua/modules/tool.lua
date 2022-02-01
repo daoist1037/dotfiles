@@ -1,5 +1,15 @@
 local M = {}
+M.impatient = {
+    "lewis6991/impatient.nvim",
+    -- config = function()
+    --     local status_ok, impatient = pcall(require, "impatient")
+    --     if not status_ok then
+    --         return
+    --     end
 
+    --     impatient.enable_profile()
+    -- end,
+}
 M.window = {
     "https://gitlab.com/yorickpeterse/nvim-window.git",
     config = require("configs.Nvim-window"),
@@ -23,7 +33,7 @@ M.tree = {
     "kyazdani42/nvim-tree.lua",
     -- requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = require("configs.Nvim-tree"),
-    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
+    cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeFindFileToggle" },
 }
 
 M.telescope = {

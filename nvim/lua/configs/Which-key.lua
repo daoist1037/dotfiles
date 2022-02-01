@@ -23,18 +23,19 @@ return function()
         },
         layout = {
             height = { min = 1, max = 6 }, -- min and max height of the columns
-            width = { min = 20, max = 45 }, -- min and max width of the columns
+            width = { min = 20, max = 40 }, -- min and max width of the columns
             spacing = 3, -- spacing between columns
             align = "left", -- align columns left, center or right
         },
     })
     whick_key.register({
         ["<leader>b"] = { name = "buffer" },
-        ["<leader>bo"] = { "<cmd>BufferLinePick<cr>", "Pick" },
+        ["<leader>bp"] = { "<cmd>BufferLinePick<cr>", "Pick" },
         ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", "PickClose" },
         ["<leader>bl"] = { "<cmd>BufferLineCloseLeft<cr>", "CloseLeft" },
         ["<leader>br"] = { "<cmd>BufferLineCloseRight<cr>", "CloseRight" },
         ["<leader>bd"] = { "<cmd>bdelete<cr>", "buffer delete" },
+        ["<leader>bo"] = { "<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<CR>", "remain only" },
         ["<leader>f"] = { name = "telescope" },
         ["<leader>fc"] = { "<cmd>Telescope commands<cr>", "commands" },
         ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Find File" },
@@ -43,7 +44,6 @@ return function()
         ["<leader>fb"] = { "<cmd>Telescope buffers<cr>", "Find buffers" },
         ["<leader>fg"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
         ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "help tags" },
-        ["<leader>fF"] = { "<cmd>Telescope fd<cr>", "fd" },
         ["<leader>fs"] = { "<cmd>w!<cr>", "Save File" },
         ["<leader>fn"] = { "<cmd>enew<cr>", "New File" },
         ["<leader>fd"] = { "<cmd>edit ~/dotfiles/nvim/init.lua<cr>", "Edit init.lua" },
@@ -59,7 +59,8 @@ return function()
         ["<leader>w-"] = { "<Cmd>sp<CR><C-w>j", "split" },
         ["<leader>w\\"] = { "<Cmd>vsp<CR><C-w>l", "vsplit" },
         ["<leader>n"] = { name = "nvimtree" },
-        ["<leader>nt"] = { "<Cmd>NvimTreeToggle<CR>", "NvimTree Toggle" },
+        ["<leader>nt"] = { "<Cmd>NvimTreeFindFileToggle<CR>", "NvimTree Toggle" },
+        -- ["<leader>nt"] = { "<Cmd>NvimTreeToggle<CR>", "NvimTree Toggle" },
         ["<leader>nf"] = { "<Cmd>NvimTreeFindFile<CR>", "NvimTree FindFile" },
         ["<leader>p"] = { name = "Packer" },
         --[[ ["<leader>pi"] = { "<Cmd>PackerInstall<CR>", "PackerInstall" },

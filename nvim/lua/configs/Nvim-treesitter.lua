@@ -1,8 +1,8 @@
 return function()
     local nvim_treesitter_configs = require("nvim-treesitter.configs")
     nvim_treesitter_configs.setup({
-        -- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-        ensure_installed = { "bash", "c", "commonlisp","cmake", "cpp","html","java","javascript", "json","latex", "lua", "python", "vim" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+        ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+        -- ensure_installed = { "bash", "c", "commonlisp", "cmake", "cpp", "html", "java", "javascript", "json", "latex", "lua", "python", "vim", }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
         -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
 
@@ -16,25 +16,56 @@ return function()
             additional_vim_regex_highlighting = false,
         },
         textobjects = {
-            move = {
-                enable = true,
-                set_jumps = true,
-                goto_previous_start = {
-                    ["[["] = "@parameter.inner",
-                },
-                goto_next_start = {
-                    ["]]"] = "@parameter.inner",
-                },
-            },
             select = {
                 enable = true,
-                lookahead = true,
                 keymaps = {
-                    ["iq"] = "@parameter.inner",
-                    ["aq"] = "@parameter.outer",
+                    ["af"] = "@function.outer",
+                    ["if"] = "@function.inner",
+                    ["ac"] = "@class.outer",
+                    ["ic"] = "@class.inner",
+                },
+            },
+            move = {
+                enable = true,
+                set_jumps = true, -- whether to set jumps in the jumplist
+                goto_next_start = {
+                    ["]["] = "@function.outer",
+                    ["]m"] = "@class.outer",
+                },
+                goto_next_end = {
+                    ["]]"] = "@function.outer",
+                    ["]M"] = "@class.outer",
+                },
+                goto_previous_start = {
+                    ["[["] = "@function.outer",
+                    ["[m"] = "@class.outer",
+                },
+                goto_previous_end = {
+                    ["[]"] = "@function.outer",
+                    ["[M"] = "@class.outer",
                 },
             },
         },
+        -- textobjects = {
+        --     move = {
+        --         enable = true,
+        --         set_jumps = true,
+        --         goto_previous_start = {
+        --             ["[["] = "@parameter.inner",
+        --         },
+        --         goto_next_start = {
+        --             ["]]"] = "@parameter.inner",
+        --         },
+        --     },
+        --     select = {
+        --         enable = true,
+        --         lookahead = true,
+        --         keymaps = {
+        --             ["iq"] = "@parameter.inner",
+        --             ["aq"] = "@parameter.outer",
+        --         },
+        --     },
+        -- },
         playground = {
             enable = true,
             disable = {},
