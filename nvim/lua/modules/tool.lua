@@ -1,15 +1,10 @@
 local M = {}
+
 M.impatient = {
     "lewis6991/impatient.nvim",
-    -- config = function()
-    --     local status_ok, impatient = pcall(require, "impatient")
-    --     if not status_ok then
-    --         return
-    --     end
-
-    --     impatient.enable_profile()
-    -- end,
+    opt = true,
 }
+
 M.window = {
     "https://gitlab.com/yorickpeterse/nvim-window.git",
     config = require("configs.Nvim-window"),
@@ -33,7 +28,13 @@ M.tree = {
     "kyazdani42/nvim-tree.lua",
     -- requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = require("configs.Nvim-tree"),
-    cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeFindFileToggle" },
+    event = {  "BufRead" },
+}
+
+M.telescopefzf = {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+    cmd = "Telescope",
 }
 
 M.telescope = {
@@ -43,7 +44,7 @@ M.telescope = {
         { "nvim-lua/popup.nvim", opt = false },
     },
     config = require("configs.Telescope"),
-    cmd = "Telescope",
+    after = "telescope-fzf-native.nvim",
 }
 
 M.treesitter = {
@@ -57,28 +58,28 @@ M.treesitter = {
 
 M.playground = {
     "nvim-treesitter/playground",
-    opt = true,
+    -- opt = true,
     after = "nvim-treesitter",
     -- requires = "nvim-treesitter",
 }
 
 M.completion_treesitter = {
     "nvim-treesitter/completion-treesitter",
-    opt = true,
+    -- opt = true,
     after = "nvim-treesitter",
     -- requires = "nvim-treesitter",
 }
 
 M.treesitter_refactor = {
     "nvim-treesitter/nvim-treesitter-refactor",
-    opt = true,
+    -- opt = true,
     after = "nvim-treesitter",
     -- requires = "nvim-treesitter",
 }
 
 M.treesitter_textobjects = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    opt = true,
+    -- opt = true,
     after = "nvim-treesitter",
     -- requires = "nvim-treesitter",
 }
@@ -89,4 +90,15 @@ M.whick_key = {
     event = "VimEnter",
 }
 
+M.rooter = {
+    "airblade/vim-rooter",
+    config = function()
+        -- vim.g.rooter_patterns = [[=src]]
+        vim.g.rooter_patterns = { ".vscode", ".git" }
+    end,
+}
+
 return M
+
+--     "ygm2/rooter.nvim",
+--     "ms-jpq/chadtree",

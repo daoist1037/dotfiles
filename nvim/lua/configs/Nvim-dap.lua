@@ -6,7 +6,6 @@ return function()
 
         -- CHANGE THIS!
         local cmd = "/home/daoist/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/adapter/codelldb"
-        -- local cmd = "/absolute/path/to/codelldb/extension/adapter/codelldb"
 
         local handle, pid_or_err
         local opts = {

@@ -1,12 +1,14 @@
 local M = {}
+
 local from_vscode = function()
-    require("luasnip.loaders.from_vscode").load()
+    require("luasnip.loaders.from_vscode").lazy_load()
 end
 
 M.lspconfig = {
     "neovim/nvim-lspconfig",
     config = require("configs.Nvim-lspconfig"),
-    event = { "BufReadPre", "BufNewFile" },
+    ft = {"cpp", "lua", "python", "c"},
+    -- event = { "BufReadPre", "BufNewFile" },
     -- event = "BufRead",
 }
 
@@ -40,7 +42,8 @@ M.cmp = {
         { "lukas-reineke/cmp-rg", after = "nvim-cmp" },
     },
     config = require("configs.Nvim-cmp"),
-    after = "friendly-snippets",
+    -- after = "friendly-snippets",
+    after = { "friendly-snippets", "lspkind-nvim" },
     -- event = "InsertEnter *",
 }
 

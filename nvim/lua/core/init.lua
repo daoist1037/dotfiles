@@ -10,7 +10,6 @@ local options = require("core.options")
 for o, v in pairs(options) do
     vim.opt[o] = v
 end
--- local disable = require('core.disable')
 require("core.disable")
 
 vim.g.mapleader = " "
@@ -18,12 +17,9 @@ vim.g.maplocalleader = ","
 
 local mappings = require("core.mappings")
 for _, list in pairs(mappings) do
-    -- map(list[1], list[2], list[3])
     local opts = { noremap = true, silent = true }
     vim.api.nvim_set_keymap(list[1], list[2], list[3], opts)
 end
 
 require("core.pack")
 require("compiled")
--- vim.cmd("colorscheme kanagawa")
--- vim.cmd([[highlight HighlightedyankRegion cterm=reverse gui=reverse]])

@@ -12,14 +12,13 @@ return function()
         local lsp_publish_diagnostics_options = {
             virtual_text = {
                 -- prefix = "",
-                -- prefix = "●",
+                prefix = "●",
                 spacing = 0,
             },
             signs = true,
-            underline = true,
-            update_in_insert = false, -- update diagnostics insert mode
+            underline = false,
+            update_in_insert = true, -- update diagnostics insert mode
         }
-
         vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
             vim.lsp.diagnostic.on_publish_diagnostics,
             lsp_publish_diagnostics_options
@@ -56,10 +55,9 @@ return function()
         },
         root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git", ".vscode"),
     })
-    -- local runtime_path = vim.split(package.path, ';')
-    -- -- local runtime_path = "/home/daoist/dotfiles/nvim"
-    -- table.insert(runtime_path, "lua/?.lua")
-    -- table.insert(runtime_path, "lua/?/init.lua")
+    local runtime_path = vim.split(package.path, ";")
+    table.insert(runtime_path, "lua/?.lua")
+    table.insert(runtime_path, "lua/?/init.lua") -- table.insert(runtime_path, "lua/?/init.lua")
     lspconfig["sumneko_lua"].setup({
         on_attach = on_attach,
         cmd = {
@@ -76,7 +74,7 @@ return function()
                     -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                     version = "LuaJIT",
                     -- Setup your lua path
-                    -- path = runtime_path,
+                    path = runtime_path,
                 },
                 diagnostics = {
                     -- Get the language server to recognize the `vim` global
@@ -102,7 +100,6 @@ return function()
         },
     })
 end
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 

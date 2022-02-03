@@ -10,13 +10,16 @@ M.filetype = {
     end,
 }
 
-M.trouble = {
-    "folke/trouble.nvim",
-    -- requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    -- after = "nvim-lspconfig",
-    opt = true,
-    cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
-    config = require("configs.Trouble"),
+M.kind = {
+    "onsails/lspkind-nvim",
+    event = "InsertEnter",
+    config = require("configs.Lspkind"),
+}
+
+M.autopairs = {
+    "windwp/nvim-autopairs",
+    config = require("configs.Nvim-autopairs"),
+    after = "nvim-cmp",
 }
 
 M.symbols = {
@@ -30,20 +33,18 @@ M.symbols = {
 M.formatter = {
     "mhartington/formatter.nvim",
     config = require("configs.Formatter"),
-    after = "nvim-lspconfig",
+    cmd = { "Format", "FormatWrite" },
+    -- after = "nvim-lspconfig",
 }
 
-
--- M.asynctasks = {
---     "skywind3000/asynctasks.vim",
---     after = "asyncrun.vim",
---     config = function()
---         vim.g.asyncrun_rootmarks = { ".git", ".svn", ".root", ".project", ".hg" }
---     end,
--- }
--- M.asyncrun = {
---     "skywind3000/asyncrun.vim",
---     cmd = "AsyncTask",
--- }
+M.fidget = {
+    "j-hui/fidget.nvim",
+    config = function()
+        require("fidget").setup()
+    end,
+    ft = { "cpp", "c", "lua", "python" },
+}
 
 return M
+
+--     "folke/trouble.nvim",

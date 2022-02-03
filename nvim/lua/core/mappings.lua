@@ -25,5 +25,6 @@ return {
     { "n", "<F12>", "<cmd>lua require'dap'.close()<CR>" },
     { "n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>" },
     { "n", "<F3>", "<cmd>YabsTask build<CR>" },
-    { "n", "<F2>", "<cmd>cclose<CR>" },
+    { "n", "<F2>", "<cmd>YabsTask run<CR>" },
+    { "n", "<F1>", "<cmd>cclose<CR>" },
 }

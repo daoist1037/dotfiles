@@ -8,7 +8,10 @@ return function()
     local bufferline = require("bufferline")
     bufferline.setup({
         options = {
-            numbers = "none",
+            -- numbers = "none",
+            numbers = function(opts)
+                return opts.id .. "."
+            end,
             right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
             left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
             middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
@@ -20,6 +23,8 @@ return function()
             right_trunc_marker = "",
             show_buffer_icons = true,
             show_close_icon = true,
+            max_name_length = 18,
+            max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
             show_buffer_close_icons = true,
             diagnostics = "nvim_lsp",
             diagnostics_indicator = function(count, level, diagnostics_dict, context)
@@ -57,5 +62,7 @@ return function()
                 guibg = "#282c34",
             },
         },
+        enforce_regular_tabs = true,
+        always_show_bufferline = true,
     })
 end

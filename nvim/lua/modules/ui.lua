@@ -1,15 +1,27 @@
 local M = {}
 
+M.alpha = {
+    "goolord/alpha-nvim",
+    requires = { "kyazdani42/nvim-web-devicons" },
+    config = function()
+        local alpha = require("alpha")
+        local startify = require("alpha.themes.startify")
+        -- startify.section.header.val = {
+        -- }
+        alpha.setup(startify.config)
+    end,
+}
+
+-- "sainnhe/sonokai",
+M.everforest = {
+    "sainnhe/everforest",
+    opt = true,
+    config = require("configs.Colorscheme").everforest,
+}
 M.edge = {
     "sainnhe/edge",
     -- opt = true,
     config = require("configs.Colorscheme").edge,
-}
-
-M.sonokai = {
-    "sainnhe/sonokai",
-    opt = true,
-    config = require("configs.Colorscheme").sonokai,
 }
 
 M.material = {
@@ -26,19 +38,20 @@ M.onedark = {
 
 M.devicons = {
     "kyazdani42/nvim-web-devicons",
+    -- event = "BufRead",
 }
 
 M.lualine = {
-    "hoob3rt/lualine.nvim",
+    "nvim-lualine/lualine.nvim",
     config = require("configs.Lualine"),
+    -- after = "nvim-web-devicons",
     event = "BufRead",
 }
 
-M.bufferline = {
-    "akinsho/bufferline.nvim",
-    config = require("configs.Bufferline"),
+M.bufferdelete = {
+    "kazhala/close-buffers.nvim",
     event = "BufRead",
-    -- event = "User ActuallyEditing",
+    config = require("configs.Bufdelete"),
 }
 
 M.indent = {
@@ -48,4 +61,14 @@ M.indent = {
     -- after = "nvim-treesitter",
 }
 
+M.toggleterm = {
+    "akinsho/toggleterm.nvim",
+    config = require("configs.Toggleterm"),
+    cmd = "ToggleTerm",
+}
+
 return M
+
+--     "akinsho/bufferline.nvim",
+--     "kdheepak/tabline.nvim",
+--     "noib3/nvim-cokeline",

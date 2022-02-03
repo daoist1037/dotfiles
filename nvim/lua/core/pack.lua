@@ -40,7 +40,6 @@ return packer.startup({
             "wbthomason/packer.nvim",
             event = "VimEnter",
         })
-
         local ui = require("modules.ui")
         for _, v in pairs(ui) do
             use(v)

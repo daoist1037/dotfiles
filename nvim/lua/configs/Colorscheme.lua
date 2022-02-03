@@ -16,11 +16,6 @@ M.edge = function()
     vim.cmd([[highlight HighlightedyankRegion cterm=reverse gui=reverse]])
 end
 
-M.sonokai = function()
-    vim.g.sonokai_style = "atlantis" --andromeda
-    vim.cmd([[colorscheme sonokai]])
-    vim.cmd([[highlight HighlightedyankRegion cterm=reverse gui=reverse]])
-end
 M.onedark = function()
     require("onedark").setup({
         style = "dark",
@@ -28,6 +23,12 @@ M.onedark = function()
         -- toggle_style_key = "", Default keybinding to toggle
     })
     require("onedark").load()
+end
+
+M.everforest = function()
+    vim.g.everforest_background = "soft"
+    vim.cmd([[colorscheme everforest]])
+    vim.cmd([[highlight HighlightedyankRegion cterm=reverse gui=reverse]])
 end
 
 return M

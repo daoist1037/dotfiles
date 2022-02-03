@@ -32,16 +32,6 @@ return function()
     --         unstaged = "✗",
     --         untracked = "★",
     --     },
-    --     folder = {
-    --         -- arrow_open =  "",
-    --         -- arrow_closed = "",
-    --         default = "",
-    --         empty = "",
-    --         empty_open = "",
-    --         open = "",
-    --         symlink = "",
-    --         symlink_open = "",
-    --     },
     -- }
 
     local nvim_tree = require("nvim-tree")
@@ -49,7 +39,7 @@ return function()
         disable_netrw = true,
         hijack_netrw = true,
         open_on_setup = false,
-        ignore_ft_on_setup = { "" },
+        ignore_ft_on_setup = { "alpha" },
         auto_close = false,
         open_on_tab = false,
         update_to_buf_dir = {
@@ -60,7 +50,7 @@ return function()
         update_cwd = true,
         update_focused_file = {
             enable = true,
-            update_cwd = true,
+            update_cwd = false,
             ignore_list = {},
         },
         system_open = {

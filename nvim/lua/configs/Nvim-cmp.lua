@@ -3,31 +3,31 @@ return function()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
-
     -- local feedkey = function(key, mode)
     --     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
     -- end
-    local cmp_kinds = require("configs.kinds")
+    --
+
+    local lspkind = require("lspkind")
+
     local cmp = require("cmp")
     cmp.setup({
         formatting = {
-            fields = { "abbr", "kind", "menu" },
-            format = function(entry, vim_item)
-                -- Kind icons
-                vim_item.kind = string.format("%s %s", vim_item.kind, cmp_kinds[vim_item.kind]) -- This concatonates the icons with the name of the item kind
-                -- Source
-                vim_item.menu = ({
-                    buffer = "[Buffer]",
+            format = lspkind.cmp_format({
+                with_text = true,
+                menu = {
+                    buffer = "[Buf]",
                     nvim_lsp = "[LSP]",
                     luasnip = "[LuaSnip]",
-                    nvim_lua = "[Lua]",
+                    snippet = "[VSnip]",
+                    nvim_lua = "[NvimLua]",
+                    latex_symbols = "[Latex]",
                     path = "[Path]",
                     rg = "[Rg]",
                     spell = "[spell]",
-                })[entry.source.name]
-
-                return vim_item
-            end,
+                },
+                maxwidth = 30,
+            }),
         },
         confirm_opts = {
             behavior = cmp.ConfirmBehavior.Replace,
@@ -43,10 +43,8 @@ return function()
             expand = function(args)
                 -- For `vsnip` user.
                 -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
-
                 -- For `luasnip` user.
                 require("luasnip").lsp_expand(args.body)
-
                 -- For `ultisnips` user.
                 -- vim.fn["UltiSnips#Anon"](args.body)
             end,
@@ -76,8 +74,8 @@ return function()
                         vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
                         ""
                     )
-                -- elseif has_words_before() then
-                --     cmp.complete()
+                elseif has_words_before() then
+                    cmp.complete()
                 else
                     fallback()
                 end
@@ -107,14 +105,11 @@ return function()
 
             { name = "buffer" },
             { name = "path" },
-            -- { name = "rg" },
+            { name = "rg" },
             -- { name = "spell" },
         },
     })
 end
--- formatting = {
--- format = lspkind.cmp_format({with_text = false, maxwidth = 50})
--- },
 -- ["<C-e>"] = cmp.mapping.close(),
 -- ['<C-<space>>'] = cmp.mapping.complete(),
 -- ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -142,3 +137,22 @@ end
 --         fallback()
 --     end
 -- end,
+-- formatting = {
+--     fields = { "abbr", "kind", "menu" },
+--     format = function(entry, vim_item)
+--         -- Kind icons
+--         vim_item.kind = string.format("%s %s", vim_item.kind, cmp_kinds[vim_item.kind]) -- This concatonates the icons with the name of the item kind
+--         -- Source
+--         vim_item.menu = ({
+--             buffer = "[Buffer]",
+--             nvim_lsp = "[LSP]",
+--             luasnip = "[LuaSnip]",
+--             nvim_lua = "[Lua]",
+--             path = "[Path]",
+--             rg = "[Rg]",
+--             spell = "[spell]",
+--         })[entry.source.name]
+
+--         return vim_item
+--     end,
+-- },

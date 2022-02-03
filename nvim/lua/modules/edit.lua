@@ -19,17 +19,13 @@ M.highlightedyank = {
     event = "TextYankPost *",
     -- event = "TextYankPost",
 }
-M.autopairs = {
-    "windwp/nvim-autopairs",
-    config = require("configs.Nvim-autopairs"),
-    after = "nvim-cmp",
-    -- event = "InsertEnter",
-}
+
 M.kommentary = {
     "b3nj5m1n/kommentary",
     config = require("configs.Kommentary"),
     event = { "BufReadPre", "BufNewFile" },
 }
+
 M.surround = {
     "blackCauldron7/surround.nvim",
     config = function()

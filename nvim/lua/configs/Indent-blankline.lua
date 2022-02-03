@@ -30,7 +30,7 @@ return function()
             "",
         },
         buftype_exclude = { "terminal", "alpha" },
-        show_trailing_blankline_indent = true,
+        show_trailing_blankline_indent = false,
         show_first_indent_level = false,
         context_highlight_list = { "Error", "Warning" },
         -- space_char_blankline = " ",
