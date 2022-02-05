@@ -8,12 +8,6 @@ return function()
     vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])
 
     -- local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- custom_capabilities.textDocument.completion.completionItem.snippetSupport = true
-    -- custom_capabilities.textDocument.completion.completionItem.preselectSupport = true
-    -- custom_capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-    -- custom_capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-    -- custom_capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-    -- custom_capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
 
     local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
     custom_capabilities = require("cmp_nvim_lsp").update_capabilities(custom_capabilities)

@@ -10,13 +10,15 @@ local M = {}
 --     return M
 -- end
 
--- vim.cmd([[packadd plenary.nvim]])
--- vim.cmd([[packadd nvim-notify]])
 local async = {}
 local notify = {}
 local function pre()
     if not packer_plugins["plenary.nvim"] then
         vim.notify("module plenary isn't installed")
+        return false
+    end
+    if not packer_plugins["nvim-notify"].loaded then
+        vim.notify("module notify isn't loaded")
         return false
     end
     if not packer_plugins["plenary.nvim"].loaded then
