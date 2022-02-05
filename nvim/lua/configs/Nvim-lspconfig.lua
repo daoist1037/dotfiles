@@ -3,9 +3,9 @@ return function()
     if not packer_plugins["cmp-nvim-lsp"].loaded then
         vim.cmd([[packadd cmp-nvim-lsp]])
     end
-    -- vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
-    -- vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
-    -- vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])
+    vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
+    vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
+    vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])
 
     -- local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
     -- custom_capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -75,6 +75,10 @@ return function()
         },
         -- on_attach = custom_attach,
         on_attach = function(client, bufnr)
+            -- if not packer_plugins["vim-illuminate"].loaded then
+            --     vim.cmd([[packadd vim-illuminate]])
+            --     require("illuminate").on_attach(client)
+            -- end
             custom_attach(client, bufnr)
         end,
         capabilities = custom_capabilities,
@@ -86,6 +90,10 @@ return function()
     lspconfig["clangd"].setup({
         on_attach = function(client, bufnr)
             client.resolved_capabilities.document_formatting = false
+            -- if not packer_plugins["vim-illuminate"].loaded then
+            --     vim.cmd([[packadd vim-illuminate]])
+            --     require("illuminate").on_attach(client)
+            -- end
             custom_attach(client, bufnr)
         end,
         capabilities = custom_capabilities,
@@ -111,6 +119,10 @@ return function()
     table.insert(runtime_path, "lua/?/init.lua") -- table.insert(runtime_path, "lua/?/init.lua")
     lspconfig["sumneko_lua"].setup({
         on_attach = function(client, bufnr)
+            -- if not packer_plugins["vim-illuminate"].loaded then
+            --     vim.cmd([[packadd vim-illuminate]])
+            --     require("illuminate").on_attach(client)
+            -- end
             custom_attach(client, bufnr)
         end,
         -- on_attach = custom_attach,
