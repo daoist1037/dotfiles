@@ -2,6 +2,13 @@
 -- https://stackoverflow.com/questions/44480829/how-to-copy-to-clipboard-in-vim-of-bash-on-windows
 -- vim.cmd "autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe', @0) | endif"
 vim.cmd([[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]])
+vim.cmd([[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]])
+-- vim.cmd([[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost pack.lua source <afile> | PackerSync
+--   augroup end
+-- ]])
 vim.g.python_host_skip_check = 1
 vim.g.python3_host_skip_check = 1
 vim.g.python3_host_prog = "/home/daoist/.conda/envs/tools/bin/python"
@@ -13,13 +20,22 @@ end
 require("core.disable")
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = " "
 
-local mappings = require("core.mappings")
-for _, list in pairs(mappings) do
+
+
+local maps = require("core.map").maps
+for _, list in pairs(maps) do
     local opts = { noremap = true, silent = true }
     vim.api.nvim_set_keymap(list[1], list[2], list[3], opts)
 end
-
 require("core.pack")
-require("compiled")
+
+
+-- vim.cmd [[
+--   augroup _alpha
+--     autocmd!
+--     autocmd User AlphaReady set laststatus=0
+--     autocmd User AlphaReady set showtabline=0  | autocmd BufUnload <buffer> set showtabline=2
+--   augroup end
+-- ]]

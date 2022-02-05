@@ -1,9 +1,10 @@
-vim.cmd("packadd packer.nvim")
-
 local present, packer = pcall(require, "packer")
 
+local data_dir = vim.fn.stdpath("data")
+local config_dir = vim.fn.stdpath("config")
+local modules = { "daps", "edit", "lang", "lsp", "tool", "ui" }
 if not present then
-    local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+    local packer_path = data_dir .. "/site/pack/packer/opt/packer.nvim"
 
     print("Cloning packer..") -- remove the dir before cloning
     vim.fn.delete(packer_path, "rf")
@@ -17,10 +18,47 @@ if not present then
     else
         error("Couldn't clone packer !\nPacker path: " .. packer_path)
     end
+    packer.init({
+        -- compile_path = config_dir .. "/lua/compiled.lua",
+        display = {
+            open_fn = function()
+                return require("packer.util").float({ border = "none" })
+            end,
+            prompt_border = "none",
+        },
+        git = {
+            clone_timeout = 600, -- Timeout, in seconds, for git clones
+        },
+        auto_clean = true,
+    })
+    packer.reset()
+    local use = packer.use
+    use({ "wbthomason/packer.nvim", opt = true })
+    local s2t = function(module)
+        return { table.concat(module, ",", 1, 1), opt = true }
+    end
+    packer.startup({
+        function()
+            use({
+                "wbthomason/packer.nvim",
+            })
+            for _, i in pairs(modules) do
+                for _, j in pairs(require("modules." .. i)) do
+                    use(s2t(j))
+                end
+            end
+        end,
+        -- config = {
+        --     compile_path = config_dir .. "/lua/compiled.lua",
+        -- },
+    })
+    -- packer.compile()
+    packer.install()
+    return
 end
 
 packer.init({
-    compile_path = vim.fn.stdpath("config") .. "/lua/compiled.lua",
+    compile_path = config_dir .. "/lua/compiled.lua",
     display = {
         open_fn = function()
             return require("packer.util").float({ border = "none" })
@@ -32,45 +70,18 @@ packer.init({
     },
     auto_clean = true,
 })
-
 local use = packer.use
-return packer.startup({
+packer.startup({
     function()
         use({
             "wbthomason/packer.nvim",
-            event = "VimEnter",
+            -- event = "VimEnter",
         })
-        local ui = require("modules.ui")
-        for _, v in pairs(ui) do
-            use(v)
-        end
-
-        local lsp = require("modules.lsp")
-        for _, v in pairs(lsp) do
-            use(v)
-        end
-
-        local dap = require("modules.daps")
-        for _, v in pairs(dap) do
-            use(v)
-        end
-
-        local lang = require("modules.lang")
-        for _, v in pairs(lang) do
-            use(v)
-        end
-
-        local tool = require("modules.tool")
-        for _, v in pairs(tool) do
-            use(v)
-        end
-
-        local edit = require("modules.edit")
-        for _, v in pairs(edit) do
-            use(v)
+        for _, i in pairs(modules) do
+            for _, j in pairs(require("modules." .. i)) do
+                use(j)
+            end
         end
     end,
-    config = {
-        compile_path = vim.fn.stdpath("config") .. "/lua/compiled.lua",
-    },
 })
+local compilel_ok, _ = pcall(require, "compiled")

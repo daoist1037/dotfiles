@@ -1,30 +1,85 @@
-return {
-    -- {'i', 'jk', '<Esc>' },
+local M = {}
 
-    { "n", "<backspace>", "<Cmd>nohl<CR>" },
-    -- keep visual selection when (de)indenting
-    { "v", "<", "<gv" },
-    { "v", ">", ">gv" },
-    -- Select last pasted/yanked text
-    { "n", "g<C-v>", "`[v`]" },
-    { "n", "K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>" },
-    -- {'n', 'gs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>" },
-    -- {'n', 'gr', "<cmd>lua require('lspsaga.rename').rename()<CR>" },
-    -- {'n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>" },
-    -- {'n', 'gh', "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>" },
-    -- {'n', 'gc', "<cmd>lua require'lspsaga.codeaction'.code_action()<CR>" },
-    --  {'n', '<leader>ld', "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>" },
-    --  {'n', '<leader>lc', "<cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>" },
-    { "n", "<F4>", "<cmd>lua require'dapui'.toggle()<CR>" },
-    -- {'n', '<F5>', "<cmd>lua require('dap.ext.vscode').load_launchjs()<CR>" },
-    { "n", "<F5>", "<cmd>lua require'dap'.continue()<CR>" },
-    -- {'n', '<F5>', "<cmd>luafile /home/daoist/dotfiles/nvim/lua/daoist1037/core/tasksrun.lua<CR><cmd>lua require'dap'.continue()<CR>" },
-    -- { "n", "<F12>", "<cmd>lua require'dap'.step_into()<CR>" },
-    { "n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>" },
-    { "n", "<F11>", "<cmd>lua require'dap'.step_into()<CR>" },
-    { "n", "<F12>", "<cmd>lua require'dap'.close()<CR>" },
-    { "n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>" },
-    { "n", "<F3>", "<cmd>YabsTask build<CR>" },
-    { "n", "<F2>", "<cmd>YabsTask run<CR>" },
-    { "n", "<F1>", "<cmd>cclose<CR>" },
-}
+-- local data_dir = vim.fn.stdpath("data")
+-- local plenary_dir = data_dir .. "/site/pack/packer/opt/plenary.nvim"
+-- local notify_dir = data_dir .. "/site/pack/packer/start/nvim-notify"
+-- local plenary_st =not( vim.loop.fs_stat(plenary_dir))
+-- local notify_st =not( vim.loop.fs_stat(notify_dir))
+
+-- if plenary_st or notify_st then
+--     return M
+-- end
+
+-- vim.cmd([[packadd plenary.nvim]])
+-- vim.cmd([[packadd nvim-notify]])
+local async = {}
+local notify = {}
+local function pre()
+    if not packer_plugins["plenary.nvim"] then
+        vim.notify("module plenary isn't installed")
+        return false
+    end
+    if not packer_plugins["plenary.nvim"].loaded then
+        vim.cmd([[packadd plenary.nvim]])
+    end
+    async = require("plenary.async")
+    notify = require("notify").async
+    return true
+end
+
+M.dapui = function()
+    if pre() == false then
+        return
+    end
+    if packer_plugins["nvim-dap-ui"].loaded then
+        require("dapui").toggle()
+    else
+        -- vim.api.nvim_command([[echo 'module dapui not load']])
+        async.run(function()
+            notify("module dapui not load", "error", { title = "dapui toggle", timeout = 1000 })
+        end)
+    end
+end
+
+M.dap = function(type)
+    if pre() == false then
+        return
+    end
+    pre()
+    if packer_plugins["nvim-dap"].loaded then
+        vim.api.nvim_command([[lua require'dap'.]] .. type .. [[()]])
+    else
+        async.run(function()
+            notify("module dap not load", "error", { title = "dap " .. type, timeout = 1000 })
+        end)
+    end
+end
+
+M.yabstask = function(type)
+    if pre() == false then
+        return
+    end
+    if packer_plugins["yabs.nvim"].loaded then
+        vim.api.nvim_command([[YabsTask ]] .. type)
+    else
+        async.run(function()
+            notify("module yabs not load", "error", { title = "YabsTask " .. type, timeout = 1000 })
+        end)
+    end
+end
+
+M.bdelete = function(type)
+    if pre() == false then
+        return
+    end
+    if packer_plugins["close-buffers.nvim"].loaded then
+        local pre = [[lua require('close_buffers').delete({type = ']]
+        vim.api.nvim_command(pre .. type .. [['})]])
+    else
+        async.run(function()
+            notify("module close-buffers not load", "error", { title = "BDelete " .. type, timeout = 1000 })
+        end)
+    end
+end
+
+return M

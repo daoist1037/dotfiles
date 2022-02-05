@@ -1,5 +1,7 @@
 return function()
     local dap = require("dap")
+    dap.defaults.fallback.terminal_win_cmd = "10split new"
+    dap.defaults.fallback.focus_terminal = true
     dap.adapters.codelldb = function(on_adapter)
         local stdout = vim.loop.new_pipe(false)
         local stderr = vim.loop.new_pipe(false)
@@ -49,7 +51,6 @@ return function()
             end
         end)
     end
-    dap.defaults.fallback.terminal_win_cmd = "10split new"
     dap.adapters.cppdbg = {
         type = "executable",
         command = "/home/daoist/.vscode/extensions/ms-vscode.cpptools-1.7.1/debugAdapters/bin/OpenDebugAD7",
@@ -115,4 +116,3 @@ return function()
         },
     }
 end
--- lua require('dap.ext.vscode').load_launchjs()

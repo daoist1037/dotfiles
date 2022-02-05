@@ -3,6 +3,15 @@ return function()
     if not status then
         return
     end
+    vim.cmd([[packadd telescope-fzf-native.nvim]])
+    -- if not packer_plugins["plenary.nvim"].loaded then
+    --     vim.cmd([[packadd plenary.nvim]])
+    -- end
+    vim.cmd([[packadd popup.nvim]])
+    -- local cmd_ok, _ = pcall(vim.cmd, "packadd telescope-fzf-native")
+    -- if not cmd_ok then
+    --     vim.notify("fzf not load")
+    -- end
     -- local previewers = require("telescope.previewers")
 
     local actions = require("telescope.actions")
@@ -10,7 +19,7 @@ return function()
 
     telescope.setup({
         defaults = {
-            -- prompt_prefix = " ",
+            prompt_prefix = "» ",
             selection_caret = " ",
             mappings = {
                 n = {
@@ -28,6 +37,8 @@ return function()
                     ["<C-k>"] = actions.move_selection_previous,
                 },
             },
+            path_display = { "absolute" },
+            winblend = 0,
             initial_mode = "insert",
             selection_strategy = "reset",
             sorting_strategy = "ascending",
@@ -47,7 +58,6 @@ return function()
             },
             set_env = { ["COLORTERM"] = "truecolor" },
             dynamic_preview_title = true,
-            -- preview = previewers,
             treesitter = false,
             file_sorter = require("telescope.sorters").get_fuzzy_file,
             generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
@@ -72,10 +82,10 @@ return function()
         },
         pickers = {
             find_files = {
-                hidden = true,
+                hidden = false,
                 -- theme = "dropdown",
                 no_ignore = true,
-                find_command = { "fd", "--type=file", "--hidden", "--follow", "--exclude=.git" },
+                find_command = { "fd", "--type=file", "--follow", "--exclude=.git" }, --"--hidden",
             },
             oldfiles = {
                 -- theme = "dropdown",

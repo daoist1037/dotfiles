@@ -1,4 +1,7 @@
 return function()
+    if not packer_plugins["plenary.nvim"].loaded then
+        vim.cmd([[packadd plenary.nvim]])
+    end
     local yabs = require("yabs")
     local tasksbuild = function()
         local filepath = vim.fn.expand("%:p")
@@ -29,8 +32,8 @@ return function()
                     },
                     run = {
                         command = tasksrun,
-                        -- output = "consolation",
                         output = "quickfix", -- Where to show output of the
+                        -- output = "terminal", Where to show output of the
                     },
                     build_and_run = { -- Setting the type to lua means the command
                         -- is a lua function

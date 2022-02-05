@@ -12,8 +12,9 @@ M.filetype = {
 
 M.kind = {
     "onsails/lspkind-nvim",
-    event = "InsertEnter",
-    config = require("configs.Lspkind"),
+    opt = true,
+    -- event = "InsertEnter",
+    -- config = require("configs.Lspkind"),
 }
 
 M.autopairs = {
@@ -22,19 +23,11 @@ M.autopairs = {
     after = "nvim-cmp",
 }
 
-M.symbols = {
-    "simrat39/symbols-outline.nvim",
-    -- opt = true,
-    -- cmd = {"SymbolsOutline", "SymbolsOutlineOpen"},
-    config = require("configs.Symbolsoutline"),
-    after = "nvim-lspconfig",
-}
-
 M.formatter = {
     "mhartington/formatter.nvim",
     config = require("configs.Formatter"),
-    cmd = { "Format", "FormatWrite" },
-    -- after = "nvim-lspconfig",
+    ft = { "cpp", "c", "lua", "python" },
+    -- cmd = { "Format", "FormatWrite" },
 }
 
 M.fidget = {
@@ -48,3 +41,4 @@ M.fidget = {
 return M
 
 --     "folke/trouble.nvim",
+--     "ray-x/lsp_signature.nvim",

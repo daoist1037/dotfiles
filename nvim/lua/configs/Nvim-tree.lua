@@ -14,25 +14,12 @@ return function()
     }
     g.nvim_tree_root_folder_modifier = table.concat({ ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" })
     g.nvim_tree_show_icons = {
+        -- git = 1,
         folders = 1,
         files = 1,
-        -- git = 1,
-        folder_arrows = 1,
-        tree_width = 30,
+        -- folder_arrows = 1,
+        -- tree_width = 35,
     }
-    -- g.nvim_tree_icons = {
-    --     default = "",
-    --     symlink = "",
-    --     git = {
-    --         deleted = "",
-    --         ignored = "◌",
-    --         renamed = "➜",
-    --         staged = "✓",
-    --         unmerged = "",
-    --         unstaged = "✗",
-    --         untracked = "★",
-    --     },
-    -- }
 
     local nvim_tree = require("nvim-tree")
     nvim_tree.setup({
@@ -50,7 +37,7 @@ return function()
         update_cwd = true,
         update_focused_file = {
             enable = true,
-            update_cwd = false,
+            update_cwd = true,
             ignore_list = {},
         },
         system_open = {
@@ -58,9 +45,8 @@ return function()
             args = {},
         },
         diagnostics = {
-            enable = true,
+            enable = false,
             icons = {
-                -- hint = "",
                 hint = "",
                 info = "",
                 warning = "",
@@ -83,7 +69,7 @@ return function()
             },
         },
         view = {
-            width = 25,
+            width = 30,
             side = "left",
             auto_resize = true,
             mappings = {

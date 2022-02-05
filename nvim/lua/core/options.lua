@@ -12,7 +12,7 @@ return {
     expandtab = true,
     textwidth = 80,
     wrap = false,
-    linebreak = false,
+    linebreak = true,
     wrapmargin = 2,
     whichwrap = "b,s,<,>,h,l",
     scrolloff = 10,

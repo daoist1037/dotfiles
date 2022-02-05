@@ -2,8 +2,9 @@ local M = {}
 
 M.dap = {
     "mfussenegger/nvim-dap",
-    after = "nvim-lspconfig",
     config = require("configs.Nvim-dap"),
+    ft = {"python", "cpp", "c"},
+    -- after = "nvim-lspconfig",
     -- module = "dap",
 }
 

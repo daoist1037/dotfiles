@@ -1,8 +1,42 @@
 local M = {}
 
-M.impatient = {
-    "lewis6991/impatient.nvim",
-    opt = true,
+M.eft = {
+    "hrsh7th/vim-eft",
+    event = "BufRead",
+    config = function()
+        vim.cmd([[
+          nmap ; <Plug>(eft-repeat)
+          xmap ; <Plug>(eft-repeat)
+          omap ; <Plug>(eft-repeat)
+
+          nmap f <Plug>(eft-f)
+          xmap f <Plug>(eft-f)
+          omap f <Plug>(eft-f)
+          nmap F <Plug>(eft-F)
+          xmap F <Plug>(eft-F)
+          omap F <Plug>(eft-F)
+          
+          nmap t <Plug>(eft-t)
+          xmap t <Plug>(eft-t)
+          omap t <Plug>(eft-t)
+          nmap T <Plug>(eft-T)
+          xmap T <Plug>(eft-T)
+          omap T <Plug>(eft-T)
+       ]])
+    end,
+    -- opt = true,
+}
+
+M.easyaign = {
+    "junegunn/vim-easy-align",
+    event = "BufRead",
+    config = function()
+        vim.cmd([[
+            xmap ga <Plug>(EasyAlign)
+            nmap ga <Plug>(EasyAlign)
+       ]])
+    end,
+    -- opt = true,
 }
 
 M.window = {
@@ -16,44 +50,32 @@ M.fcitx = {
     event = { "BufReadPre", "BufNewFile" },
 }
 
-M.gitsigns = {
-    "lewis6991/gitsigns.nvim",
-    config = require("configs.Gitsigns"),
-    event = { "BufReadPre", "BufRead" },
-    -- ft = {"lua", "python","cpp","c"},
-    -- opt = true,
-}
-
-M.tree = {
-    "kyazdani42/nvim-tree.lua",
-    -- requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    config = require("configs.Nvim-tree"),
-    event = {  "BufRead" },
-}
-
 M.telescopefzf = {
     "nvim-telescope/telescope-fzf-native.nvim",
     run = "make",
-    cmd = "Telescope",
+    -- cmd = "Telescope",
+    after = "telescope.nvim",
 }
 
 M.telescope = {
     "nvim-telescope/telescope.nvim",
     requires = {
         { "nvim-lua/plenary.nvim", opt = false },
-        { "nvim-lua/popup.nvim", opt = false },
+        -- { "nvim-lua/plenary.nvim", opt = true },
+        { "nvim-lua/popup.nvim", opt = true },
     },
     config = require("configs.Telescope"),
-    after = "telescope-fzf-native.nvim",
+    -- after = "telescope-fzf-native.nvim",
+    cmd = "Telescope",
 }
 
 M.treesitter = {
     "nvim-treesitter/nvim-treesitter",
     config = require("configs.Nvim-treesitter"),
     -- opt = true,
-    run = ":TSUpdate",
+    run = "TSUpdate",
     -- after = "impatient.nvim",
-    event = "BufRead",
+    event = {"BufRead", } ,--"BufReadPre"
 }
 
 M.playground = {
@@ -87,18 +109,29 @@ M.treesitter_textobjects = {
 M.whick_key = {
     "folke/which-key.nvim",
     config = require("configs.Which-key"),
-    event = "VimEnter",
+    -- event = { "BufRead", "BufNewFile" },
+    -- event = "VimEnter",
+    -- keys = "<Space>",
 }
 
 M.rooter = {
     "airblade/vim-rooter",
+    event = "BufRead",
     config = function()
         -- vim.g.rooter_patterns = [[=src]]
         vim.g.rooter_patterns = { ".vscode", ".git" }
     end,
 }
 
+M.bqf = {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+    -- ft = {"cpp", "c", "python", "lua"}
+    -- cmd = {"BqfEnable", "BqfDisable", "BqfToggle"}
+}
+
 return M
 
---     "ygm2/rooter.nvim",
+--     "ygm2/rooter.nvim", -- nvim-tree don't work well
 --     "ms-jpq/chadtree",
+--     "lewis6991/impatient.nvim",

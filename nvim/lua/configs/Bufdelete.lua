@@ -1,5 +1,6 @@
 return function()
-    require("close_buffers").setup({
+    local close_buffers = require("close_buffers")
+    close_buffers.setup({
         preserve_window_layout = { "this" },
         next_buffer_cmd = function(windows)
             require("bufferline").cycle(1)

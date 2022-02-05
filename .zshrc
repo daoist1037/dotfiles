@@ -40,6 +40,7 @@ alias activate="source /opt/miniconda/bin/activate"
 # alias deactivate="source /opt/miniconda/bin/deactivate"
 alias deactivate="conda deactivate"
 alias stylua="/home/daoist/dotfiles/stylua"
+alias vim-startuptime="/home/daoist/dotfiles/vim-startuptime -vimpath nvim | nvim"
 # alias conda="/opt/miniconda/bin/conda"
 # alias cnpm="npm --registry=https://registry.npmmirror.com \
 # --cache=$HOME/.npm/.cache/cnpm \

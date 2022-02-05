@@ -1,33 +1,53 @@
 return function()
+    vim.cmd([[highlight CmpItemAbbrDeprecated guifg=#D8DEE9 guibg=NONE gui=strikethrough]])
+    vim.cmd([[highlight CmpItemKindSnippet guifg=#BF616A guibg=NONE]])
+    vim.cmd([[highlight CmpItemKindUnit guifg=#D08770 guibg=NONE]])
+    vim.cmd([[highlight CmpItemKindProperty guifg=#A3BE8C guibg=NONE]])
+    vim.cmd([[highlight CmpItemKindKeyword guifg=#EBCB8B guibg=NONE]])
+    vim.cmd([[highlight CmpItemAbbrMatch guifg=#5E81AC guibg=NONE]])
+    vim.cmd([[highlight CmpItemAbbrMatchFuzzy guifg=#5E81AC guibg=NONE]])
+    vim.cmd([[highlight CmpItemKindVariable guifg=#8FBCBB guibg=NONE]])
+    vim.cmd([[highlight CmpItemKindInterface guifg=#88C0D0 guibg=NONE]])
+    vim.cmd([[highlight CmpItemKindText guifg=#81A1C1 guibg=NONE]])
+    vim.cmd([[highlight CmpItemKindFunction guifg=#B48EAD guibg=NONE]])
+    vim.cmd([[highlight CmpItemKindMethod guifg=#B48EAD guibg=NONE]])
     local has_words_before = function()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
-    -- local feedkey = function(key, mode)
-    --     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-    -- end
-    --
 
+    if not packer_plugins["lspkind-nvim"].loaded then
+        vim.cmd([[packadd lspkind-nvim]])
+    end
     local lspkind = require("lspkind")
+    -- require("configs.Lspkind")
 
+    if not packer_plugins["cmp-under-comparator"].loaded then
+        vim.cmd([[packadd cmp-under-comparator]])
+    end
     local cmp = require("cmp")
     cmp.setup({
         formatting = {
             format = lspkind.cmp_format({
-                with_text = true,
-                menu = {
-                    buffer = "[Buf]",
-                    nvim_lsp = "[LSP]",
-                    luasnip = "[LuaSnip]",
-                    snippet = "[VSnip]",
-                    nvim_lua = "[NvimLua]",
-                    latex_symbols = "[Latex]",
-                    path = "[Path]",
-                    rg = "[Rg]",
-                    spell = "[spell]",
-                },
+                -- with_text = true,
+                mode = "symbol_text",
                 maxwidth = 30,
+                before = function(entry, vim_item)
+                    return vim_item
+                end,
             }),
+        },
+        sorting = {
+            comparators = {
+                cmp.config.compare.offset,
+                cmp.config.compare.exact,
+                cmp.config.compare.score,
+                require("cmp-under-comparator").under,
+                cmp.config.compare.kind,
+                cmp.config.compare.sort_text,
+                cmp.config.compare.length,
+                cmp.config.compare.order,
+            },
         },
         confirm_opts = {
             behavior = cmp.ConfirmBehavior.Replace,
@@ -41,12 +61,7 @@ return function()
         },
         snippet = {
             expand = function(args)
-                -- For `vsnip` user.
-                -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
-                -- For `luasnip` user.
                 require("luasnip").lsp_expand(args.body)
-                -- For `ultisnips` user.
-                -- vim.fn["UltiSnips#Anon"](args.body)
             end,
         },
         mapping = {
@@ -95,64 +110,14 @@ return function()
             { name = "nvim_lsp" },
             { name = "treesitter" },
             -- { name = "cmdline" },
-            -- For vsnip user.
-            --   { name = 'vsnip' },
-
-            -- For luasnip user.
             { name = "luasnip" },
-            -- For ultisnips user.
-            -- { name = 'ultisnips' },
-
             { name = "buffer" },
+            { name = "nvim_lua" },
+            { name = "spell" },
+            { name = "latex_symbols" },
             { name = "path" },
             { name = "rg" },
             -- { name = "spell" },
         },
     })
 end
--- ["<C-e>"] = cmp.mapping.close(),
--- ['<C-<space>>'] = cmp.mapping.complete(),
--- ["<C-d>"] = cmp.mapping.scroll_docs(-4),
--- ["<C-f>"] = cmp.mapping.scroll_docs(4),
--- ["<Tab>"] = function(fallback)
---     if cmp.visible() then
---         cmp.select_next_item()
---     elseif require("luasnip").expand_or_jumpable() then
---         vim.fn.feedkeys(
---             vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
---             ""
---         )
---     elseif has_words_before() then
---         cmp.complete()
---     else
---         fallback()
---     end
--- end,
--- ["<S-Tab>"] = function(fallback)
---     if cmp.visible() then
---         cmp.select_prev_item()
---     elseif require("luasnip").jumpable(-1) then
---         vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
---     else
---         fallback()
---     end
--- end,
--- formatting = {
---     fields = { "abbr", "kind", "menu" },
---     format = function(entry, vim_item)
---         -- Kind icons
---         vim_item.kind = string.format("%s %s", vim_item.kind, cmp_kinds[vim_item.kind]) -- This concatonates the icons with the name of the item kind
---         -- Source
---         vim_item.menu = ({
---             buffer = "[Buffer]",
---             nvim_lsp = "[LSP]",
---             luasnip = "[LuaSnip]",
---             nvim_lua = "[Lua]",
---             path = "[Path]",
---             rg = "[Rg]",
---             spell = "[spell]",
---         })[entry.source.name]
-
---         return vim_item
---     end,
--- },
