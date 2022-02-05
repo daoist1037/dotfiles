@@ -22,20 +22,20 @@ require("core.disable")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
-
 local maps = require("core.map").maps
 for _, list in pairs(maps) do
     local opts = { noremap = true, silent = true }
     vim.api.nvim_set_keymap(list[1], list[2], list[3], opts)
 end
+
 require("core.pack")
-
-
--- vim.cmd [[
---   augroup _alpha
---     autocmd!
---     autocmd User AlphaReady set laststatus=0
---     autocmd User AlphaReady set showtabline=0  | autocmd BufUnload <buffer> set showtabline=2
---   augroup end
--- ]]
+local compilel_ok, _ = pcall(require, "compiled")
+if not compilel_ok then
+    vim.notify([[compile don't load]])
+end
+vim.cmd([[command! PackerCompile lua require('core.pack') require('packer').compile()]])
+vim.cmd([[command! PackerInstall lua require('core.pack') require('packer').install()]])
+vim.cmd([[command! PackerUpdate lua require('core.pack') require('packer').update()]])
+vim.cmd([[command! PackerSync lua require('core.pack') require('packer').sync()]])
+vim.cmd([[command! PackerClean lua require('core.pack') require('packer').clean()]])
+vim.cmd([[command! PackerSync lua require('core.pack') require('packer').sync()]])

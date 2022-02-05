@@ -10,44 +10,51 @@ neovim config in lua
 ## Options
 ```lua
 relativenumber = true,
-number = true,
-cursorline = true,
-cursorcolumn = true,
-showmode = true,
-showcmd = true,
-mouse = a,
-autoindent = true,
-tabstop = 2,
-shiftwidth = 4,
-expandtab = true,
-textwidth = 80,
-wrap = true,
-linebreak = true,
-wrapmargin = 2,
-scrolloff = 5,
-sidescrolloff = 15,
-laststatus = 2,
-ruler = true,
-showmatch = true,
-showtabline = 2,
-hlsearch = true,
-ignorecase = true,
-encoding = "utf-8",
-autochdir = true,
-autoread = true,
-wildmenu = true,
-background = "dark",
-timeout = true,
-ttimeout = true,
-timeoutlen = 500,
-ttimeoutlen = 0,
-termguicolors=true,
-gcr = [[n-v-c:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,]]..
-      [[ve:ver35-Cursor,]]..
-      [[o:hor50-Cursor,]]..
-      [[i-ci:ver25-Cursor/lCursor,]]..
-      [[r:hor50-Cursor/lCursor]],
-completeopt = 'menuone,noinsert',
+number         = true,
+cursorline     = true,
+cursorcolumn   = true,
+showmode       = true,
+showcmd        = true,
+mouse          = "a",
+autoindent     = true,
+tabstop        = 2,
+shiftwidth     = 4,
+expandtab      = true,
+textwidth      = 80,
+wrap           = false,
+linebreak      = true,
+wrapmargin     = 2,
+whichwrap      = "b,s,<,>,h,l",
+scrolloff      = 10,
+sidescrolloff  = 15,
+laststatus     = 2,
+ruler          = true,
+showmatch      = true,
+showtabline    = 2,
+hlsearch       = true,
+ignorecase     = true,
+backup         = false,
+swapfile       = false,
+encoding       = "utf-8",
+foldenable     = false,
+autochdir      = true,
+autoread       = true,
+wildmenu       = true,
+background     = "dark",
+timeout        = true,
+ttimeout       = true,
+timeoutlen     = 250,
+ttimeoutlen    = 0,
+termguicolors  = true,
+completeopt    = "menuone,noinsert",
+clipboard      = "unnamedplus",
+splitbelow     = true,
+splitright     = true,
+gcr            = [[n-v-c:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,]]..
+                  [[ve:ver35-Cursor,]]..
+                  [[o:hor50-Cursor,]]..
+                  [[i-ci:ver25-Cursor/lCursor,]]..
+                  [[r:hor50-Cursor/lCursor]],
 ```
 
 ## Disable
@@ -77,65 +84,58 @@ vim.g.loaded_spellfile_plugin  = 1
 ## Plugins
 
 ```
-~/.config/nvim/..
--------------------------------------
------------- Packer -----------------
--------------------------------------
-"wbthomason/packer.nvim",
--------------------------------------
--------------- UI -------------------
--------------------------------------
-'norcalli/nvim-colorizer.lua',
-'navarasu/onedark.nvim',
-'kyazdani42/nvim-web-devicons'
-'goolord/alpha-nvim',
-'hoob3rt/lualine.nvim',
-'akinsho/bufferline.nvim',
-'yamatsum/nvim-cursorline',
-'glepnir/indent-guides.nvim',
--------------------------------------
--------------- LSP ------------------
--------------------------------------
-'neovim/nvim-lspconfig',
-'tami5/lspsaga.nvim',
-"hrsh7th/nvim-cmp",
-'L3MON4D3/LuaSnip'
-"hrsh7th/cmp-nvim-lsp",
-"hrsh7th/cmp-nvim-lsp-document-symbol",
-"hrsh7th/cmp-cmdline",
-"onsails/lspkind-nvim",
-"hrsh7th/cmp-buffer",
-"hrsh7th/cmp-nvim-lua",
-"hrsh7th/cmp-path",
-"octaltree/cmp-look",
-"f3fora/cmp-spell",
-'saadparwaiz1/cmp_luasnip',,
-'williamboman/nvim-lsp-installer',
-"ray-x/lsp_signature.nvim",
--------------------------------------
-------------- Tools -----------------
--------------------------------------
-'kyazdani42/nvim-tree.lua',
-"nvim-lua/plenary.nvim"
-'nvim-telescope/telescope.nvim',
-'nvim-treesitter/nvim-treesitter',
-"nvim-treesitter/playground",
-"nvim-treesitter/completion-treesitter",
-"nvim-treesitter/nvim-treesitter-refactor",
-"nvim-treesitter/nvim-treesitter-textobjects",
-"dstein64/vim-startuptime",
--------------------------------------
---------------- Keys ----------------
--------------------------------------
-"folke/which-key.nvim",
-'phaazon/hop.nvim',
--------------------------------------
---------------- Edit ----------------
--------------------------------------
-'machakann/vim-highlightedyank',
-'windwp/nvim-autopairs',
-'b3nj5m1n/kommentary',
-"blackCauldron7/surround.nvim",
+    "mfussenegger/nvim-dap",
+    "rcarriga/nvim-dap-ui",
+    "theHamsta/nvim-dap-virtual-text",
+    "pianocomposer321/yabs.nvim",
+    "max397574/better-escape.nvim",
+    "phaazon/hop.nvim",
+    "rhysd/accelerated-jk",
+    "machakann/vim-highlightedyank",
+    "b3nj5m1n/kommentary",
+    "edluffy/specs.nvim",
+    "blackCauldron7/surround.nvim",
+    "simrat39/symbols-outline.nvim",
+    "abecodes/tabout.nvim",
+    "romainl/vim-cool",
+    "nathom/filetype.nvim",
+    "onsails/lspkind-nvim",
+    "windwp/nvim-autopairs",
+    "mhartington/formatter.nvim",
+    "j-hui/fidget.nvim",
+    "neovim/nvim-lspconfig",
+    "tami5/lspsaga.nvim",
+    "rafamadriz/friendly-snippets",
+    "hrsh7th/nvim-cmp",
+    "williamboman/nvim-lsp-installer",
+    "gelguy/wilder.nvim",
+    "hrsh7th/vim-eft",
+    "junegunn/vim-easy-align",
+    "https://gitlab.com/yorickpeterse/nvim-window.git",
+    "h-hg/fcitx.nvim",
+    "nvim-telescope/telescope-fzf-native.nvim",
+    "nvim-telescope/telescope.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/playground",
+    "nvim-treesitter/completion-treesitter",
+    "nvim-treesitter/nvim-treesitter-refactor",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "folke/which-key.nvim",
+    "airblade/vim-rooter",
+    "kevinhwang91/nvim-bqf",
+    "RRethy/vim-illuminate",
+    "goolord/alpha-nvim",
+    "sainnhe/edge",
+    "marko-cerovac/material.nvim",
+    "navarasu/onedark.nvim",
+    "kyazdani42/nvim-web-devicons",
+    "nvim-lualine/lualine.nvim",
+    "kazhala/close-buffers.nvim",
+    "lewis6991/gitsigns.nvim",
+    "lukas-reineke/indent-blankline.nvim",
+    "akinsho/toggleterm.nvim",
+    "kyazdani42/nvim-tree.lua",
+    "rcarriga/nvim-notify",
 ```
 
 ## Mappings

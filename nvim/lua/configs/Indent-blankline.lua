@@ -9,7 +9,7 @@ return function()
         -- show_end_of_line = false,
         indentLine_enabled = 1,
         char = "▏",
-        -- use_treesitter = true,
+        use_treesitter = true,
         filetype_exclude = {
             "vista",
             "help",

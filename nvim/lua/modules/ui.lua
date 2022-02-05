@@ -1,57 +1,21 @@
 local M = {}
 
--- M.illuminate = {
---     "RRethy/vim-illuminate",
---     opt = true,
--- }
+M.illuminate = {
+    "RRethy/vim-illuminate",
+    opt = true,
+}
 M.alpha = {
     "goolord/alpha-nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
-    -- opt = true,
+    opt = true,
     event = "BufWinEnter",
-    config = function()
-        local alpha = require("alpha")
-        local startify = require("alpha.themes.startify")
-        -- local dashboard = require("alpha.themes.dashboard")
-        --         startify.section.header.val = {
-        -- [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠔⡍⡮⡢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⠀⣐⢒⢐⠤⡀⢀⡀⠀⠀⢎⢜⠜⠉⠘⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⠀⡘⡔⠡⡂⡊⡕⢌⠢⣙⡐⡄⡇⠀⠀⡀⠤⢒⠢⡱⠢⡀⡤⠄⢄⠤⠤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⠀⢇⠪⠨⡐⢬⢣⢑⣔⡆⠷⣝⡴⢔⢕⢣⠫⢦⣑⢐⠩⡎⡂⢅⠅⡢⢱⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⠀⡑⢅⢑⢌⠞⡊⡡⠠⡊⡪⡲⢱⢑⢌⠢⠣⡑⠔⢍⢓⢇⠪⡐⡡⠨⡂⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⠀⡪⢂⠗⢁⠐⡈⢌⢪⠨⡢⠊⡢⡑⢔⢑⠕⢅⢍⠈⡢⡑⡹⢔⠨⡂⡢⡃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⠀⡇⡏⢨⢀⢂⢐⠔⠡⡑⢔⠠⢨⠠⡱⢡⢑⠔⠅⢆⠆⡕⢌⢪⢳⢢⢪⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⠤⠜⢔⢹⠨⡆⡅⢽⠨⡨⡂⡊⡢⡑⡜⢆⠕⢌⠪⡲⡑⢌⠆⢕⢱⢣⠳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⠀⢣⢀⠀⢌⣒⡌⣎⡎⠔⢌⠢⡒⢜⢜⠔⠻⣒⢅⢇⡇⠥⡑⡑⡌⡞⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⢸⠸⡑⢕⡇⡆⣎⠇⠺⢑⠅⢅⠳⡱⡍⣀⠀⣊⡮⡪⡎⡪⡨⡊⡂⡇⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⢸⢑⢌⠢⡣⣣⢷⠦⠬⢕⠍⡣⠗⠙⠂⢊⠭⡭⢝⢧⢱⢱⢸⢐⠅⣇⢗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⡧⡑⠔⡕⢼⡟⣁⡩⠑⢵⠀⠀⠀⠠⠀⢗⢄⢤⢑⠸⢱⢱⢱⠡⡑⣕⢕⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⠀⢧⢹⢨⢸⡢⢗⠐⠕⡆⠜⠀⢀⣀⡀⡄⠀⢁⢁⢁⠀⡗⡵⡣⢣⠱⡸⡱⣅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⢸⢸⢼⠰⡢⡹⢊⠥⡀⡂⠄⠀⣃⠢⡊⢌⡃⠀⠠⠀⠎⠝⡸⡬⡳⡑⡌⡧⡫⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⢸⢪⡎⢌⢗⢝⣄⠈⠒⢄⡀⠀⠑⠊⠒⠅⣀⣀⡤⡊⣀⠠⠗⣏⡪⡢⡣⡯⡪⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⢸⢪⢗⢕⠼⠁⠄⢐⠉⠕⢽⠙⠉⢇⠅⡃⠅⢠⠋⠅⠠⠁⣂⢘⢮⢮⢏⢗⢝⢼⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- [[⢸⢸⢺⡝⢜⢢⠩⡂⡢⢅⠎⠉⣒⠢⡧⢪⢂⠪⡨⡐⢍⠢⢢⢣⢣⡫⡎⡇⢧⢹⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        -- }
-        alpha.setup(startify.config)
-        -- alpha.setup(dashboard.config)
-    end,
+    config = require("configs.Alpha")
 }
 
-M.everforest = {
-    "sainnhe/everforest",
-    opt = true,
-    config = require("configs.Colorscheme").everforest,
-}
 M.edge = {
     "sainnhe/edge",
     -- opt = true,
     config = require("configs.Colorscheme").edge,
-}
-
-M.material = {
-    "marko-cerovac/material.nvim",
-    opt = true,
-    config = require("configs.Colorscheme").material,
 }
 
 M.onedark = {
@@ -67,12 +31,6 @@ M.devicons = {
 
 M.lualine = {
     "nvim-lualine/lualine.nvim",
-    -- requires = {
-    --     "ray-x/lsp_signature.nvim",
-    --     -- opt = true,
-    --     --     event = "InsertEnter",
-    --     config = require("configs.Lsp_signature"),
-    -- },
     config = require("configs.Lualine"),
     -- after = "nvim-web-devicons",
     event = "BufRead",
@@ -96,8 +54,8 @@ M.gitsigns = {
 M.indent = {
     "lukas-reineke/indent-blankline.nvim",
     config = require("configs.Indent-blankline"),
-    event = "BufRead",
-    -- after = "nvim-treesitter",
+    -- event = "BufRead",
+    after = "nvim-treesitter",
 }
 
 M.toggleterm = {
@@ -109,7 +67,7 @@ M.tree = {
     "kyazdani42/nvim-tree.lua",
     -- requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = require("configs.Nvim-tree"),
-    event = {  "BufRead" },
+    event = { "BufRead" },
 }
 
 M.notify = {

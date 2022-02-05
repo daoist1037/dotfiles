@@ -20,6 +20,7 @@ return function()
         vim.cmd([[packadd lspkind-nvim]])
     end
     local lspkind = require("lspkind")
+    local symbol_map = require("configs.Lspkind")
     -- require("configs.Lspkind")
 
     if not packer_plugins["cmp-under-comparator"].loaded then
@@ -32,7 +33,21 @@ return function()
                 -- with_text = true,
                 mode = "symbol_text",
                 maxwidth = 30,
+                symbol_map = symbol_map,
                 before = function(entry, vim_item)
+                    local word = entry:get_insert_text()
+                    if entry.completion_item.insertTextFormat == require("cmp.types").lsp.InsertTextFormat.Snippet then
+                        word = vim.lsp.util.parse_snippet(word)
+                    end
+                    word = require("cmp.utils.str").oneline(word)
+
+                    if
+                        entry.completion_item.insertTextFormat == require("cmp.types").lsp.InsertTextFormat.Snippet
+                        and string.sub(vim_item.abbr, -1, -1) == "~"
+                    then
+                        word = word .. "~"
+                    end
+                    vim_item.abbr = word
                     return vim_item
                 end,
             }),
@@ -109,7 +124,7 @@ return function()
             -- { name = 'orgmode' },
             { name = "nvim_lsp" },
             { name = "treesitter" },
-            -- { name = "cmdline" },
+            { name = "cmdline" },
             { name = "luasnip" },
             { name = "buffer" },
             { name = "nvim_lua" },
@@ -120,4 +135,9 @@ return function()
             -- { name = "spell" },
         },
     })
+    -- require("cmp").setup.cmdline(":", {
+    --     sources = {
+    --         { name = "cmdline", keyword_length = 2 },
+    --     },
+    -- })
 end

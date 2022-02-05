@@ -1,5 +1,26 @@
 local M = {}
 
+-- M.impatient = {
+--     "lewis6991/impatient.nvim",
+--     config = function()
+--         require("impatient")
+--     end
+-- }
+
+M.wilder = {
+    "gelguy/wilder.nvim",
+    requires = { { "romgrk/fzy-lua-native", after = "wilder.nvim" } },
+    event = "CmdlineEnter",
+    config = function()
+        vim.cmd([[
+call wilder#setup({'modes': [':', '/', '?']})
+    call wilder#set_option('pipeline', [wilder#branch(wilder#cmdline_pipeline({'use_python': 0,'fuzzy': 1, 'fuzzy_filter': wilder#lua_fzy_filter()}),wilder#vim_search_pipeline(), [wilder#check({_, x -> empty(x)}), wilder#history(), wilder#result({'draw': [{_, x -> ' ' . x}]})])])
+    call wilder#set_option('renderer', wilder#renderer_mux({':': wilder#popupmenu_renderer({'highlighter': wilder#lua_fzy_highlighter(), 'left': [wilder#popupmenu_devicons()], 'right': [' ', wilder#popupmenu_scrollbar()]}), '/': wilder#wildmenu_renderer({'highlighter': wilder#lua_fzy_highlighter()})}))
+    call wilder#set_option('use_python_remote_plugin', 0)
+
+]])
+    end,
+}
 M.eft = {
     "hrsh7th/vim-eft",
     event = "BufRead",
@@ -62,7 +83,7 @@ M.telescope = {
     requires = {
         { "nvim-lua/plenary.nvim", opt = false },
         -- { "nvim-lua/plenary.nvim", opt = true },
-        { "nvim-lua/popup.nvim", opt = true },
+        { "nvim-lua/popup.nvim", opt = false },
     },
     config = require("configs.Telescope"),
     -- after = "telescope-fzf-native.nvim",
@@ -72,10 +93,8 @@ M.telescope = {
 M.treesitter = {
     "nvim-treesitter/nvim-treesitter",
     config = require("configs.Nvim-treesitter"),
-    -- opt = true,
     run = "TSUpdate",
-    -- after = "impatient.nvim",
-    event = {"BufRead", } ,--"BufReadPre"
+    event = { "BufRead" }, --"BufReadPre"
 }
 
 M.playground = {

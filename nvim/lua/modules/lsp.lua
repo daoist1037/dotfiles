@@ -31,7 +31,6 @@ M.snippets = {
 M.cmp = {
     "hrsh7th/nvim-cmp",
     requires = {
-        -- { "hrsh7th/vim-vsnip" },
         { "lukas-reineke/cmp-under-comparator",after = "nvim-cmp" },
         { "L3MON4D3/LuaSnip", after = "nvim-cmp", config = from_vscode },
         { "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },

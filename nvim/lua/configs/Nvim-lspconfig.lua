@@ -36,6 +36,7 @@ return function()
             end
         end
     end
+
     local lspconfig = require("lspconfig")
 
     local custom_attach = function(client, bufnr)
@@ -60,19 +61,19 @@ return function()
         )
     end
 
-    local server_path = "/home/daoist/.local/share/nvim/lsp_servers"
+    local server_path = vim.fn.stdpath("data") .. "/lsp_servers"
+    -- local server_path = "/home/daoist/.local/share/nvim/lsp_servers"
 
     lspconfig["pyright"].setup({
         cmd = {
             server_path .. "/python/node_modules/.bin/pyright-langserver",
             "--stdio",
         },
-        -- on_attach = custom_attach,
         on_attach = function(client, bufnr)
-            -- if not packer_plugins["vim-illuminate"].loaded then
-            --     vim.cmd([[packadd vim-illuminate]])
-            --     require("illuminate").on_attach(client)
-            -- end
+            if not packer_plugins["vim-illuminate"].loaded then
+                vim.cmd([[packadd vim-illuminate]])
+            require("illuminate").on_attach(client)
+            end
             custom_attach(client, bufnr)
         end,
         capabilities = custom_capabilities,
@@ -84,10 +85,10 @@ return function()
     lspconfig["clangd"].setup({
         on_attach = function(client, bufnr)
             client.resolved_capabilities.document_formatting = false
-            -- if not packer_plugins["vim-illuminate"].loaded then
-            --     vim.cmd([[packadd vim-illuminate]])
-            --     require("illuminate").on_attach(client)
-            -- end
+            if not packer_plugins["vim-illuminate"].loaded then
+                vim.cmd([[packadd vim-illuminate]])
+            require("illuminate").on_attach(client)
+            end
             custom_attach(client, bufnr)
         end,
         capabilities = custom_capabilities,
@@ -113,10 +114,10 @@ return function()
     table.insert(runtime_path, "lua/?/init.lua") -- table.insert(runtime_path, "lua/?/init.lua")
     lspconfig["sumneko_lua"].setup({
         on_attach = function(client, bufnr)
-            -- if not packer_plugins["vim-illuminate"].loaded then
-            --     vim.cmd([[packadd vim-illuminate]])
-            --     require("illuminate").on_attach(client)
-            -- end
+            if not packer_plugins["vim-illuminate"].loaded then
+                vim.cmd([[packadd vim-illuminate]])
+            require("illuminate").on_attach(client)
+            end
             custom_attach(client, bufnr)
         end,
         -- on_attach = custom_attach,

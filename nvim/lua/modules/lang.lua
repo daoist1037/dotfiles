@@ -35,9 +35,11 @@ M.fidget = {
     config = function()
         require("fidget").setup()
     end,
+    -- opt = true,
     -- after = "nvim-lspconfig"
     ft = { "cpp", "c", "lua", "python" },
 }
+
 
 return M
 

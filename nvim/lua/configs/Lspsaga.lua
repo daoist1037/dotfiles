@@ -44,20 +44,4 @@ return function()
         server_filetype_map = {},
         diagnostic_prefix_format = "%d. ",
     })
-    -- lspsaga.init_lsp_saga(
-    -- {
-    --     border_style = "round",
-    --     error_sign = "",
-    --     warn_sign = "",
-    --     hint_sign = "",
-    --     infor_sign = "",
-    --     diagnostic_header_icon = "   ",
-    --     code_action_icon = " ",
-    --     finder_definition_icon = "  ",
-    --     finder_reference_icon = "  ",
-    --     max_preview_lines = 10,
-    -- }
-
-    -- )
-    --- In lsp attach function
 end
