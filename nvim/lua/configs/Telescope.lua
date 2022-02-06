@@ -7,7 +7,7 @@ return function()
     -- if not packer_plugins["plenary.nvim"].loaded then
     --     vim.cmd([[packadd plenary.nvim]])
     -- end
-    vim.cmd([[packadd popup.nvim]])
+    -- vim.cmd([[packadd popup.nvim]])
     -- local cmd_ok, _ = pcall(vim.cmd, "packadd telescope-fzf-native")
     -- if not cmd_ok then
     --     vim.notify("fzf not load")

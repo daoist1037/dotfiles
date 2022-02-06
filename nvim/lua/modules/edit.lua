@@ -18,6 +18,7 @@ M.hop = {
 }
 M.jk = {
     "rhysd/accelerated-jk",
+    event = "CursorMoved",
     -- event = "BufRead",
     config = function()
         vim.cmd([[
@@ -62,20 +63,21 @@ M.symbols = {
     config = require("configs.Symbolsoutline"),
     -- after = "nvim-lspconfig",
 }
+
 M.tabout = {
     "abecodes/tabout.nvim",
-    opt = true,
-    event = "InsertEnter",
-    wants = "nvim-treesitter",
-    after = "nvim-cmp",
-    config = require("configs.Tabout"),
+    wants = {"nvim-treesitter"},
+    after = {"nvim-cmp"},
+    config = require("configs.Tabout")
 }
 
 M.cool = {
     "romainl/vim-cool",
     opt = true,
-    event = { "CursorMoved", "InsertEnter" },
+    -- event = { "CursorMoved", "InsertEnter" },
+    event = { "BufReadPre", "BufNewFile" },
 }
 
 -- "tabout" is incompatible with "nvim-autopairs"
 return M
+--     "abecodes/tabout.nvim",

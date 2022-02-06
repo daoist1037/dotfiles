@@ -1,12 +1,5 @@
 local M = {}
 
--- M.impatient = {
---     "lewis6991/impatient.nvim",
---     config = function()
---         require("impatient")
---     end
--- }
-
 M.wilder = {
     "gelguy/wilder.nvim",
     requires = { { "romgrk/fzy-lua-native", after = "wilder.nvim" } },
@@ -77,23 +70,24 @@ M.telescopefzf = {
     -- cmd = "Telescope",
     after = "telescope.nvim",
 }
-
+M.plenary = { "nvim-lua/plenary.nvim", opt = true }
 M.telescope = {
     "nvim-telescope/telescope.nvim",
     requires = {
-        { "nvim-lua/plenary.nvim", opt = false },
+        -- { "nvim-lua/plenary.nvim", opt = false },
         -- { "nvim-lua/plenary.nvim", opt = true },
-        { "nvim-lua/popup.nvim", opt = false },
+        { "nvim-lua/popup.nvim", opt = true },
     },
     config = require("configs.Telescope"),
     -- after = "telescope-fzf-native.nvim",
     cmd = "Telescope",
+    wants = {"plenary.nvim", "telescope-fzf-native.nvim"}
 }
 
 M.treesitter = {
     "nvim-treesitter/nvim-treesitter",
     config = require("configs.Nvim-treesitter"),
-    run = "TSUpdate",
+    run = ":TSUpdate",
     event = { "BufRead" }, --"BufReadPre"
 }
 
@@ -130,7 +124,7 @@ M.whick_key = {
     config = require("configs.Which-key"),
     -- event = { "BufRead", "BufNewFile" },
     -- event = "VimEnter",
-    -- keys = "<Space>",
+    keys = "<Space>",
 }
 
 M.rooter = {

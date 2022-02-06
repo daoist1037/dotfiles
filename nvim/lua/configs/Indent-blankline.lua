@@ -51,7 +51,7 @@ return function()
         -- context_highlight_list = { "Error", "Warning" },
         space_char_blankline = " ",
         show_current_context = true,
-        -- show_current_context_start = true,
+        show_current_context_start = true,
     })
     vim.cmd("autocmd CursorMoved * IndentBlanklineRefresh")
 end

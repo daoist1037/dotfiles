@@ -9,7 +9,7 @@ M.alpha = {
     requires = { "kyazdani42/nvim-web-devicons" },
     opt = true,
     event = "BufWinEnter",
-    config = require("configs.Alpha")
+    config = require("configs.Alpha"),
 }
 
 M.edge = {
@@ -21,9 +21,19 @@ M.edge = {
 M.onedark = {
     "navarasu/onedark.nvim",
     opt = true,
-    config = require("configs.Colorscheme").onedark,
+    -- config = require("configs.Colorscheme").onedark,
 }
 
+M.night = {
+    "folke/tokyonight.nvim",
+    opt = true,
+    config = function()
+        -- vim.cmd[[packadd nvim-treesitter]]
+        vim.g.tokyonight_style = "storm"
+        vim.g.tokyonight_sidebars = { "qf", "nvim-tree", "terminal", "packer" }
+        vim.cmd([[colorscheme tokyonight]])
+    end,
+}
 M.devicons = {
     "kyazdani42/nvim-web-devicons",
     -- opt = true,
@@ -46,7 +56,8 @@ M.gitsigns = {
     "lewis6991/gitsigns.nvim",
     config = require("configs.Gitsigns"),
     -- event = { "BufReadPre", "BufRead" },
-    event = { "BufNewFile", "BufRead" },
+    event = { "BufRead" },
+    wants = {"plenary.nvim"},
     -- ft = {"lua", "python","cpp","c"},
     -- opt = true,
 }
@@ -73,6 +84,7 @@ M.tree = {
 M.notify = {
     "rcarriga/nvim-notify",
     config = require("configs.Notify"),
+    -- after = "alpha-nvim"
 }
 
 return M

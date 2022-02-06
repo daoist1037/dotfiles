@@ -26,6 +26,7 @@ M.yabs = {
     "pianocomposer321/yabs.nvim",
     config = require("configs.Yabs"),
     ft = {"cpp"},
+    wants = {"plenary.nvim"}
     -- cmd = "YabsTask",
 }
 

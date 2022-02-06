@@ -1,18 +1,8 @@
 local M = {}
 
--- local data_dir = vim.fn.stdpath("data")
--- local plenary_dir = data_dir .. "/site/pack/packer/opt/plenary.nvim"
--- local notify_dir = data_dir .. "/site/pack/packer/start/nvim-notify"
--- local plenary_st =not( vim.loop.fs_stat(plenary_dir))
--- local notify_st =not( vim.loop.fs_stat(notify_dir))
-
--- if plenary_st or notify_st then
---     return M
--- end
-
 local async = {}
 local notify = {}
-local function pre()
+local function dapPre()
     if not packer_plugins["plenary.nvim"] then
         vim.notify("module plenary isn't installed")
         return false
@@ -30,13 +20,12 @@ local function pre()
 end
 
 M.dapui = function()
-    if pre() == false then
+    if dapPre() == false then
         return
     end
     if packer_plugins["nvim-dap-ui"].loaded then
         require("dapui").toggle()
     else
-        -- vim.api.nvim_command([[echo 'module dapui not load']])
         async.run(function()
             notify("module dapui not load", "error", { title = "dapui toggle", timeout = 1000 })
         end)
@@ -44,10 +33,9 @@ M.dapui = function()
 end
 
 M.dap = function(type)
-    if pre() == false then
+    if dapPre() == false then
         return
     end
-    pre()
     if packer_plugins["nvim-dap"].loaded then
         vim.api.nvim_command([[lua require'dap'.]] .. type .. [[()]])
     else
@@ -58,7 +46,7 @@ M.dap = function(type)
 end
 
 M.yabstask = function(type)
-    if pre() == false then
+    if dapPre() == false then
         return
     end
     if packer_plugins["yabs.nvim"].loaded then
@@ -71,7 +59,7 @@ M.yabstask = function(type)
 end
 
 M.bdelete = function(type)
-    if pre() == false then
+    if dapPre() == false then
         return
     end
     if packer_plugins["close-buffers.nvim"].loaded then

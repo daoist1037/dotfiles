@@ -21,7 +21,6 @@ return function()
     end
     local lspkind = require("lspkind")
     local symbol_map = require("configs.Lspkind")
-    -- require("configs.Lspkind")
 
     if not packer_plugins["cmp-under-comparator"].loaded then
         vim.cmd([[packadd cmp-under-comparator]])
@@ -29,8 +28,8 @@ return function()
     local cmp = require("cmp")
     cmp.setup({
         formatting = {
+            fields = { "kind", "abbr", "menu" },
             format = lspkind.cmp_format({
-                -- with_text = true,
                 mode = "symbol_text",
                 maxwidth = 30,
                 symbol_map = symbol_map,
@@ -48,6 +47,12 @@ return function()
                         word = word .. "~"
                     end
                     vim_item.abbr = word
+                    vim_item.dup = ({
+                        buffer = 1,
+                        path = 1,
+                        nvim_lsp = 1,
+                        rg = 1,
+                    })[entry.source.name] or 0
                     return vim_item
                 end,
             }),
@@ -134,7 +139,12 @@ return function()
             { name = "rg" },
             -- { name = "spell" },
         },
+        experimental = {
+            ghost_text = false,
+            native_menu = false,
+        },
     })
+
     -- require("cmp").setup.cmdline(":", {
     --     sources = {
     --         { name = "cmdline", keyword_length = 2 },

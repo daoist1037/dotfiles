@@ -46,7 +46,7 @@ return function()
                 -- luafmt
                 function()
                     return {
-                        exe = "/home/daoist/dotfiles/formatter/stylua",
+                        exe = vim.fn.stdpath('data') .. '/formatter/stylua',
                         args = {
                             "--indent-type",
                             "Spaces",
