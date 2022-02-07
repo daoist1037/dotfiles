@@ -81,7 +81,7 @@ return function()
             theme = "auto",
             -- theme = bubbles_theme,
             -- component_separators = "|",
-            component_separators = { left = "", right = "" },
+            -- component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
             -- section_separators = { left = "", right = "" },
             -- component_separators = { left = "", right = "" },

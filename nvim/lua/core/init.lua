@@ -49,8 +49,10 @@ load_options()
 load_map()
 
 local pack = require('core.pack')
-if pack.ensure_installed() then
-    pack.load_compile()
+-- if pack.ensure_installed() then
+--     pack.load_compile()
 
-end
+-- end
+pack.ensure_plugins()
 
+pack.load_compile()

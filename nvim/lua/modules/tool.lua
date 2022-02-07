@@ -139,6 +139,10 @@ M.bqf = {
     -- cmd = {"BqfEnable", "BqfDisable", "BqfToggle"}
 }
 
+M.startuptime = {
+    "dstein64/vim-startuptime",
+}
+
 return M
 
 --     "ygm2/rooter.nvim", -- nvim-tree don't work well
