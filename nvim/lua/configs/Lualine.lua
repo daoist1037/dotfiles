@@ -66,18 +66,27 @@ return function()
         update_in_insert = false, -- Update diagnostics in insert mode.
         always_visible = false, -- Show diagnostics even if there are none.
     }
+    local current_signature = function(width)
+        if not packer_plugins["lsp_signature.nvim"] or packer_plugins["lsp_signature.nvim"].loaded == false then
+            return ""
+        end
+        local sig = require("lsp_signature").status_line(80)
+        return sig.label .. "🐼" .. sig.hint
+    end
 
     local lualine = require("lualine")
     lualine.setup({
         options = {
             icons_enabled = true,
             theme = "auto",
+            -- theme = bubbles_theme,
+            -- component_separators = "|",
             component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
             -- section_separators = { left = "", right = "" },
             -- component_separators = { left = "", right = "" },
             disabled_filetypes = {
-                "codelldb",
+                -- "codelldb",
                 -- "toggleterm",
                 -- "NvimTree",
                 -- "Outline",
@@ -89,17 +98,17 @@ return function()
             lualine_b = { "" },
             lualine_c = { "" },
             lualine_x = {},
-            lualine_y = {},
-            lualine_z = { "tabs" },
+            lualine_y = {diagnostics,"diff", },
+            lualine_z = { { "tabs" } },
         },
         sections = {
-            lualine_a = { "mode" },
-            lualine_b = { "branch", "diff", diagnostics },
-            lualine_c = { { "filename" } },
+            lualine_a = { { "mode" } },
+            lualine_b = { "branch",  },
+            lualine_c = { { "filename" }, current_signature },
             -- lualine_x = { "encoding", { "fileformat" } , { "filetype", icon_only = true } },
             lualine_x = { "encoding", { "fileformat" }, { "filetype" } }, -- { "os.date('%a')" },
             lualine_y = { "progress" },
-            lualine_z = { "location" },
+            lualine_z = { { "location" } },
         },
         inactive_sections = {
             lualine_a = {},

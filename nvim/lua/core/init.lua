@@ -44,12 +44,6 @@ local function load_map()
         vim.api.nvim_set_keymap(list[1], list[2], list[3], opts)
     end
 end
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost pack.lua source <afile> | PackerSync
---   augroup end
--- ]])
 load_disable()
 load_options()
 load_map()

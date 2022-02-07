@@ -3,9 +3,23 @@ return function()
     -- if not packer_plugins["cmp-nvim-lsp"].loaded then
     --     vim.cmd([[packadd cmp-nvim-lsp]])
     -- end
-    -- vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
-    -- vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
-    -- vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])
+    vim.g.Illuminate_ftblacklist = { "NvimTree" }
+    vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
+    vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
+    vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])
+    -- vim.api.nvim_command([[hi link illuminatedWord VisualCursorLine]])
+    vim.api.nvim_set_keymap(
+        "n",
+        "<a-n>",
+        '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>',
+        { noremap = true }
+    )
+    vim.api.nvim_set_keymap(
+        "n",
+        "<a-p>",
+        '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>',
+        { noremap = true }
+    )
 
     -- local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -59,6 +73,13 @@ return function()
             vim.lsp.diagnostic.on_publish_diagnostics,
             lsp_publish_diagnostics_options
         )
+        require("lsp_signature").on_attach({
+            bind = false, -- This is mandatory, otherwise border config won't get registered.
+            floating_window = false,
+            hint_enable = false,
+            -- transparency = 80,
+            always_trigger = false,
+        }, bufnr)
     end
 
     local server_path = vim.fn.stdpath("data") .. "/lsp_servers"
@@ -72,7 +93,7 @@ return function()
         on_attach = function(client, bufnr)
             if not packer_plugins["vim-illuminate"].loaded then
                 vim.cmd([[packadd vim-illuminate]])
-            require("illuminate").on_attach(client)
+                require("illuminate").on_attach(client)
             end
             custom_attach(client, bufnr)
         end,
@@ -87,7 +108,7 @@ return function()
             client.resolved_capabilities.document_formatting = false
             if not packer_plugins["vim-illuminate"].loaded then
                 vim.cmd([[packadd vim-illuminate]])
-            require("illuminate").on_attach(client)
+                require("illuminate").on_attach(client)
             end
             custom_attach(client, bufnr)
         end,
@@ -116,7 +137,7 @@ return function()
         on_attach = function(client, bufnr)
             if not packer_plugins["vim-illuminate"].loaded then
                 vim.cmd([[packadd vim-illuminate]])
-            require("illuminate").on_attach(client)
+                require("illuminate").on_attach(client)
             end
             custom_attach(client, bufnr)
         end,

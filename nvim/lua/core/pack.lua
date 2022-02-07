@@ -1,11 +1,11 @@
 local present = nil
 local packer = nil
-local packer_bootstrap = nil
 
 local data_dir = vim.fn.stdpath("data")
 local compile_dir = vim.fn.stdpath("data") .. "/site/lua"
 
-local compile_path = compile_dir .. "/packer_compiled.lua"
+-- local compile_path = compile_dir .. "/packer_compiled.lua"
+local compile_path = compile_dir .. "/packer_compiled.vim"
 local back_path = compile_dir .. "/_back.lua"
 local plugins_path = compile_dir .. "/_plugins.lua"
 local packer_path = data_dir .. "/site/pack/packer/opt/packer.nvim"
@@ -16,10 +16,17 @@ local plugins = {}
 local function syncAfter()
     local lines = {}
     local lnum = 0
+    lines[#lines + 1] = "vim.cmd [[packadd packer.nvim]]\n"
 
+
+    -- if vim.fn.filereadable(compile_path) ~= 1 then
+    --     local file = io.open(compile_path, "w")
+    --     file:close()
+    --     flag = false
+    -- end
     for line in io.lines(compile_path) do
         lnum = lnum + 1
-        if lnum > 6 then
+        if lnum > 15 then
             lines[#lines + 1] = line .. "\n"
             if line == "END" then
                 break
@@ -34,15 +41,16 @@ local function syncAfter()
     for _, line in ipairs(lines) do
         file:write(line)
     end
-    file:write("end\n")
+    -- file:write("end\n")
     file:close()
     os.remove(compile_path)
+    vim.notify("compile.lua has been converted")
 end
 
 local function init()
     print("Cloning packer..") -- remove the dir before cloning
     vim.fn.delete(packer_path, "rf")
-    packer_bootstrap = vim.fn.system({
+    vim.fn.system({
         "git",
         "clone",
         "--depth",
@@ -69,6 +77,8 @@ local function start_use()
         end,
         config = {
             compile_path = compile_path,
+            disable_commands = true,
+            auto_reload_compiled = false,
             display = {
                 open_fn = function()
                     return require("packer.util").float({ border = "none" })
@@ -89,6 +99,23 @@ local function load_packer()
         error(" packer don't exit  !\nPacker path: " .. packer_path)
         return false
     end
+    if vim.fn.isdirectory(compile_dir) ~= 1 then
+        os.execute("mkdir -p " .. compile_dir)
+    end
+    -- packer.init({
+    --     compile_path = compile_path,
+    --     disable_commands = true,
+    --     auto_reload_compiled = false,
+    --     display = {
+    --         open_fn = function()
+    --             return require("packer.util").float({ border = "none" })
+    --         end,
+    --     },
+    --     git = {
+    --         clone_timeout = 600, -- Timeout, in seconds, for git clones
+    --     },
+    --     auto_clean = true,
+    -- })
     start_use()
     return true
 end
@@ -103,24 +130,23 @@ function plugins.ensure_installed()
         if not load_packer() then
             return false
         end
-        -- require('packer').compile(plugins_path)
-        require("packer").compile()
-        require("packer").install()
-        -- require('packer').sync()
+        require("packer").sync()
         -- syncAfter()
-        -- packer.compile()
     end
     return true
 end
 
 function plugins.magic_compile()
     load_packer()
-    require("packer").compile()
+    -- require("packer").compile()
+    require("packer").compile(compile_path)
+    -- syncAfter()
 end
 
 function plugins.magic_sync()
     load_packer()
     require("packer").sync()
+    -- syncAfter()
 end
 
 function plugins.magic_after()
@@ -133,13 +159,9 @@ function plugins.load_compile()
     else
         assert("Missing packer compile file Run PackerCompile Or PackerInstall to fix")
     end
-    vim.cmd([[command! PackerCompile lua require('core.pack').magic_compile() ]])
-    vim.cmd([[command! PackerInstall lua require('packer').install() ]])
-    vim.cmd([[command! PackerUpdate lua require('packer').update() ]])
-    vim.cmd([[command! PackerStatus lua require('core.pack').magic_compile() require('packer').status()  ]])
-    vim.cmd([[command! PackerClean lua require('packer').clean() ]])
-    vim.cmd([[command! PackerSync lua require('core.pack').magic_sync() ]])
-    vim.cmd([[command! PackerComplete lua require('core.pack').magic_after() ]])
+    vim.cmd([[command! PackerMagicCompile lua  require('core.pack').magic_compile() ]])
+    vim.cmd([[command! PackerMagicSync lua require('core.pack').magic_sync() ]])
+    vim.cmd([[command! PackerConvert lua require('core.pack').magic_after() ]])
 end
 
 return plugins

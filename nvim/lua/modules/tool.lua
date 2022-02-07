@@ -70,18 +70,13 @@ M.telescopefzf = {
     -- cmd = "Telescope",
     after = "telescope.nvim",
 }
-M.plenary = { "nvim-lua/plenary.nvim", opt = true }
+M.plenary = { "nvim-lua/plenary.nvim", opt = false }
+M.popup = { "nvim-lua/popup.nvim", opt = true }
 M.telescope = {
     "nvim-telescope/telescope.nvim",
-    requires = {
-        -- { "nvim-lua/plenary.nvim", opt = false },
-        -- { "nvim-lua/plenary.nvim", opt = true },
-        { "nvim-lua/popup.nvim", opt = true },
-    },
     config = require("configs.Telescope"),
-    -- after = "telescope-fzf-native.nvim",
     cmd = "Telescope",
-    wants = {"plenary.nvim", "telescope-fzf-native.nvim"}
+    wants = { "plenary.nvim", "telescope-fzf-native.nvim", "popup.nvim" },
 }
 
 M.treesitter = {
@@ -124,11 +119,12 @@ M.whick_key = {
     config = require("configs.Which-key"),
     -- event = { "BufRead", "BufNewFile" },
     -- event = "VimEnter",
-    keys = "<Space>",
+    -- keys = "<Space>",
 }
 
 M.rooter = {
     "airblade/vim-rooter",
+    -- opt = true,
     event = "BufRead",
     config = function()
         -- vim.g.rooter_patterns = [[=src]]

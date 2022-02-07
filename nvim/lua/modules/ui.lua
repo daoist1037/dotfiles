@@ -1,5 +1,12 @@
 local M = {}
 
+M.neoscroll = {
+    'karb94/neoscroll.nvim',
+    event = "BufRead",
+    config = function ()
+        require('neoscroll').setup()
+    end
+}
 M.illuminate = {
     "RRethy/vim-illuminate",
     opt = true,
@@ -21,19 +28,9 @@ M.edge = {
 M.onedark = {
     "navarasu/onedark.nvim",
     opt = true,
-    -- config = require("configs.Colorscheme").onedark,
+    config = require("configs.Colorscheme").onedark,
 }
 
-M.night = {
-    "folke/tokyonight.nvim",
-    opt = true,
-    config = function()
-        -- vim.cmd[[packadd nvim-treesitter]]
-        vim.g.tokyonight_style = "storm"
-        vim.g.tokyonight_sidebars = { "qf", "nvim-tree", "terminal", "packer" }
-        vim.cmd([[colorscheme tokyonight]])
-    end,
-}
 M.devicons = {
     "kyazdani42/nvim-web-devicons",
     -- opt = true,
@@ -42,8 +39,9 @@ M.devicons = {
 M.lualine = {
     "nvim-lualine/lualine.nvim",
     config = require("configs.Lualine"),
+    wants = {"lsp_signature.nvim"},
     -- after = "nvim-web-devicons",
-    event = "BufRead",
+    event = {"BufRead"}
 }
 
 M.bufferdelete = {
@@ -57,7 +55,7 @@ M.gitsigns = {
     config = require("configs.Gitsigns"),
     -- event = { "BufReadPre", "BufRead" },
     event = { "BufRead" },
-    wants = {"plenary.nvim"},
+    wants = { "plenary.nvim" },
     -- ft = {"lua", "python","cpp","c"},
     -- opt = true,
 }
@@ -78,6 +76,7 @@ M.tree = {
     "kyazdani42/nvim-tree.lua",
     -- requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = require("configs.Nvim-tree"),
+    -- cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile" },
     event = { "BufRead" },
 }
 
@@ -93,3 +92,4 @@ return M
 --     "kdheepak/tabline.nvim",
 --     "noib3/nvim-cokeline",
 --     "sainnhe/sonokai",
+--     "folke/tokyonight.nvim",

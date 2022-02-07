@@ -40,8 +40,11 @@ M.fidget = {
     ft = { "cpp", "c", "lua", "python" },
 }
 
+M.lsp_signature = {
+    "ray-x/lsp_signature.nvim",
+    opt = true,
+}
 
 return M
 
 --     "folke/trouble.nvim",
---     "ray-x/lsp_signature.nvim",

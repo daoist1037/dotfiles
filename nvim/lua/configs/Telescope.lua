@@ -3,11 +3,11 @@ return function()
     if not status then
         return
     end
-    vim.cmd([[packadd telescope-fzf-native.nvim]])
+    -- vim.cmd([[packadd telescope-fzf-native.nvim]])
     -- if not packer_plugins["plenary.nvim"].loaded then
     --     vim.cmd([[packadd plenary.nvim]])
     -- end
-    -- vim.cmd([[packadd popup.nvim]])
+    vim.cmd([[packadd popup.nvim]])
     -- local cmd_ok, _ = pcall(vim.cmd, "packadd telescope-fzf-native")
     -- if not cmd_ok then
     --     vim.notify("fzf not load")
@@ -99,6 +99,11 @@ return function()
             },
             commands = {
                 -- theme = "dropdown",
+                theme = "ivy",
+                layout_config = {
+                    height = 0.20,
+                    -- preview_cutoff = 100,
+                },
             },
             help_tags = {
                 -- theme = "dropdown",
