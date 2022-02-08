@@ -16,9 +16,9 @@ return function()
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
 
-    if not packer_plugins["lspkind-nvim"].loaded then
-        vim.cmd([[packadd lspkind-nvim]])
-    end
+    -- if not packer_plugins["lspkind-nvim"].loaded then
+    --     vim.cmd([[packadd lspkind-nvim]])
+    -- end
     local lspkind = require("lspkind")
     local symbol_map = require("configs.Lspkind")
 

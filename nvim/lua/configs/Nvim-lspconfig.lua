@@ -128,7 +128,6 @@ return function()
         on_attach = function(client, bufnr)
             custom_attach(client, bufnr)
         end,
-        on_attach = custom_attach,
         capabilities = custom_capabilities,
         cmd = {
             server_path .. "/sumneko_lua/extension/server/bin/lua-language-server",
