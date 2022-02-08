@@ -86,6 +86,12 @@ M.notify = {
    -- after = "alpha-nvim"
 }
 
+M.scrollbar = {
+    "dstein64/nvim-scrollview",
+    -- opt = true,
+    event = "BufRead"
+}
+
 return M
 
 --     "akinsho/bufferline.nvim",

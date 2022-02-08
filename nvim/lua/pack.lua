@@ -1,10 +1,7 @@
 local vim_path = vim.fn.stdpath("config")
 local data_dir = vim.fn.stdpath("data") .. "/site/"
 local modules_dir = vim_path .. "/lua/modules"
--- local packer_compiled = data_dir .. "/lua/packer_compiled.vim"
 local packer_compiled = vim_path .. "/plugin/_compiled.lua"
-local compile_to_lua = data_dir .. "/lua/_compiled.lua"
-local bak_compiled = data_dir .. "lua/bak_compiled.lua"
 local packer = nil
 local modules = { "daps", "edit", "lang", "lsp", "tool", "ui" }
 local Packer = {}
@@ -47,6 +44,7 @@ function Packer:init_ensure_plugins()
     local packer_dir = data_dir .. "pack/packer/opt/packer.nvim"
     local state = vim.loop.fs_stat(packer_dir)
     if not state then
+        print("Cloning packer..")
         vim.fn.system({
             "git",
             "clone",
@@ -114,15 +112,14 @@ function plugins.auto_compile()
 end
 
 function plugins.load_compile()
-    vim.cmd([[command! PackerCompile lua require('core.pack').magic_compile()]])
-    vim.cmd([[command! PackerInstall lua require('core.pack').install()]])
-    vim.cmd([[command! PackerUpdate lua require('core.pack').update()]])
-    vim.cmd([[command! PackerSync lua require('core.pack').sync()]])
+    vim.cmd([[command! PackerCompile lua require('pack').magic_compile()]])
+    vim.cmd([[command! PackerInstall lua require('pack').install()]])
+    vim.cmd([[command! PackerUpdate lua require('pack').update()]])
+    vim.cmd([[command! PackerSync lua require('pack').sync()]])
     vim.cmd([[command! PackerClean lua require('core.pack').clean()]])
-    vim.cmd([[command! PackerConvert lua require('core.pack').convert_compile_file()]])
-    vim.cmd([[autocmd User PackerComplete lua require('core.pack').magic_compile()]])
-    -- vim.cmd([[command! PackerStatus lua require('core.pack').magic_compile() require('packer').status()]])
-    vim.cmd([[command! PackerStatus lua  require('core.pack').status()]])
+    vim.cmd([[command! PackerConvert lua require('pack').convert_compile_file()]])
+    vim.cmd([[autocmd User PackerComplete lua require('pack').magic_compile()]])
+    vim.cmd([[command! PackerStatus lua  require('pack').status()]])
 end
 
 return plugins

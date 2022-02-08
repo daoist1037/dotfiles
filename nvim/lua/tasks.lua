@@ -59,9 +59,6 @@ M.yabstask = function(type)
 end
 
 M.bdelete = function(type)
-    if dapPre() == false then
-        return
-    end
     if packer_plugins["close-buffers.nvim"].loaded then
         local pre = [[lua require('close_buffers').delete({type = ']]
         vim.api.nvim_command(pre .. type .. [['})]])

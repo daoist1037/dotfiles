@@ -5,7 +5,7 @@ if vim.loop.fs_stat(impatient_path) then
     vim.cmd([[packadd impatient.nvim]])
     require('impatient')
 end
-require('core')
+require('utils')
 
 local data_dir = vim.fn.stdpath("data") .. "/site/"
 local compile_to_lua = data_dir .. "lua/_compiled.lua"
