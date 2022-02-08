@@ -1,0 +1,1 @@
+setlocal showtabline=0

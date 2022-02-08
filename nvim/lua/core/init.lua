@@ -48,11 +48,12 @@ load_disable()
 load_options()
 load_map()
 
-local pack = require('core.pack')
--- if pack.ensure_installed() then
---     pack.load_compile()
-
--- end
+local pack = require("core.pack")
+--if pack.ensure_installed() then
+--    pack.load_compile()
+--
+--end
 pack.ensure_plugins()
 
 pack.load_compile()
+-- require("_compiled")

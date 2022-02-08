@@ -89,6 +89,7 @@ return function()
             },
             oldfiles = {
                 -- theme = "dropdown",
+                initial_mode = "normal",
             },
             buffers = {
                 -- theme = "dropdown",

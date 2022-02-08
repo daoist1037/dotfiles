@@ -7,7 +7,7 @@ return function()
     vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
     vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
     vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])
-    -- vim.api.nvim_command([[hi link illuminatedWord VisualCursorLine]])
+    vim.api.nvim_command([[hi link illuminatedWord VisualCursorLine]])
     vim.api.nvim_set_keymap(
         "n",
         "<a-n>",
@@ -21,35 +21,14 @@ return function()
         { noremap = true }
     )
 
-    -- local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
-
     local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
-    custom_capabilities = require("cmp_nvim_lsp").update_capabilities(custom_capabilities)
+    --local custom_capabilities = require("cmp_nvim_lsp").update_capabilities(custom_capabilities)
     custom_capabilities.textDocument.completion.completionItem.snippetSupport = true
     custom_capabilities.textDocument.completion.completionItem.preselectSupport = true
     custom_capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
     custom_capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
     custom_capabilities.textDocument.completion.completionItem.deprecatedSupport = true
     custom_capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-
-    vim.lsp.handlers["textDocument/formatting"] = function(err, result, ctx)
-        if err ~= nil or result == nil then
-            return
-        end
-        if
-            vim.api.nvim_buf_get_var(ctx.bufnr, "init_changedtick")
-            == vim.api.nvim_buf_get_var(ctx.bufnr, "changedtick")
-        then
-            local view = vim.fn.winsaveview()
-            vim.lsp.util.apply_text_edits(result, ctx.bufnr, "utf-8")
-            vim.fn.winrestview(view)
-            if ctx.bufnr == vim.api.nvim_get_current_buf() then
-                vim.b.saving_format = true
-                vim.cmd([[update]])
-                vim.b.saving_format = false
-            end
-        end
-    end
 
     local lspconfig = require("lspconfig")
 
@@ -73,17 +52,37 @@ return function()
             vim.lsp.diagnostic.on_publish_diagnostics,
             lsp_publish_diagnostics_options
         )
+        vim.lsp.handlers["textDocument/formatting"] = function(err, result, ctx)
+            if err ~= nil or result == nil then
+                return
+            end
+            if
+                vim.api.nvim_buf_get_var(ctx.bufnr, "init_changedtick")
+                == vim.api.nvim_buf_get_var(ctx.bufnr, "changedtick")
+            then
+                local view = vim.fn.winsaveview()
+                vim.lsp.util.apply_text_edits(result, ctx.bufnr, "utf-8")
+                vim.fn.winrestview(view)
+                if ctx.bufnr == vim.api.nvim_get_current_buf() then
+                    vim.b.saving_format = true
+                    vim.cmd([[update]])
+                    vim.b.saving_format = false
+                end
+            end
+        end
+        if not packer_plugins["vim-illuminate"].loaded then
+            vim.cmd([[packadd vim-illuminate]])
+            require("illuminate").on_attach(client)
+        end
         require("lsp_signature").on_attach({
             bind = false, -- This is mandatory, otherwise border config won't get registered.
             floating_window = false,
             hint_enable = false,
-            -- transparency = 80,
             always_trigger = false,
         }, bufnr)
     end
 
     local server_path = vim.fn.stdpath("data") .. "/lsp_servers"
-    -- local server_path = "/home/daoist/.local/share/nvim/lsp_servers"
 
     lspconfig["pyright"].setup({
         cmd = {
@@ -91,10 +90,6 @@ return function()
             "--stdio",
         },
         on_attach = function(client, bufnr)
-            if not packer_plugins["vim-illuminate"].loaded then
-                vim.cmd([[packadd vim-illuminate]])
-                require("illuminate").on_attach(client)
-            end
             custom_attach(client, bufnr)
         end,
         capabilities = custom_capabilities,
@@ -106,10 +101,6 @@ return function()
     lspconfig["clangd"].setup({
         on_attach = function(client, bufnr)
             client.resolved_capabilities.document_formatting = false
-            if not packer_plugins["vim-illuminate"].loaded then
-                vim.cmd([[packadd vim-illuminate]])
-                require("illuminate").on_attach(client)
-            end
             custom_attach(client, bufnr)
         end,
         capabilities = custom_capabilities,
@@ -135,13 +126,9 @@ return function()
     table.insert(runtime_path, "lua/?/init.lua") -- table.insert(runtime_path, "lua/?/init.lua")
     lspconfig["sumneko_lua"].setup({
         on_attach = function(client, bufnr)
-            if not packer_plugins["vim-illuminate"].loaded then
-                vim.cmd([[packadd vim-illuminate]])
-                require("illuminate").on_attach(client)
-            end
             custom_attach(client, bufnr)
         end,
-        -- on_attach = custom_attach,
+        on_attach = custom_attach,
         capabilities = custom_capabilities,
         cmd = {
             server_path .. "/sumneko_lua/extension/server/bin/lua-language-server",
@@ -149,8 +136,8 @@ return function()
             server_path .. "/sumneko_lua/extension/server/bin/main.lua",
         },
         root_dir = lspconfig.util.root_pattern(".git", ".vscode"),
-        filetypes = { "lua" },
-        single_file_support = true,
+        -- filetypes = { "lua" },
+        -- single_file_support = true,
         settings = {
             Lua = {
                 runtime = {
@@ -172,13 +159,13 @@ return function()
                         -- [vim.fn.expand "$HOME/dotfiles/nvim/lua"] = true,
                         -- [vim.fn.expand "$HOME/.local/share/nvim/site/pack/packer/"] = true,
                     },
-                    maxPreload = 100000,
-                    preloadFileSize = 10000,
+                    maxPreload = 1000,
+                    preloadFileSize = 100000,
                 },
                 -- Do not send telemetry data containing a randomized but unique identifier
-                telemetry = {
-                    enable = false,
-                },
+                -- telemetry = {
+                --     enable = false,
+                -- },
             },
         },
     })

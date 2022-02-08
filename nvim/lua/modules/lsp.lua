@@ -11,10 +11,10 @@ end
 M.lspconfig = {
     "neovim/nvim-lspconfig",
     config = require("configs.Nvim-lspconfig"),
+    opt = true,
     -- after = "fidget.nvim"
     ft = { "cpp", "lua", "python", "c" },
     wants = {"cmp-nvim-lsp", "lsp_signature.nvim"},
-    -- wants = {"cmp-nvim-lsp"},
     -- event = { "BufReadPre", "BufNewFile" },
     -- event = "BufRead",
 }

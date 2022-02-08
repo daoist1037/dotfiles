@@ -3,7 +3,7 @@ local M = {}
 M.dap = {
     "mfussenegger/nvim-dap",
     config = require("configs.Nvim-dap"),
-    ft = {"python", "cpp", "c"},
+    ft = { "python", "cpp", "c" },
     -- after = "nvim-lspconfig",
     -- module = "dap",
 }
@@ -25,9 +25,8 @@ M.virtualtext = {
 M.yabs = {
     "pianocomposer321/yabs.nvim",
     config = require("configs.Yabs"),
-    ft = {"cpp"},
-    wants = {"plenary.nvim"}
-    -- cmd = "YabsTask",
+    ft = { "cpp" },
+    wants = { "plenary.nvim" },
 }
 
 return M

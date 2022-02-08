@@ -1,27 +1,27 @@
 local M = {}
 
 M.neoscroll = {
-    'karb94/neoscroll.nvim',
+    "karb94/neoscroll.nvim",
     event = "BufRead",
-    config = function ()
-        require('neoscroll').setup()
-    end
+    config = function()
+        require("neoscroll").setup()
+    end,
 }
 M.illuminate = {
-    "RRethy/vim-illuminate",
-    opt = true,
+   "RRethy/vim-illuminate",
+   opt = true,
 }
 M.alpha = {
-    "goolord/alpha-nvim",
-    requires = { "kyazdani42/nvim-web-devicons" },
-    opt = true,
-    event = "BufWinEnter",
-    config = require("configs.Alpha"),
+   "goolord/alpha-nvim",
+   requires = { "kyazdani42/nvim-web-devicons" },
+   opt = true,
+   event = "BufWinEnter",
+   config = require("configs.Alpha"),
 }
 
 M.edge = {
     "sainnhe/edge",
-    -- opt = true,
+    opt = true,
     config = require("configs.Colorscheme").edge,
 }
 
@@ -37,11 +37,11 @@ M.devicons = {
 }
 
 M.lualine = {
-    "nvim-lualine/lualine.nvim",
-    config = require("configs.Lualine"),
-    wants = {"lsp_signature.nvim"},
-    -- after = "nvim-web-devicons",
-    event = {"BufRead"}
+   "nvim-lualine/lualine.nvim",
+   config = require("configs.Lualine"),
+   wants = { "lsp_signature.nvim" },
+   -- after = "nvim-web-devicons",
+   event = { "BufRead" },
 }
 
 M.bufferdelete = {
@@ -81,9 +81,9 @@ M.tree = {
 }
 
 M.notify = {
-    "rcarriga/nvim-notify",
-    config = require("configs.Notify"),
-    -- after = "alpha-nvim"
+   "rcarriga/nvim-notify",
+   config = require("configs.Notify"),
+   -- after = "alpha-nvim"
 }
 
 return M

@@ -40,9 +40,8 @@ return function()
     local buffers = {
         "buffers",
         filetype_names = {
-            TelescopePrompt = "Telescope",
-            packer = "Packer",
-            alpha = "Alpha",
+            -- TelescopePrompt = "Telescope",
+            -- packer = "Packer",
         },
     }
     local diagnostics = {
@@ -79,13 +78,13 @@ return function()
         options = {
             icons_enabled = true,
             theme = "auto",
-            -- theme = bubbles_theme,
             -- component_separators = "|",
             -- component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
             -- section_separators = { left = "", right = "" },
             -- component_separators = { left = "", right = "" },
             disabled_filetypes = {
+                "minimap"
                 -- "codelldb",
                 -- "toggleterm",
                 -- "NvimTree",
@@ -98,12 +97,12 @@ return function()
             lualine_b = { "" },
             lualine_c = { "" },
             lualine_x = {},
-            lualine_y = {diagnostics,"diff", },
+            lualine_y = { diagnostics, "diff" },
             lualine_z = { { "tabs" } },
         },
         sections = {
             lualine_a = { { "mode" } },
-            lualine_b = { "branch",  },
+            lualine_b = { "branch" },
             lualine_c = { { "filename" }, current_signature },
             -- lualine_x = { "encoding", { "fileformat" } , { "filetype", icon_only = true } },
             lualine_x = { "encoding", { "fileformat" }, { "filetype" } }, -- { "os.date('%a')" },
@@ -129,6 +128,6 @@ return function()
             dapui_watches,
             dapui_stacks,
             qf,
-        },
+        }
     })
 end

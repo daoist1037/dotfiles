@@ -79,6 +79,7 @@ end
 function plugins.convert_compile_file()
     local lines = {}
     local lnum = 0
+    -- lines[#lines + 1] = "vim.cmd [[packadd packer.nvim]]\n"
 
     if vim.fn.empty(vim.fn.glob(packer_compiled)) > 0 then
         return
@@ -90,18 +91,42 @@ function plugins.convert_compile_file()
         end
     end
     lines[#lines + 1] = "END"
+    -- for line in io.lines(packer_compiled) do
+    --     lnum = lnum + 1
+    --     if lnum > 15 then
+    --         lines[#lines + 1] = line .. "\n"
+    --         if line == "END" then
+    --             break
+    --         end
+    --     end
+    -- end
     table.remove(lines, #lines)
+
+    -- if vim.fn.isdirectory(data_dir .. "lua") ~= 1 then
+    --     os.execute("mkdir -p " .. data_dir .. "lua")
+    -- end
+
+    -- if vim.fn.filereadable(compile_to_lua) == 1 then
+    --     os.rename(compile_to_lua, bak_compiled)
+    -- end
 
     local file = io.open(packer_compiled, "w")
     for _, line in ipairs(lines) do
         file:write(line)
     end
+    -- local file = io.open(compile_to_lua, "w")
+    -- for _, line in ipairs(lines) do
+    --     file:write(line)
+    -- end
     file:close()
     vim.notify("convert complete")
+
+    -- os.remove(packer_compiled)
 end
 
 function plugins.magic_compile()
     plugins.compile()
+    -- plugins.convert_compile_file()
 end
 
 function plugins.auto_compile()
@@ -114,15 +139,18 @@ function plugins.auto_compile()
 end
 
 function plugins.load_compile()
+    -- if vim.fn.filereadable(compile_to_lua) == 1 then
+    --     require("_compiled")
+    -- else
+    --     assert("Missing packer compile file Run PackerCompile Or PackerInstall to fix")
+    -- end
     vim.cmd([[command! PackerCompile lua require('core.pack').magic_compile()]])
     vim.cmd([[command! PackerInstall lua require('core.pack').install()]])
     vim.cmd([[command! PackerUpdate lua require('core.pack').update()]])
     vim.cmd([[command! PackerSync lua require('core.pack').sync()]])
     vim.cmd([[command! PackerClean lua require('core.pack').clean()]])
-    vim.cmd([[command! PackerConvert lua require('core.pack').convert_compile_file()]])
     vim.cmd([[autocmd User PackerComplete lua require('core.pack').magic_compile()]])
-    -- vim.cmd([[command! PackerStatus lua require('core.pack').magic_compile() require('packer').status()]])
-    vim.cmd([[command! PackerStatus lua  require('core.pack').status()]])
+    vim.cmd([[command! PackerStatus lua require('core.pack').magic_compile() require('packer').status()]])
 end
 
 return plugins

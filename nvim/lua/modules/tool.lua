@@ -1,73 +1,75 @@
 local M = {}
 
+M.impatient = {
+    "lewis6991/impatient.nvim",
+    opt = true,
+}
 M.wilder = {
-    "gelguy/wilder.nvim",
-    requires = { { "romgrk/fzy-lua-native", after = "wilder.nvim" } },
-    event = "CmdlineEnter",
-    config = function()
-        vim.cmd([[
+   "gelguy/wilder.nvim",
+   requires = { { "romgrk/fzy-lua-native", after = "wilder.nvim" } },
+   event = "CmdlineEnter",
+   config = function()
+       vim.cmd([[
 call wilder#setup({'modes': [':', '/', '?']})
-    call wilder#set_option('pipeline', [wilder#branch(wilder#cmdline_pipeline({'use_python': 0,'fuzzy': 1, 'fuzzy_filter': wilder#lua_fzy_filter()}),wilder#vim_search_pipeline(), [wilder#check({_, x -> empty(x)}), wilder#history(), wilder#result({'draw': [{_, x -> ' ' . x}]})])])
-    call wilder#set_option('renderer', wilder#renderer_mux({':': wilder#popupmenu_renderer({'highlighter': wilder#lua_fzy_highlighter(), 'left': [wilder#popupmenu_devicons()], 'right': [' ', wilder#popupmenu_scrollbar()]}), '/': wilder#wildmenu_renderer({'highlighter': wilder#lua_fzy_highlighter()})}))
-    call wilder#set_option('use_python_remote_plugin', 0)
+   call wilder#set_option('pipeline', [wilder#branch(wilder#cmdline_pipeline({'use_python': 0,'fuzzy': 1, 'fuzzy_filter': wilder#lua_fzy_filter()}),wilder#vim_search_pipeline(), [wilder#check({_, x -> empty(x)}), wilder#history(), wilder#result({'draw': [{_, x -> ' ' . x}]})])])
+   call wilder#set_option('renderer', wilder#renderer_mux({':': wilder#popupmenu_renderer({'highlighter': wilder#lua_fzy_highlighter(), 'left': [wilder#popupmenu_devicons()], 'right': [' ', wilder#popupmenu_scrollbar()]}), '/': wilder#wildmenu_renderer({'highlighter': wilder#lua_fzy_highlighter()})}))
+   call wilder#set_option('use_python_remote_plugin', 0)
 
 ]])
-    end,
+   end,
 }
 M.eft = {
-    "hrsh7th/vim-eft",
-    event = "BufRead",
-    config = function()
-        vim.cmd([[
-          nmap ; <Plug>(eft-repeat)
-          xmap ; <Plug>(eft-repeat)
-          omap ; <Plug>(eft-repeat)
+   "hrsh7th/vim-eft",
+   event = "BufRead",
+   config = function()
+       vim.cmd([[
+         nmap ; <Plug>(eft-repeat)
+         xmap ; <Plug>(eft-repeat)
+         omap ; <Plug>(eft-repeat)
 
-          nmap f <Plug>(eft-f)
-          xmap f <Plug>(eft-f)
-          omap f <Plug>(eft-f)
-          nmap F <Plug>(eft-F)
-          xmap F <Plug>(eft-F)
-          omap F <Plug>(eft-F)
-          
-          nmap t <Plug>(eft-t)
-          xmap t <Plug>(eft-t)
-          omap t <Plug>(eft-t)
-          nmap T <Plug>(eft-T)
-          xmap T <Plug>(eft-T)
-          omap T <Plug>(eft-T)
-       ]])
-    end,
-    -- opt = true,
+         nmap f <Plug>(eft-f)
+         xmap f <Plug>(eft-f)
+         omap f <Plug>(eft-f)
+         nmap F <Plug>(eft-F)
+         xmap F <Plug>(eft-F)
+         omap F <Plug>(eft-F)
+         
+         nmap t <Plug>(eft-t)
+         xmap t <Plug>(eft-t)
+         omap t <Plug>(eft-t)
+         nmap T <Plug>(eft-T)
+         xmap T <Plug>(eft-T)
+         omap T <Plug>(eft-T)
+      ]])
+   end,
+   -- opt = true,
 }
 
 M.easyaign = {
-    "junegunn/vim-easy-align",
-    event = "BufRead",
-    config = function()
-        vim.cmd([[
-            xmap ga <Plug>(EasyAlign)
-            nmap ga <Plug>(EasyAlign)
-       ]])
-    end,
-    -- opt = true,
+   "junegunn/vim-easy-align",
+   event = "BufRead",
+   config = function()
+       vim.cmd([[
+           xmap ga <Plug>(EasyAlign)
+           nmap ga <Plug>(EasyAlign)
+      ]])
+   end,
 }
 
 M.window = {
-    "https://gitlab.com/yorickpeterse/nvim-window.git",
-    config = require("configs.Nvim-window"),
-    event = "BufRead",
+   "https://gitlab.com/yorickpeterse/nvim-window.git",
+   config = require("configs.Nvim-window"),
+   event = "BufRead",
 }
 
 M.fcitx = {
-    "h-hg/fcitx.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+   "h-hg/fcitx.nvim",
+   event = { "BufReadPre", "BufNewFile" },
 }
 
 M.telescopefzf = {
     "nvim-telescope/telescope-fzf-native.nvim",
     run = "make",
-    -- cmd = "Telescope",
     after = "telescope.nvim",
 }
 M.plenary = { "nvim-lua/plenary.nvim", opt = false }
@@ -86,40 +88,31 @@ M.treesitter = {
     event = { "BufRead" }, --"BufReadPre"
 }
 
-M.playground = {
-    "nvim-treesitter/playground",
-    -- opt = true,
-    after = "nvim-treesitter",
-    -- requires = "nvim-treesitter",
-}
 
 M.completion_treesitter = {
-    "nvim-treesitter/completion-treesitter",
-    -- opt = true,
-    after = "nvim-treesitter",
-    -- requires = "nvim-treesitter",
+   "nvim-treesitter/completion-treesitter",
+   -- opt = true,
+   after = "nvim-treesitter",
 }
 
 M.treesitter_refactor = {
-    "nvim-treesitter/nvim-treesitter-refactor",
-    -- opt = true,
-    after = "nvim-treesitter",
-    -- requires = "nvim-treesitter",
+   "nvim-treesitter/nvim-treesitter-refactor",
+   -- opt = true,
+   after = "nvim-treesitter",
 }
 
 M.treesitter_textobjects = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    -- opt = true,
-    after = "nvim-treesitter",
-    -- requires = "nvim-treesitter",
+   "nvim-treesitter/nvim-treesitter-textobjects",
+   -- opt = true,
+   after = "nvim-treesitter",
 }
 
 M.whick_key = {
-    "folke/which-key.nvim",
-    config = require("configs.Which-key"),
-    -- event = { "BufRead", "BufNewFile" },
-    -- event = "VimEnter",
-    -- keys = "<Space>",
+   "folke/which-key.nvim",
+   config = require("configs.Which-key"),
+   -- event = { "BufRead", "BufNewFile" },
+   -- event = "VimEnter",
+   -- keys = "<Space>",
 }
 
 M.rooter = {
@@ -132,19 +125,13 @@ M.rooter = {
     end,
 }
 
-M.bqf = {
-    "kevinhwang91/nvim-bqf",
-    ft = "qf",
-    -- ft = {"cpp", "c", "python", "lua"}
-    -- cmd = {"BqfEnable", "BqfDisable", "BqfToggle"}
-}
-
 M.startuptime = {
     "dstein64/vim-startuptime",
 }
+
 
 return M
 
 --     "ygm2/rooter.nvim", -- nvim-tree don't work well
 --     "ms-jpq/chadtree",
---     "lewis6991/impatient.nvim",
+    -- 'wfxr/minimap.vim',
