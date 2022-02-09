@@ -308,68 +308,69 @@ enable as many segments as you like. It won't slow down your prompt or Zsh start
 
 | Segment | Meaning |
 |--------:|---------|
-| `os_icon` | your OS logo (apple for macOS, swirl for debian, etc.) |
-| `dir` | current working directory |
-| `vcs` | Git repository status |
-| `prompt_char` | multi-functional prompt symbol; changes depending on vi mode: `❯`, `❮`, `V`, `▶` for insert, command, visual and replace mode respectively; turns red on error |
-| `context` | user@hostname |
-| `status` | exit code of the last command |
-| `command_execution_time` | duration (wall time) of the last command |
-| `background_jobs` | presence of background jobs |
-| `time` | current time |
-| `direnv` | [direnv](https://direnv.net/) status |
-| `asdf` | tool versions from [asdf](https://github.com/asdf-vm/asdf) |
-| `virtualenv` | python environment from [venv](https://docs.python.org/3/library/venv.html) |
 | `anaconda` | virtual environment from [conda](https://conda.io/) |
-| `pyenv` | python environment from [pyenv](https://github.com/pyenv/pyenv) |
-| `goenv` | go environment from [goenv](https://github.com/syndbg/goenv) |
-| `nodenv` | node.js environment from [nodenv](https://github.com/nodenv/nodenv) |
-| `nvm` | node.js environment from [nvm](https://github.com/nvm-sh/nvm) |
-| `nodeenv` | node.js environment from [nodeenv](https://github.com/ekalinin/nodeenv) |
-| `rbenv` | ruby environment from [rbenv](https://github.com/rbenv/rbenv) |
-| `rvm` | ruby environment from [rvm](https://rvm.io) |
-| `fvm` | flutter environment from [fvm](https://github.com/leoafarias/fvm) |
-| `luaenv` | lua environment from [luaenv](https://github.com/cehoffman/luaenv) |
-| `jenv` | java environment from [jenv](https://github.com/jenv/jenv) |
-| `plenv` | perl environment from [plenv](https://github.com/tokuhirom/plenv) |
-| `phpenv` | php environment from [phpenv](https://github.com/phpenv/phpenv) |
-| `haskell_stack` | haskell version from [stack](https://haskellstack.org/) |
-| `node_version` | [node.js](https://nodejs.org/) version |
-| `go_version` | [go](https://golang.org) version |
-| `rust_version` | [rustc](https://www.rust-lang.org) version |
-| `dotnet_version` | [dotnet](https://dotnet.microsoft.com) version |
-| `php_version` | [php](https://www.php.net/) version |
-| `laravel_version` | [laravel php framework](https://laravel.com/) version |
-| `java_version` | [java](https://www.java.com/) version |
-| `package` | `name@version` from [package.json](https://docs.npmjs.com/files/package.json) |
-| `kubecontext` | current [kubernetes](https://kubernetes.io/) context |
-| `terraform` | [terraform](https://www.terraform.io) workspace |
-| `terraform_version` | [terraform](https://www.terraform.io) version |
+| `asdf` | tool versions from [asdf](https://github.com/asdf-vm/asdf) |
 | `aws` | [aws profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) |
 | `aws_eb_env` | [aws elastic beanstalk](https://aws.amazon.com/elasticbeanstalk/) environment |
 | `azure` | [azure](https://docs.microsoft.com/en-us/cli/azure) account name |
+| `background_jobs` | presence of background jobs |
+| `battery` | internal battery state and charge level (yep, batteries *literally* included) |
+| `command_execution_time` | duration (wall time) of the last command |
+| `context` | user@hostname |
+| `dir` | current working directory |
+| `direnv` | [direnv](https://direnv.net/) status |
+| `disk_usage` | disk usage |
+| `dotnet_version` | [dotnet](https://dotnet.microsoft.com) version |
+| `fvm` | flutter environment from [fvm](https://github.com/leoafarias/fvm) |
 | `gcloud` | [google cloud](https://cloud.google.com/) cli account and project |
+| `goenv` | go environment from [goenv](https://github.com/syndbg/goenv) |
 | `google_app_cred` | [google application credentials](https://cloud.google.com/docs/authentication/production) |
-| `nordvpn` | [nordvpn](https://nordvpn.com/) connection status |
-| `ranger` | [ranger](https://github.com/ranger/ranger) shell |
-| `nnn` | [nnn](https://github.com/jarun/nnn) shell |
-| `xplr` | [xplr](https://github.com/sayanarijit/xplr) shell |
-| `vim_shell` | [vim](https://www.vim.org/) shell (`:sh`) |
+| `go_version` | [go](https://golang.org) version |
+| `haskell_stack` | haskell version from [stack](https://haskellstack.org/) |
+| `ip` | IP address and bandwidth usage for a specified network interface |
+| `java_version` | [java](https://www.java.com/) version |
+| `jenv` | java environment from [jenv](https://github.com/jenv/jenv) |
+| `kubecontext` | current [kubernetes](https://kubernetes.io/) context |
+| `laravel_version` | [laravel php framework](https://laravel.com/) version |
+| `load` | CPU load |
+| `luaenv` | lua environment from [luaenv](https://github.com/cehoffman/luaenv) |
 | `midnight_commander` | [midnight commander](https://midnight-commander.org/) shell |
 | `nix_shell` | [nix shell](https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html) indicator |
-| `todo` | [todo](https://github.com/todotxt/todo.txt-cli) items |
-| `timewarrior` | [timewarrior](https://timewarrior.net/) tracking status |
-| `taskwarrior` | [taskwarrior](https://taskwarrior.org/) task count |
-| `vpn_ip` | virtual private network indicator |
-| `ip` | IP address and bandwidth usage for a specified network interface |
-| `load` | CPU load |
-| `disk_usage` | disk usage |
-| `ram` | free RAM |
-| `swap` | used swap |
-| `public_ip` | public IP address |
+| `nnn` | [nnn](https://github.com/jarun/nnn) shell |
+| `nodeenv` | node.js environment from [nodeenv](https://github.com/ekalinin/nodeenv) |
+| `nodenv` | node.js environment from [nodenv](https://github.com/nodenv/nodenv) |
+| `node_version` | [node.js](https://nodejs.org/) version |
+| `nordvpn` | [nordvpn](https://nordvpn.com/) connection status |
+| `nvm` | node.js environment from [nvm](https://github.com/nvm-sh/nvm) |
+| `os_icon` | your OS logo (apple for macOS, swirl for debian, etc.) |
+| `package` | `name@version` from [package.json](https://docs.npmjs.com/files/package.json) |
+| `phpenv` | php environment from [phpenv](https://github.com/phpenv/phpenv) |
+| `php_version` | [php](https://www.php.net/) version |
+| `plenv` | perl environment from [plenv](https://github.com/tokuhirom/plenv) |
+| `prompt_char` | multi-functional prompt symbol; changes depending on vi mode: `❯`, `❮`, `V`, `▶` for insert, command, visual and replace mode respectively; turns red on error |
 | `proxy` | system-wide http/https/ftp proxy |
+| `public_ip` | public IP address |
+| `pyenv` | python environment from [pyenv](https://github.com/pyenv/pyenv) |
+| `ram` | free RAM |
+| `ranger` | [ranger](https://github.com/ranger/ranger) shell |
+| `rbenv` | ruby environment from [rbenv](https://github.com/rbenv/rbenv) |
+| `rust_version` | [rustc](https://www.rust-lang.org) version |
+| `rvm` | ruby environment from [rvm](https://rvm.io) |
+| `status` | exit code of the last command |
+| `swap` | used swap |
+| `taskwarrior` | [taskwarrior](https://taskwarrior.org/) task count |
+| `terraform` | [terraform](https://www.terraform.io) workspace |
+| `terraform_version` | [terraform](https://www.terraform.io) version |
+| `time` | current time |
+| `timewarrior` | [timewarrior](https://timewarrior.net/) tracking status |
+| `todo` | [todo](https://github.com/todotxt/todo.txt-cli) items |
+| `toolbox` | [toolbox](https://github.com/containers/toolbox) name |
+| `vcs` | Git repository status |
+| `vim_shell` | [vim](https://www.vim.org/) shell (`:sh`) |
+| `virtualenv` | python environment from [venv](https://docs.python.org/3/library/venv.html) |
+| `vpn_ip` | virtual private network indicator |
 | `wifi` | WiFi speed |
-| `battery` | internal battery state and charge level (yep, batteries *literally* included) |
+| `xplr` | [xplr](https://github.com/sayanarijit/xplr) shell |
 
 ### Extensible
 
@@ -657,11 +658,13 @@ If you are using a different terminal, proceed with manual font installation. �
        normal:
          family: "MesloLGS NF"
      ```
-    - **Kitty**: Create or open `~/.config/kitty/kitty.conf` and add the following line to it:
+    - **kitty**: Create or open `~/.config/kitty/kitty.conf` and add the following line to it:
       ```text
       font_family MesloLGS NF
       ```
-      Restart Kitty by closing all sessions and opening a new session.
+      Restart kitty by closing all sessions and opening a new session.
+   - **puTTY**: Set *Window* → *Appearance* → *Font* to `MesloLGS NF`. Requires puTTY
+     version >= 0.75.
    - **WezTerm**: Create or open `$HOME/.config/wezterm/wezterm.lua` and add the following:
      ```lua
      local wezterm = require 'wezterm';
@@ -672,11 +675,17 @@ If you are using a different terminal, proceed with manual font installation. �
      If the file already exists, only add the line with the font to the existing return.
      Also add the first line if it is not already present.
    - **urxvt**: Create or open `~/.Xresources` and add the following line to it:
-      ```text
-      URxvt.font: xft:MesloLGS NF:size=11
-      ```
-     You can adjust the font size to your preference. After changing the configuration use `xrdb ~/.Xresources` to reload the config.
-     The new config is applied for all new terminals.
+     ```text
+     URxvt.font: xft:MesloLGS NF:size=11
+     ```
+     You can adjust the font size to your preference. After changing the config run
+     `xrdb ~/.Xresources` to reload it. The new config is applied to all new terminals.
+   - **xterm**: Create or open `~/.Xresources` and add the following line to it:
+     ```text
+     xterm*faceName: MesloLGS NF
+     ```
+     After changing the config run `xrdb ~/.Xresources` to reload it. The new config is applied to
+     all new terminals.
 1. Run `p10k configure` to generate a new `~/.p10k.zsh`. The old config may work
    incorrectly with the new font.
 
@@ -1357,7 +1366,7 @@ https://www.reddit.com/r/zsh/comments/eg49ff/powerlevel10k_prompt_history_exit_c
 
 ### What is the minimum supported Zsh version?
 
-Zsh 5.1 or newer should work. Fast startup requires Zsh >= 5.4.
+Zsh 5.3 or newer should work. Fast startup requires Zsh >= 5.4.
 
 ### How were these screenshots and animated gifs created?
 
@@ -1860,18 +1869,12 @@ There is no ETA for the patch making its way into upstream Zsh. See [discussion]
 
 There are a few mitigation options for this issue.
 
-- Use [Kitty](https://sw.kovidgoyal.net/kitty/) and enable terminal-shell integration in
-  Powerlevel10k. The latter can be done by appending these lines to `~/.zshrc`:
-  ```zsh
-  unset KITTY_SHELL_INTEGRATION
-  ITERM_SHELL_INTEGRATION_INSTALLED=Yes
-  ```
-  At the time of this writing (Dec 2021) the latest release of Kitty (0.23.1) doesn't have the
-  necessary code to fix the issue. If by the time you are reading this there is no newer version,
-  you'll have to build from source.
+- Use [kitty](https://sw.kovidgoyal.net/kitty/) terminal version >= 0.24.0 and enable terminal-shell
+  integration in Powerlevel10k by defining `POWERLEVEL9K_TERM_SHELL_INTEGRATION=true` in
+  `~/.p10k.zsh`.
 - Apply [the patch](#zsh-patch) and [rebuild Zsh from source](
     https://github.com/zsh-users/zsh/blob/master/INSTALL). It won't help if you are using Alacritty,
-  Kitty or some other terminal that reflows text on resize but doesn't reflow saved cursor position.
+  kitty or some other terminal that reflows text on resize but doesn't reflow saved cursor position.
   On such terminals the patch will have no visible effect.
 - Disable text reflowing on window resize in terminal settings. If your terminal doesn't have this
   setting, try a different terminal.

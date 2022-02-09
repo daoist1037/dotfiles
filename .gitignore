@@ -1,7 +1,3 @@
-
+*.zwc
 nvim/plugin/_compiled.lua
 zsh/.antigen/.zcompdump
-nvim/plugin/_compiled.lua
-nvim/plugin/_compiled.lua
-nvim/plugin/_compiled.lua
-nvim/plugin/_compiled.lua
