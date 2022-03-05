@@ -13,7 +13,7 @@ export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890
 #export PATH=${CUDA_HOME}bin:${PATH}
 export EDITOR=/usr/bin/nvim
 # export PYTHONPATH=/opt/miniconda/bin/python
-source ~/dotfiles/zsh/antigen/antigen.zsh
+source ~/.local/share/zsh/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
@@ -30,8 +30,9 @@ antigen bundle zsh-users/zsh-history-substring-search
 
 antigen bundle skywind3000/z.lua
 
+antigen theme romkatv/powerlevel10k
 # antigen theme robbyrussell
-source ~/dotfiles/zsh/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.local/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
 antigen apply
 
 alias vim=/usr/bin/nvim
@@ -48,7 +49,7 @@ alias vim-startuptime="/home/daoist/dotfiles/vim-startuptime -vimpath nvim | nvi
 #--userconfig=$HOME/.cnpmrc"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/dotfiles/zsh/.p10k.zsh ]] || source ~/dotfiles/zsh/.p10k.zsh
+[[ ! -f ~/.local/share/zsh/.p10k.zsh ]] || source ~/.local/share/zsh/.p10k.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -64,3 +65,6 @@ alias vim-startuptime="/home/daoist/dotfiles/vim-startuptime -vimpath nvim | nvi
 # fi
 # unset __conda_setup
 # <<< conda initialize <<<
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -44,16 +44,13 @@ local function load_map()
         vim.api.nvim_set_keymap(list[1], list[2], list[3], opts)
     end
 end
+local function start()
+    load_disable()
+    load_options()
+    load_map()
 
-load_disable()
-load_options()
-load_map()
-
-local pack = require("pack")
---if pack.ensure_installed() then
---    pack.load_compile()
---
---end
-pack.ensure_plugins()
-
-pack.load_compile()
+    local pack = require("pack")
+    pack.ensure_plugins()
+    pack.load_compile()
+end
+start()
