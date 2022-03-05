@@ -1,98 +1,62 @@
-local M = {}
-
-M.neoscroll = {
-    "karb94/neoscroll.nvim",
+local ui = {}
+ui["karb94/neoscroll.nvim"] = {
     event = "BufRead",
     config = function()
         require("neoscroll").setup()
     end,
 }
-M.illuminate = {
-   "RRethy/vim-illuminate",
-   opt = true,
-}
-M.alpha = {
-   "goolord/alpha-nvim",
-   requires = { "kyazdani42/nvim-web-devicons" },
-   opt = true,
-   event = "BufWinEnter",
-   config = require("configs.Alpha"),
-}
-
-M.edge = {
-    "sainnhe/edge",
+ui["RRethy/vim-illuminate"] = {
     opt = true,
-    config = require("configs.Colorscheme").edge,
 }
-
-M.onedark = {
-    "navarasu/onedark.nvim",
+ui["goolord/alpha-nvim"] = {
+    requires = { "kyazdani42/nvim-web-devicons" },
     opt = true,
-    config = require("configs.Colorscheme").onedark,
+    event = "BufWinEnter",
+    config = require("configs.others").alpha,
 }
-
-M.devicons = {
-    "kyazdani42/nvim-web-devicons",
-    -- opt = true,
+ui["navarasu/onedark.nvim"] = {
+    opt = true,
 }
-
-M.lualine = {
-   "nvim-lualine/lualine.nvim",
-   config = require("configs.Lualine"),
-   wants = { "lsp_signature.nvim" },
-   -- after = "nvim-web-devicons",
-   event = { "BufRead" },
+ui["kyazdani42/nvim-web-devicons"] = {}
+ui["nvim-lualine/lualine.nvim"] = {
+    config = require("configs.lualine"),
+    wants = { "lsp_signature.nvim" },
+    event = { "BufRead" },
 }
-
-M.bufferdelete = {
-    "kazhala/close-buffers.nvim",
+ui["kazhala/close-buffers.nvim"] = {
     event = "BufRead",
-    config = require("configs.Bufdelete"),
+    config = require("configs.others").bufdelete,
 }
-
-M.gitsigns = {
-    "lewis6991/gitsigns.nvim",
-    config = require("configs.Gitsigns"),
+ui["lewis6991/gitsigns.nvim"] = {
+    config = require("configs.gitsigns"),
     -- event = { "BufReadPre", "BufRead" },
     event = { "BufRead" },
     wants = { "plenary.nvim" },
     -- ft = {"lua", "python","cpp","c"},
     -- opt = true,
 }
-
-M.indent = {
-    "lukas-reineke/indent-blankline.nvim",
-    config = require("configs.Indent-blankline"),
+ui["lukas-reineke/indent-blankline.nvim"] = {
+    config = require("configs.blankline"),
     -- event = "BufRead",
     after = "nvim-treesitter",
 }
-
-M.toggleterm = {
-    "akinsho/toggleterm.nvim",
-    config = require("configs.Toggleterm"),
+ui["akinsho/toggleterm.nvim"] = {
+    config = require("configs.toggleterm"),
     cmd = "ToggleTerm",
 }
-M.tree = {
-    "kyazdani42/nvim-tree.lua",
-    -- requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    config = require("configs.Nvim-tree"),
-    -- cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile" },
+ui["kyazdani42/nvim-tree.lua"] = {
+    config = require("configs.tree"),
     event = { "BufRead" },
 }
-
-M.notify = {
-   "rcarriga/nvim-notify",
-   config = require("configs.Notify"),
-   -- after = "alpha-nvim"
-}
-
-M.scrollbar = {
-    "dstein64/nvim-scrollview",
+ui["rcarriga/nvim-notify"] = {
+    config = require("configs.notify"),
     -- opt = true,
-    event = "BufRead"
+    -- after = "alpha-nvim"
 }
-
-return M
+ui["dstein64/nvim-scrollview"] = {
+    event = "BufRead",
+}
+return ui
 
 --     "akinsho/bufferline.nvim",
 --     "kdheepak/tabline.nvim",

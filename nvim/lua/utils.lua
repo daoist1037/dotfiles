@@ -25,7 +25,7 @@ end
 local function load_options()
     vim.g.python_host_skip_check = 1
     vim.g.python3_host_skip_check = 1
-    vim.g.python3_host_prog = "/home/daoist/.conda/envs/tools/bin/python"
+    vim.g.python3_host_prog = "~/.conda/envs/tools/bin/python"
     vim.g.fcitx5_remote = "/usr/bin/fcitx5-remote"
     local options = require("options")
     for o, v in pairs(options) do
@@ -38,12 +38,13 @@ local function load_map()
     vim.g.mapleader = " "
     vim.g.maplocalleader = " "
 
-    local maps = require("map").maps
+    local maps = require("maps").maps
     for _, list in pairs(maps) do
         local opts = { noremap = true, silent = true }
         vim.api.nvim_set_keymap(list[1], list[2], list[3], opts)
     end
 end
+
 load_disable()
 load_options()
 load_map()
@@ -56,4 +57,3 @@ local pack = require("pack")
 pack.ensure_plugins()
 
 pack.load_compile()
--- require("_compiled")

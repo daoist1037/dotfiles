@@ -1,23 +1,18 @@
-local M = {}
-
-M.escape = {
-    "max397574/better-escape.nvim",
+local edit = {}
+edit["max397574/better-escape.nvim"] = {
     config = function()
         require("better_escape").setup()
     end,
     event = "InsertEnter",
 }
-
-M.hop = {
-    "phaazon/hop.nvim",
+edit["phaazon/hop.nvim"] = {
     -- as = "hop",
     config = function()
         require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
     end,
     cmd = { "HopLine", "HopLineStart", "HopWord", "HopPattern", "HopChar1", "HopChar2" },
 }
-M.jk = {
-    "rhysd/accelerated-jk",
+edit["rhysd/accelerated-jk"] = {
     event = "CursorMoved",
     -- event = "BufRead",
     config = function()
@@ -27,57 +22,33 @@ M.jk = {
        ]])
     end,
 }
-
-M.highlightedyank = {
-    "machakann/vim-highlightedyank",
+edit["machakann/vim-highlightedyank"] = {
     event = "TextYankPost",
 }
-
-M.kommentary = {
-    "b3nj5m1n/kommentary",
-    config = require("configs.Kommentary"),
+edit["b3nj5m1n/kommentary"] = {
+    config = require("configs.others").kommentary,
     event = { "BufReadPre", "BufNewFile" },
 }
-
-M.specs = {
-    "edluffy/specs.nvim",
+edit["edluffy/specs.nvim"] = {
     -- event = { "BufReadPre", "BufNewFile" },
     event = "CursorMoved",
-    config = require("configs.Specs"),
+    config = require("configs.others").specs,
 }
-
-M.surround = {
-    "blackCauldron7/surround.nvim",
-    config = function()
-        require("surround").setup({ mappings_style = "sandwich" })
-    end,
-    event = "BufRead",
-    --- add: sa{motion/textobject}{delimiter}
-    --- delete: sd{delimiter}
-    --- replace: sr{old}{new}
-    --- ss repeats last surround command.
-}
-M.symbols = {
-    "simrat39/symbols-outline.nvim",
+edit["simrat39/symbols-outline.nvim"] = {
     cmd = { "SymbolsOutline", "SymbolsOutlineOpen" },
-    config = require("configs.Symbolsoutline"),
+    config = require("configs.others").symbols,
     -- after = "nvim-lspconfig",
 }
-
-M.tabout = {
-    "abecodes/tabout.nvim",
-    wants = {"nvim-treesitter"},
-    after = {"nvim-cmp"},
-    config = require("configs.Tabout")
+edit["abecodes/tabout.nvim"] = {
+    wants = { "nvim-treesitter" },
+    after = { "nvim-cmp" },
+    config = require("configs.others").tabout,
 }
-
-M.cool = {
-    "romainl/vim-cool",
+edit["romainl/vim-cool"] = {
     opt = true,
     -- event = { "CursorMoved", "InsertEnter" },
     event = { "BufReadPre", "BufNewFile" },
 }
-
--- "tabout" is incompatible with "nvim-autopairs"
-return M
+return edit
 --     "abecodes/tabout.nvim",
+--     "blackCauldron7/surround.nvim",

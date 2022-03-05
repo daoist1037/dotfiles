@@ -1,5 +1,4 @@
-local M = {}
-
+local lsp = {}
 local from_vscode = function()
     require("luasnip").config.set_config({
         history = true,
@@ -7,32 +6,25 @@ local from_vscode = function()
     })
     require("luasnip.loaders.from_vscode").lazy_load()
 end
-
-M.lspconfig = {
-    "neovim/nvim-lspconfig",
-    config = require("configs.Nvim-lspconfig"),
+lsp["neovim/nvim-lspconfig"] = {
+    -- config = require("configs.lspconfig"),
     opt = true,
     -- after = "fidget.nvim"
-    ft = { "cpp", "lua", "python", "c" },
-    wants = { "cmp-nvim-lsp", "lsp_signature.nvim" },
+    -- ft = { "cpp", "lua", "python", "c" },
+    -- wants = { "cmp-nvim-lsp", "lsp_signature.nvim", },
     -- event = { "BufReadPre", "BufNewFile" },
     -- event = "BufRead",
 }
-
-M.lspsaga = {
-    "tami5/lspsaga.nvim",
-    config = require("configs.Lspsaga"),
-    -- opt= true,
-    after = "nvim-lspconfig",
+lsp["tami5/lspsaga.nvim"] = {
+    config = require("configs.lspsaga"),
+    after = "nvim-lsp-installer",
+    opt = true,
+    -- after = "nvim-lspconfig",
 }
-
-M.snippets = {
-    "rafamadriz/friendly-snippets",
+lsp["rafamadriz/friendly-snippets"] = {
     opt = true,
 }
-
-M.cmp = {
-    "hrsh7th/nvim-cmp",
+lsp["hrsh7th/nvim-cmp"] = {
     requires = {
         { "L3MON4D3/LuaSnip", after = "nvim-cmp", config = from_vscode },
         { "lukas-reineke/cmp-under-comparator", after = "nvim-cmp" },
@@ -48,20 +40,19 @@ M.cmp = {
         { "octaltree/cmp-look", after = "nvim-cmp" },
         --
     },
-    config = require("configs.Nvim-cmp"),
+    config = require("configs.completion"),
     event = "InsertEnter",
     wants = { "friendly-snippets", "lspkind-nvim" },
-    -- after = { "friendly-snippets", "lspkind-nvim" },
-    -- after = { "friendly-snippets" },
 }
-
-M.lspinstaller = {
-    "williamboman/nvim-lsp-installer",
+lsp["williamboman/nvim-lsp-installer"] = {
     opt = true,
-    cmd = "LspInstall",
+    ft = { "cpp", "lua", "python", "c" },
+    wants = { "cmp-nvim-lsp", "lsp_signature.nvim", "nvim-lspconfig", "vim-illuminate" },
+    -- wants = { "cmp-nvim-lsp", "lsp_signature.nvim", "nvim-lspconfig" },
+    config = require("configs.lspconfig"),
+    -- cmd = "LspInstall",
 }
-
-return M
+return lsp
 -- { "lukas-reineke/cmp-under-comparator",after = "nvim-cmp" },
 -- { "L3MON4D3/LuaSnip", after = "nvim-cmp", config = from_vscode },
 -- { "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
@@ -77,3 +68,4 @@ return M
 -- { "hrsh7th/cmp-cmdline", after = "cmp-buffer" },
 -- { "octaltree/cmp-look", after = "nvim-cmp" },
 -- { "f3fora/cmp-spell",                     after =  "nvim-cmp" },
+--     "neoclide/coc.nvim",

@@ -1,32 +1,24 @@
-local M = {}
-
-M.dap = {
-    "mfussenegger/nvim-dap",
-    config = require("configs.Nvim-dap"),
+local daps = {}
+daps["mfussenegger/nvim-dap"] = {
+    config = require("configs.dap.clients"),
     ft = { "python", "cpp", "c" },
     -- after = "nvim-lspconfig",
     -- module = "dap",
 }
-
-M.dapui = {
-    "rcarriga/nvim-dap-ui",
+daps["rcarriga/nvim-dap-ui"] = {
     after = "nvim-dap",
-    config = require("configs.Nvim-dap-ui"),
+    config = require("configs.dap.ui"),
     -- after = "nvim-dap",
     -- module = "dapui",
 }
-
-M.virtualtext = {
-    "theHamsta/nvim-dap-virtual-text",
-    config = require("configs.Nvim-dap-virtual-text"),
+daps["theHamsta/nvim-dap-virtual-text"] = {
+    config = require("configs.dap.virtualtext"),
     after = "nvim-dap",
 }
-
-M.yabs = {
-    "pianocomposer321/yabs.nvim",
-    config = require("configs.Yabs"),
+daps["pianocomposer321/yabs.nvim"] = {
+    config = require("configs.yabs"),
     ft = { "cpp" },
     wants = { "plenary.nvim" },
 }
 
-return M
+return daps

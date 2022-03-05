@@ -1,4 +1,5 @@
 return {
+    signcolumn     = "yes",
     relativenumber = true,
     number         = true,
     cursorline     = true,
@@ -26,7 +27,6 @@ return {
     backup         = false,
     swapfile       = false,
     encoding       = "utf-8",
-    -- fold
     foldenable     = false,
     autochdir      = true,
     autoread       = true,
@@ -45,9 +45,9 @@ return {
     spelllang      = "en_us,cjk",
     spellfile      = vim.fn.expand("~/dotfiles/nvim/spell/en.utf-8.add"),
     spelloptions   = "camel",
-    gcr            = [[n-v-c:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,]]
-        .. [[ve:ver35-Cursor,]]
-        .. [[o:hor50-Cursor,]]
-        .. [[i-ci:ver25-Cursor/lCursor,]]
-        .. [[r:hor50-Cursor/lCursor]],
+    -- gcr            = [[n-v-c:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,]]
+    --     .. [[ve:ver35-Cursor,]]
+    --     .. [[o:hor50-Cursor,]]
+    --     .. [[i-ci:ver25-Cursor/lCursor,]]
+    --     .. [[r:hor50-Cursor/lCursor]],
 }
