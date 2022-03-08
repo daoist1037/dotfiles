@@ -16,11 +16,11 @@ return function()
                 -- Provide as ID strings or tables with "id" and "size" keys
                 {
                     id = "scopes",
-                    size = 0.34-- Can be float or integer > 1
+                    size = 0.50-- Can be float or integer > 1
                 },
                 -- { id = "breakpoints", size = 0.25 },
-                { id = "watches", size = 0.33 },
-                { id = "stacks", size = 0.33 },
+                { id = "watches", size = 0.30 },
+                { id = "stacks", size = 0.20 },
             },
             size = 40,
             position = "left", -- Can be "left", "right", "top", "bottom"

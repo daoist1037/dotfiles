@@ -56,6 +56,12 @@ ui["rcarriga/nvim-notify"] = {
 ui["dstein64/nvim-scrollview"] = {
     event = "BufRead",
 }
+ui["olimorris/onedarkpro.nvim"] = {
+    opt = true,
+}
+ui['titanzero/zephyrium'] = {
+    opt = true,
+}
 return ui
 
 --     "akinsho/bufferline.nvim",

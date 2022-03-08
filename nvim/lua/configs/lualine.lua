@@ -77,11 +77,12 @@ return function()
     lualine.setup({
         options = {
             icons_enabled = true,
-            -- theme = "auto",
-            theme = "onedark",
-            -- component_separators = "|",
+            theme = "auto",
+            -- theme = "onedark",
+            component_separators = "│",--"|"
             -- component_separators = { left = "", right = "" },
-            section_separators = { left = "", right = "" },
+            section_separators = { left = "", right = "" },
+            -- section_separators = { left = "", right = "" },
             -- section_separators = { left = "", right = "" },
             -- component_separators = { left = "", right = "" },
             disabled_filetypes = {
@@ -106,7 +107,7 @@ return function()
             lualine_b = { "branch" },
             lualine_c = { { "filename" }, current_signature },
             -- lualine_x = { "encoding", { "fileformat" } , { "filetype", icon_only = true } },
-            lualine_x = { "encoding", { "fileformat" }, { "filetype" } }, -- { "os.date('%a')" },
+            lualine_x = { "encoding", { "filetype" } }, -- , { "fileformat" },{ "os.date('%a')" },
             lualine_y = { "progress" },
             lualine_z = { { "location" } },
         },

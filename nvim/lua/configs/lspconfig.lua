@@ -63,7 +63,7 @@ return function()
             vim.lsp.diagnostic.on_publish_diagnostics,
             lsp_publish_diagnostics_options
         )
-        -- require("illuminate").on_attach(client)
+        require("illuminate").on_attach(client)
         require("lsp_signature").on_attach({
             bind = false, -- This is mandatory, otherwise border config won't get registered.
             floating_window = false,

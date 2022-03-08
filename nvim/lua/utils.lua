@@ -1,6 +1,7 @@
--- 复制到windows剪贴板
+-- copy to clipboard in windows
 -- https://stackoverflow.com/questions/44480829/how-to-copy-to-clipboard-in-vim-of-bash-on-windows
 -- vim.cmd "autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe', @0) | endif"
+
 local function load_disable()
     vim.g.loaded_gzip = 1
     vim.g.loaded_tar = 1
@@ -33,6 +34,13 @@ local function load_options()
     end
     vim.cmd([[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]])
     vim.cmd([[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]])
+    vim.cmd([[
+        augroup relative_numbser
+         autocmd!
+         autocmd InsertEnter * :set norelativenumber
+         autocmd InsertLeave * :set relativenumber
+        augroup END
+    ]])
 end
 local function load_map()
     vim.g.mapleader = " "
@@ -44,13 +52,11 @@ local function load_map()
         vim.api.nvim_set_keymap(list[1], list[2], list[3], opts)
     end
 end
-local function start()
-    load_disable()
-    load_options()
-    load_map()
 
-    local pack = require("pack")
-    pack.ensure_plugins()
-    pack.load_compile()
-end
-start()
+load_disable()
+load_options()
+load_map()
+
+local plugins = require("plugins")
+plugins.ensure_plugins()
+plugins.load_compile()

@@ -13,7 +13,7 @@ else
     require('utils')
 
     local config_dir = vim.fn.stdpath("config") 
-    local compile_to_lua = vim.fn.stdpath("data")  .. "/site//lua/_compiled.lua"
+    local compile_to_lua = vim.fn.stdpath("data")  .. "/site/lua/_compiled.lua"
     if vim.fn.empty(vim.fn.glob(compile_to_lua)) == 0 then
         require('_compiled')
     end

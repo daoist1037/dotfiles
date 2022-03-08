@@ -119,13 +119,13 @@ function plugins.magic_compile()
 end
 
 function plugins.load_compile()
-    vim.cmd([[command! PackerCompile lua require('pack').magic_compile()]])
-    vim.cmd([[command! PackerInstall lua require('pack').install()]])
-    vim.cmd([[command! PackerUpdate lua require('pack').update()]])
-    vim.cmd([[command! PackerSync lua require('pack').sync()]])
-    vim.cmd([[command! PackerClean lua require('pack').clean()]])
-    vim.cmd([[command! PackerConvert lua require('pack').convert_compile_file()]])
-    vim.cmd([[command! PackerStatus lua  require('pack').status()]])
+    vim.cmd([[command! PackerCompile lua require('plugins').magic_compile()]])
+    vim.cmd([[command! PackerInstall lua require('plugins').install()]])
+    vim.cmd([[command! PackerUpdate lua require('plugins').update()]])
+    vim.cmd([[command! PackerSync lua require('plugins').sync()]])
+    vim.cmd([[command! PackerClean lua require('plugins').clean()]])
+    vim.cmd([[command! PackerConvert lua require('plugins').convert_compile_file()]])
+    vim.cmd([[command! PackerStatus lua  require('plugins').status()]])
 end
 
 return plugins

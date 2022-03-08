@@ -1,4 +1,4 @@
-local M = {}
+local tasks = {}
 
 local async = {}
 local notify = {}
@@ -19,7 +19,7 @@ local function dapPre()
     return true
 end
 
-M.dapui = function()
+tasks.dapui = function()
     if dapPre() == false then
         return
     end
@@ -32,7 +32,7 @@ M.dapui = function()
     end
 end
 
-M.dap = function(type)
+tasks.dap = function(type)
     if dapPre() == false then
         return
     end
@@ -45,7 +45,7 @@ M.dap = function(type)
     end
 end
 
-M.yabstask = function(type)
+tasks.yabstask = function(type)
     if dapPre() == false then
         return
     end
@@ -58,7 +58,7 @@ M.yabstask = function(type)
     end
 end
 
-M.bdelete = function(type)
+tasks.bdelete = function(type)
     if packer_plugins["close-buffers.nvim"].loaded then
         local pre = [[lua require('close_buffers').delete({type = ']]
         vim.api.nvim_command(pre .. type .. [['})]])
@@ -69,4 +69,4 @@ M.bdelete = function(type)
     end
 end
 
-return M
+return tasks

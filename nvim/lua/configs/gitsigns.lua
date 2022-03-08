@@ -28,7 +28,7 @@ return function()
             virt_text = true,
             virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
             delay = 500,
-            ignore_whitespace = false,
+            ignore_whitespace = true,
         },
         -- current_line_blame_formatter = function(name, blame_info, opts)
         --     if blame_info.author == name then

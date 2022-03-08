@@ -29,7 +29,10 @@ lang["j-hui/fidget.nvim"] = {
 lang["ray-x/lsp_signature.nvim"] = {
     opt = true,
 }
-
+lang["folke/trouble.nvim"] = {
+    after = "nvim-lsp-installer",
+    config = require("configs.trouble"),
+}
 return lang
 
 --     "folke/trouble.nvim",

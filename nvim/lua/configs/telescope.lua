@@ -39,13 +39,13 @@ return function()
                 horizontal = {
                     prompt_position = "top",
                     preview_width = 0.55,
-                    results_width = 0.8,
+                    -- results_width = 0.9,
                 },
                 vertical = {
                     mirror = false,
                 },
-                width = 0.70,
-                height = 0.70,
+                width = 0.80,
+                height = 0.80,
                 preview_cutoff = 120,
             },
             set_env = { ["COLORTERM"] = "truecolor" },

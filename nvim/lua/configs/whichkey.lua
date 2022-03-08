@@ -77,6 +77,7 @@ return function()
         ["<leader>t"] = { name = "Toggle" },
         ["<leader>tt"] = { "<cmd>ToggleTerm<cr>", "ToggleTerm" },
         ["<leader>ts"] = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
+        ["<leader>tl"] = { "<cmd>Trouble<cr>", "Trouble" },
         -- ["<leader>l"] = { name = "+Lsp" },
         -- ["<leader>lk"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "hover" },
         -- ["<leader>ls"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "signature_help" },
