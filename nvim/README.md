@@ -11,7 +11,7 @@ _✨ neovim lua config ✨_
 
 ## Toc 
 - [Neovim](#neovim)
-  - [Toc](#toc)
+- [Toc](#toc)
 - [Options](#options)
 - [Disable](#disable)
 - [Plugins](#plugins)
