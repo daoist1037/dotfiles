@@ -51,24 +51,24 @@ return function()
             end
         end)
     end
-    dap.adapters.cppdbg = {
-        type = "executable",
-        command = "/home/daoist/.vscode/extensions/ms-vscode.cpptools-1.7.1/debugAdapters/bin/OpenDebugAD7",
-        name = "cppdbg",
-    }
-    dap.adapters.lldb = {
-        type = "executable",
-        -- command = "lldb-mi", -- adjust as needed
-        command = "/usr/bin/lldb-vscode", -- adjust as needed
-        name = "lldb",
-    }
+    -- dap.adapters.cppdbg = {
+    --     type = "executable",
+    --     command = "/home/daoist/.vscode/extensions/ms-vscode.cpptools-1.7.1/debugAdapters/bin/OpenDebugAD7",
+    --     name = "cppdbg",
+    -- }
+    -- dap.adapters.lldb = {
+    --     type = "executable",
+    --     -- command = "lldb-mi", -- adjust as needed
+    --     command = "/usr/bin/lldb-vscode", -- adjust as needed
+    --     name = "lldb",
+    -- }
     dap.configurations.cpp = {
         {
             name = "Launch file",
             -- type = "lldb",
             type = "codelldb",
             request = "launch",
-            program = vim.fn.getcwd() .. "/" .. "${fileBasenameNoExtension}",
+            program = vim.fn.getcwd() .. "/bin/" .. "${fileBasenameNoExtension}",
             cwd = "${workspaceFolder}",
             -- cwd = "${fileDirname}",
             stopOnEntry = false,

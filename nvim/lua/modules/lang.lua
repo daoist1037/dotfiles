@@ -34,5 +34,3 @@ lang["folke/trouble.nvim"] = {
     config = require("configs.trouble"),
 }
 return lang
-
---     "folke/trouble.nvim",

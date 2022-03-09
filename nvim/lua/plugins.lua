@@ -86,6 +86,7 @@ function plugins.convert_compile_file()
     lines[#lines + 1] = "vim.cmd [[packadd packer.nvim]]\n"
 
     if vim.fn.empty(vim.fn.glob(packer_compiled)) > 0 then
+        vim.notify("no _compiled.vim need to be converted")
         return
     end
     if vim.fn.filereadable(convert_to_lua) == 1 then

@@ -1,0 +1,10 @@
+-- edit["rhysd/accelerated-jk"] = {
+--     event = "CursorMoved",
+--     -- event = "BufRead",
+--     config = function()
+--         vim.cmd([[
+--             nmap j <Plug>(accelerated_jk_gj)
+--             nmap k <Plug>(accelerated_jk_gk)
+--        ]])
+--     end,
+-- }

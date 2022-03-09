@@ -16,6 +16,6 @@ M.maps = {
     { "n", "<F9>", "<cmd>lua require'tasks'.dap('toggle_breakpoint')<CR>" },
     { "n", "<F10>", "<cmd>lua require'tasks'.dap('step_over')<CR>" },
     { "n", "<F11>", "<cmd>lua require'tasks'.dap('step_into')<CR>" },
-    { "n", "<F12>", "<cmd>lua require'tasks'.dap('disconnect') require'tasks'.dap('close')<CR>" },
+    { "n", "<F12>", "<cmd>lua require'tasks'.dap('disconnect')<CR>" },
 }
 return M

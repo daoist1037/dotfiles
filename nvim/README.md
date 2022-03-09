@@ -1,13 +1,24 @@
-# nvim
-neovim config in lua
+<div align="center">
 
-# TOC 
-- [Options](#Options)
-- [Disable](#Disable)
-- [Plugins](#Plugins)
-- [Mappings](#Mappings)
+# Neovim
 
-## Options
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable-next-line MD036 -->
+_✨ neovim lua config ✨_
+<!-- prettier-ignore-end -->
+
+</div>
+
+## Toc 
+- [Neovim](#neovim)
+  - [Toc](#toc)
+- [Options](#options)
+- [Disable](#disable)
+- [Plugins](#plugins)
+- [Mappings](#mappings)
+
+# Options
+
 ```lua
 relativenumber = true,
 number         = true,
@@ -50,14 +61,10 @@ completeopt    = "menuone,noinsert",
 clipboard      = "unnamedplus",
 splitbelow     = true,
 splitright     = true,
-gcr            = [[n-v-c:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,]]..
-                  [[ve:ver35-Cursor,]]..
-                  [[o:hor50-Cursor,]]..
-                  [[i-ci:ver25-Cursor/lCursor,]]..
-                  [[r:hor50-Cursor/lCursor]],
+
 ```
 
-## Disable
+# Disable
 
 ```lua
 vim.g.loaded_gzip              = 1
@@ -81,146 +88,249 @@ vim.g.loaded_netrwFileHandlers = 1
 vim.g.loaded_spellfile_plugin  = 1
 ```
 
-## Plugins
+# Plugins
 
-```
-"mfussenegger/nvim-dap",
-"rcarriga/nvim-dap-ui",
-"theHamsta/nvim-dap-virtual-text",
-"pianocomposer321/yabs.nvim",
-"max397574/better-escape.nvim",
-"phaazon/hop.nvim",
-"rhysd/accelerated-jk",
-"machakann/vim-highlightedyank",
-"b3nj5m1n/kommentary",
-"edluffy/specs.nvim",
-"blackCauldron7/surround.nvim",
-"simrat39/symbols-outline.nvim",
-"abecodes/tabout.nvim",
-"romainl/vim-cool",
-"nathom/filetype.nvim",
-"onsails/lspkind-nvim",
-"windwp/nvim-autopairs",
-"mhartington/formatter.nvim",
-"j-hui/fidget.nvim",
-"neovim/nvim-lspconfig",
-"tami5/lspsaga.nvim",
-"rafamadriz/friendly-snippets",
-"hrsh7th/nvim-cmp",
-"williamboman/nvim-lsp-installer",
-"gelguy/wilder.nvim",
-"hrsh7th/vim-eft",
-"junegunn/vim-easy-align",
-"https://gitlab.com/yorickpeterse/nvim-window.git",
-"h-hg/fcitx.nvim",
-"nvim-telescope/telescope-fzf-native.nvim",
-"nvim-telescope/telescope.nvim",
-"nvim-treesitter/nvim-treesitter",
-"nvim-treesitter/playground",
-"nvim-treesitter/completion-treesitter",
-"nvim-treesitter/nvim-treesitter-refactor",
-"nvim-treesitter/nvim-treesitter-textobjects",
-"folke/which-key.nvim",
-"airblade/vim-rooter",
-"kevinhwang91/nvim-bqf",
-"RRethy/vim-illuminate",
-"goolord/alpha-nvim",
-"sainnhe/edge",
-"marko-cerovac/material.nvim",
-"navarasu/onedark.nvim",
-"kyazdani42/nvim-web-devicons",
-"nvim-lualine/lualine.nvim",
-"kazhala/close-buffers.nvim",
-"lewis6991/gitsigns.nvim",
-"lukas-reineke/indent-blankline.nvim",
-"akinsho/toggleterm.nvim",
-"kyazdani42/nvim-tree.lua",
-"rcarriga/nvim-notify",
-```
++ **ui**
 
-## Mappings
+| name                                                                       | description                              |
+| -------------------------------------------------------------------------- | ---------------------------------------- |
+| [onedark](https://github.com/navarasu/onedark.nvim)                        | theme                                    |
+| [onedarkpro](https://github.com/olimorris/onedarkpro.nvim)                 | theme                                    |
+| [zephyrium](https://github.com/titanzero/zephyrium)                        | theme                                    |
+| [alpha](https://github.com/goolord/alpha-nvim)                             | greeter for neovim                       |
+| [lualine](https://github.com/nvim-lualine/lualine.nvim)                    | statusline                               |
+| [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)       | provides  icons                          |
+| [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) | Indent guides                            |
+| [neoscroll](https://github.com/karb94/neoscroll.nvim)                      | Smooth scrolling                         |
+| [vim-illuminate](https://github.com/RRethy/vim-illuminate)                 | highlight other uses of the current word |
+| [close-buffers](https://github.com/kazhala/close-buffers.nvim)             | Delete multiple vim buffers              |
+| [gitsigns](https://github.com/lewis6991/gitsigns.nvim)                     | Git integration for buffers              |
+| [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)                   | file explorer tree                       |
+| [nvim-notify](https://github.com/rcarriga/nvim-notify)                     | notification manage                      |
+| [nvim-scrollview](https://github.com/dstein64/nvim-scrollview)             | displays interactive vertical scrollbars |
+| [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)                 | rainbow parentheses                      |
+
+
++ **tool**
+
+| name                                                                                          | description                    |
+| --------------------------------------------------------------------------------------------- | ------------------------------ |
+| [impatient](https://github.com/lewis6991/impatient.nvim)                                      | Speed up loading Lua modules   |
+| [wilder](https://github.com/gelguy/wilder.nvim)                                               | A more adventurous wildmenu    |
+| [fzy-lua-native](https://github.com/romgrk/fzy-lua-native)                                    |                                |
+| [vim-eft](https://github.com/hrsh7th/vim-eft)                                                 | enhanced f/t                   |
+| [vim-easy-align](https://github.com/junegunn/vim-easy-align)                                  | alignment plugin               |
+| [nvim-window](https://gitlab.com/yorickpeterse/nvim-window.git)                               | Easily jump between  windows   |
+| [fcitx](https://github.com/h-hg/fcitx.nvim)                                                   | switch and restore fcitx state |
+| [telescope](https://github.com/nvim-telescope/telescope.nvim)                                 | fuzzy finder                   |
+| [telescope-fzf-native](https://github.com/nvim-telescope/telescope-fzf-native.nvim)           |                                |
+| [plenary](https://github.com/nvim-lua/plenary.nvim)                                           |                                |
+| [popup](https://github.com/nvim-lua/popup.nvim)                                               |                                |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)                         | Treesitter-based highlighting  |
+| [completion-treesitter](https://github.com/nvim-treesitter/completion-treesitter)             |                                |
+| [nvim-treesitter-refactor](https://github.com/nvim-treesitter/nvim-treesitter-refactor)       |                                |
+| [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) |                                |
+| [which-key](https://github.com/folke/which-key.nvim)                                          | Create key bindings that stick |
+| [vim-rooter](https://github.com/airblade/vim-rooter)                                          | Changes Vim working directory  |
+| [vim-startuptime](https://github.com/dstein64/vim-startuptime)                                | profiling Vim's startup time   |
+
+
++ **lsp**
+
+| name                                                                                    | description                       |
+| --------------------------------------------------------------------------------------- | --------------------------------- |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                              | configurations for the LSP client |
+| [lspsaga](https://github.com/tami5/lspsaga.nvim)                                        | language-server-client UI         |
+| [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)                    |                                   |
+| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)                                         | completion plugin                 |
+| [LuaSnip](https://github.com/L3MON4D3/LuaSnip)                                          |                                   |
+| [cmp-under-comparator](https://github.com/lukas-reineke/cmp-under-comparator)           |                                   |
+| [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)                              |                                   |
+| [cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)                                 |                                   |
+| [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)                                 |                                   |
+| [cmp-path](https://github.com/hrsh7th/cmp-path)                                         |                                   |
+| [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)                                     |                                   |
+| [cmp-rg](https://github.com/lukas-reineke/cmp-rg)                                       |                                   |
+| [cmp-nvim-lsp-document-symbol](https://github.com/hrsh7th/cmp-nvim-lsp-document-symbol) |                                   |
+| [cmp-latex-symbols](https://github.com/kdheepak/cmp-latex-symbols)                      |                                   |
+| [cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)                                   |                                   |
+| [cmp-look](https://github.com/octaltree/cmp-look)                                       |                                   |
+| [nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)                |                                   |
+
+
++ **lang**
+
+| name                                                         | description                         |
+| ------------------------------------------------------------ | ----------------------------------- |
+| [filetype](https://github.com/nathom/filetype.nvim)          | A faster version of filetype.vim    |
+| [lspkind-nvim](https://github.com/onsails/lspkind-nvim)      | adds vscode-like pictograms to lsp  |
+| [nvim-autopairs](https://github.com/windwp/nvim-autopairs)   |                                     |
+| [formatter](https://github.com/mhartington/formatter.nvim)   | A format runner for neovim          |
+| [fidget](https://github.com/j-hui/fidget.nvim)               | Standalone UI for nvim-lsp progress |
+| [lsp_signature](https://github.com/ray-x/lsp_signature.nvim) | LSP signature hint as you type      |
+| [trouble](https://github.com/folke/trouble.nvim)             | showing diagnostics                 |
+
+
++ **edit**
+
+| name                                                                    | description                                  |
+| ----------------------------------------------------------------------- | -------------------------------------------- |
+| [better-escape](https://github.com/max397574/better-escape.nvim)        | Escape from insert mode                      |
+| [hop](https://github.com/phaazon/hop.nvim)                              | EasyMotion-like plugin                       |
+| [faster](https://github.com/PHSix/faster.nvim)                          | accelerate j or k  moving                    |
+| [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank) | Make the yanked region apparent!             |
+| [kommentary](https://github.com/b3nj5m1n/kommentary)                    | comment text in and out                      |
+| [vim-surround](https://github.com/tpope/vim-surround)                   | delete, change and add surroundings in pairs |
+| [specs](https://github.com/edluffy/specs.nvim)                          | Show where your cursor moves                 |
+| [symbols-outline](https://github.com/simrat39/symbols-outline.nvim)     | A tree like view for symbols                 |
+| [tabout](https://github.com/abecodes/tabout.nvim)                       | tabbing out                                  |
+| [vim-cool](https://github.com/romainl/vim-cool)                         | disables search highlighting when moving     |
+| [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode)         | instant table creation                       |
+
++ **dap**
+
+| name                                                                        | description                                  |
+| --------------------------------------------------------------------------- | -------------------------------------------- |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap)                        | Debug Adapter Protocol client implementation |
+| [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)                      | A UI for nvim-dap                            |
+| [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text) | adds virtual text support to nvim-dap        |
+| [yabs](https://github.com/pianocomposer321/yabs.nvim)                       | Build System/Code Runner                     |
+
+# Mappings
+
+| mode | keymaping     | cmd or keymaping                         | description        |
+| ---- | ------------- | ---------------------------------------- | ------------------ |
+| `n`  | `<backspace>` | `nohl                                  ` | 取消搜索高亮       |
+| `v`  | `<          ` | `<gv                                   ` | 对齐时保持选中状态 |
+| `v`  | `>          ` | `>gv                                   ` | 对齐时保持选中状态 |
+| `n`  | `g<C-v>     ` | **\`[v\`]**                              | 选中上次复制的对象 |
+| `n`  | `<F1>       ` | `cclose                                ` | 关闭quickfix       |
+| `n`  | `<F2>       ` | `YabsTask run                          ` | 组建               |
+| `n`  | `<F3>       ` | `YabsTask build                        ` | 运行               |
+| `n`  | `<F4>       ` | `lua require("dapui").toggle()         ` | 显示调试界面       |
+| `n`  | `<F5>       ` | `lua require'dap'.continue()           ` | 调试开始           |
+| `n`  | `<F9>       ` | `lua require'dap'.toggle_breakpoints() ` | 创建断点           |
+| `n`  | `<F10>      ` | `lua require'dap'.step_over()          ` | 单步跳出           |
+| `n`  | `<F11>      ` | `lua require'dap'.step_into()          ` | 单步步入           |
+| `n`  | `<F12>      ` | `lua require'dap'.disconnect()         ` | 断开调试器的链接   |
+
++ **BDelete**
+
+| mode | keymaping    | cmd or keymaping                          | description                     |
+| ---- | ------------ | ----------------------------------------- | ------------------------------- |
+| `n`  | `<leader>bh` | `lua require'tasks'.bdelete('hidden')   ` | Delete all non-visible buffers  |
+| `n`  | `<leader>bu` | `lua require'tasks'.bdelete('nameless') ` | Delete all buffers without name |
+| `n`  | `<leader>bc` | `lua require'tasks'.bdelete('this')     ` | Delete the current buffer       |
+
 
 ```lua
-{ "n", "<backspace>", "<Cmd>nohl<CR>" },
-{ "v", "<",           "<gv"           },
-{ "v", ">",           ">gv"           },
-{ "n", "g<C-v>",      "`[v`]"         },
+-- bdelete
+require('close_buffers').delete({ type = 'hidden', force = true }) -- Delete all non-visible buffers
+require('close_buffers').delete({ type = 'nameless' }) -- Delete all buffers without name
+require('close_buffers').delete({ type = 'this' }) -- Delete the current buffer
+require('close_buffers').delete({ type = 1 }) -- Delete the specified buffer number
+require('close_buffers').delete({ regex = '.*[.]md' }) -- Delete all buffers matching the regex
 
-["<F1>"]              = { "<cmd>cclose<CR>", "quickfix close" },
-["<F2>"]              = { "<cmd>lua require'core.tasks'.yabstask('run')<CR>", "yabs run" },
-["<F3>"]              = { "<cmd>lua require'core.tasks'.yabstask('build')<CR>", "yabs build" },
-["<F4>"]              = { "<cmd>lua require'core.tasks'.dapui()<CR>", "dapui toggle" },
-["<F5>"]              = { "<cmd>lua require'core.tasks'.dap('continue')<CR>", "dap continue" },
-["<F9>"]              = { "<cmd>lua require'core.tasks'.dap('toggle_breakpoint')<CR>", "dap breakpoints" },
-["<F10>"]             = { "<cmd>lua require'core.tasks'.dap('step_over')<CR>", "dap stepover" },
-["<F8>"]              = { "<cmd>lua require'core.tasks'.dap('step_into')<CR>", "dap stepinto" },
-["<F12>"]             = { "<cmd>lua require'core.tasks'.dap('disconnect') require'core.tasks'.dap('close')<CR>", "dap close" },
-["<leader>"]          = { name = "which key" },
-["<leader>b"]         = { name = "BDelete" },
-["<leader>bh"]        = { "<cmd>lua require'core.tasks'.bdelete('hidden')<CR>", "hidden" },
-["<leader>bu"]        = { "<cmd>lua require'core.tasks'.bdelete('nameless')<CR>", "nameless" },
-["<leader>bc"]        = { "<cmd>lua require'core.tasks'.bdelete('this')<CR>", "this" },
-["<leader>f"]         = { name = "telescope" },
-["<leader>fc"]        = { "<cmd>Telescope commands<cr>", "commands" },
-["<leader>ff"]        = { "<cmd>Telescope find_files<cr>", "Find File" },
-["<leader>fl"]        = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "fuzzy search" },
-["<leader>fo"]        = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-["<leader>fb"]        = { "<cmd>Telescope buffers<cr>", "Find buffers" },
-["<leader>fg"]        = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-["<leader>fG"]        = { "<cmd>Telescope grep_string<cr>", "grep_string" },
-["<leader>fh"]        = { "<cmd>Telescope help_tags<cr>", "help tags" },
-["<leader>fp"]        = { "<cmd>Telescope projects<cr>", "projects" },
-["<leader>fd"]        = { "<cmd>Telescope diagnostics<cr>", "diagnostics" },
-["<leader>fs"]        = { "<cmd>w!<cr>", "Save File" },
-["<leader>fn"]        = { "<cmd>enew<cr>", "New File" },
-["<leader>fe"]        = { "<cmd>edit ~/dotfiles/nvim/init.lua<cr>", "Edit init.lua" },
-["<leader>w"]         = { name = "window" },
-["<leader>wq"]        = { "<Cmd>qall!<CR>", "window Exit" },
-["<leader>wc"]        = { "<Cmd>quit!<CR>", "window conceal" },
-["<leader>ww"]        = { "<C-w>w", "window next" },
-["<leader>wh"]        = { "<C-w>h", "window left" },
-["<leader>wj"]        = { "<C-w>j", "window down" },
-["<leader>wk"]        = { "<C-w>k", "window up" },
-["<leader>wl"]        = { "<C-w>l", "window right" },
-["<leader>wn"]        = { "<cmd>lua require('nvim-window').pick()<CR>", "pick" },
-["<leader>w-"]        = { "<Cmd>sp<CR><C-w>j", "split" },
-["<leader>w\\"]       = { "<Cmd>vsp<CR><C-w>l", "vsplit" },
-["<leader>n"]         = { name = "nvimtree" },
-["<leader>nt"]        = { "<Cmd>NvimTreeToggle<CR>", "NvimTree Toggle" },
-["<leader>nf"]        = { "<Cmd>NvimTreeFindFile<CR>", "NvimTree FindFile" },
-["<leader>p"]         = { name = "Packer" },
-["<leader>pc"]        = { "<Cmd>PackerCompile<CR>", "PackerCompile" },
-["<leader>pC"]        = { "<Cmd>PackerClean<CR>", "PackerClean" },
-["<leader>ps"]        = { "<Cmd>PackerStatus<CR>", "PackerStatus" },
-["<leader>pS"]        = { "<Cmd>PackerSync<CR>", "PackerSync" },
-["<leader>pu"]        = { "<Cmd>PackerUpdate<CR>", "PackerUpdate" }, ]]
-["<leader>pi"]        = { "<Cmd>lua require 'core.pack' require('packer').install()<CR>", "PackerInstall" },
-["<leader>pc"]        = { "<Cmd>lua require 'core.pack' require('packer').compile()<CR>", "PackerCompile" },
-["<leader>pC"]        = { "<Cmd>lua require 'core.pack' require('packer').clean()<CR>", "PackerClean" },
-["<leader>ps"]        = { "<Cmd>lua require 'core.pack' require('packer').status()<CR>", "PackerStatus" },
-["<leader>pS"]        = { "<Cmd>lua require 'core.pack' require('packer').sync()<CR>", "PackerSync" },
-["<leader>pu"]        = { "<Cmd>lua require 'core.pack' require('packer').update()<CR>", "PackerUpdate" },
-["<leader><leader>"]  = { name = "hop" },
-["<leader><Leader>w"] = { "<cmd>HopWord<cr>", "HopWord" },
-["<leader><Leader>p"] = { "<cmd>HopPattern<cr>", "HopPattern" },
-["<leader><Leader>l"] = { "<cmd>HopLine<cr>", "HopLine" },
-["<leader>t"]         = { name = "ToggleTerm" },
-["<leader>tt"]        = { "<cmd>ToggleTerm<cr>", "ToggleTerm" },
-["<leader>s"]         = { name = "Symbols" },
-["<leader>st"]        = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
-["K"]                 = { "<cmd>Lspsaga hover_doc<CR>", "HoverDoc" },
-["<leader>l"]         = { name = "lspsaga" },
-["<leader>lh"]        = { "<cmd>Lspsaga lsp_finder<CR>", "lsp finder" },
-["<leader>la"]        = { "<cmd>Lspsaga code_action<CR>", "code action" },
-["<leader>ls"]        = { "<cmd>Lspsaga signature_help<CR>", "signature help" },
-["<leader>lr"]        = { "<cmd>Lspsaga rename<CR>", "rename" },
-["<leader>ld"]        = { "<cmd>Lspsaga preview_definition<CR>", "preview definition" },
-["<leader>lo"]        = { "<cmd>Lspsaga show_line_diagnostics<CR>", "show line diagnostics" },
-["<leader>ln"]        = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "diagnostic jump next" },
-["<leader>lp"]        = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "diagnostic jump prev" },
-["<leader>lf"]        = { "<cmd>FormatWrite<CR>", "FormatWrite" },
-["<leader>c"]         = { name = "comment" },
-["<leader>ci"]        = { "<Plug>kommentary_line_increase", "increase" },
-["<leader>cd"]        = { "<Plug>kommentary_line_decrease", "decrease" },
+-- bwipeout
+require('close_buffers').wipe({ type = 'all', force = true }) -- Wipe all buffers
+require('close_buffers').wipe({ type = 'other' }) -- Wipe all buffers except the current focused
+require('close_buffers').wipe({ type = 'hidden', glob = '*.lua' }) -- Wipe all buffers matching the glob
 ```
++ **telescope and file**
+
+
+| mode | keymaping    | cmd or keymaping                      | description          |
+| ---- | ------------ | ------------------------------------- | -------------------- |
+| `n`  | `<leader>fc` | `Telescope commands                 ` |                      |
+| `n`  | `<leader>ff` | `Telescope find_files               ` | 查找文件             |
+| `n`  | `<leader>fl` | `Telescope current_buffer_fuzzy_find` | 当前 buffer 模糊查找 |
+| `n`  | `<leader>fo` | `Telescope oldfiles                 ` | 查找最近操作的文件   |
+| `n`  | `<leader>fb` | `Telescope buffers                  ` |                      |
+| `n`  | `<leader>fg` | `Telescope live_grep                ` |                      |
+| `n`  | `<leader>fG` | `Telescope grep_string              ` |                      |
+| `n`  | `<leader>fh` | `Telescope help_tags                ` |                      |
+| `n`  | `<leader>fd` | `Telescope diagnostics              ` |                      |
+| `n`  | `<leader>fs` | `w!                                 ` | save file            |
+| `n`  | `<leader>fe` | `edit ~/dotfiles/nvim/lua/utils.lua ` | edit vimrc           |
+
+
++ **window**
+
+| mode | keymaping     | cmd or keymaping                     | description    |
+| ---- | ------------- | ------------------------------------ | -------------- |
+| `n`  | `<leader>wq`  | `qall!                             ` | Vim Exit       |
+| `n`  | `<leader>wc`  | `quit!                             ` | Window Conceal |
+| `n`  | `<leader>ww`  | `<C-w>w                            ` | window next    |
+| `n`  | `<leader>wh`  | `<C-w>h                            ` | window left    |
+| `n`  | `<leader>wj`  | `<C-w>j                            ` | window right   |
+| `n`  | `<leader>wk`  | `<C-w>k                            ` | window down    |
+| `n`  | `<leader>wl`  | `<C-w>l                            ` | window up      |
+| `n`  | `<leader>wn`  | `lua require('nvim-window').pick() ` |                |
+| `n`  | `<leader>w-`  | `<Cmd>sp<CR><C-w>j                 ` | split          |
+| `n`  | `<leader>w\`\ | `<Cmd>vsp<CR><C-w>l                ` | vsplit         |
+
+
++ **nvimtree**
+
+| mode | keymaping    | cmd or keymaping                   | description |
+| ---- | ------------ | ---------------------------------- | ----------- |
+| `n`  | `<leader>nt` | `NvimTreeToggle NvimTreeRefresh`   | 打开文件树  |
+| `n`  | `<leader>nt` | `NvimTreeFindFile NvimTreeRefresh` | 查找文件    |
+| `n`  | `<leader>nt` | `NvimTreeFocus NvimTreeRefresh`    | 聚焦文件    |
+
+
++ **Packer**
+
+| mode | keymaping    | cmd or keymaping | description            |
+| ---- | ------------ | ---------------- | ---------------------- |
+| `n`  | `<leader>pi` | `PackerInstall`  | install Plugins        |
+| `n`  | `<leader>pc` | `PackerCompile`  |                        |
+| `n`  | `<leader>pC` | `PackerClean`    | clean Plugins          |
+| `n`  | `<leader>pS` | `PackerStatus`   | plugins info           |
+| `n`  | `<leader>ps` | `PackerSync`     | update and Compile     |
+| `n`  | `<leader>pu` | `PackerUpdate`   | update plugins         |
+| `n`  | `<leader>pv` | `PackerConvert`  | convert *.vim to *.lua |
+
+
++ **hop**
+
+| mode | keymaping           | cmd or keymaping | description       |
+| ---- | ------------------- | ---------------- | ----------------- |
+| `n`  | `<leader><Leader>w` | `HopWord`        | 快速跳转(word)    |
+| `n`  | `<leader><Leader>p` | `HopPattern`     | 快速跳转(pattern) |
+| `n`  | `<leader><Leader>l` | `HopLine`        | 快速跳转(line)    |
+
+
++ **Toggle**
+
+| mode | keymaping    | cmd or keymaping | description    |
+| ---- | ------------ | ---------------- | -------------- |
+| `n`  | `<leader>tt` | `ToggleTerm`     | ToggleTerm     |
+| `n`  | `<leader>ts` | `SymbolsOutline` | SymbolsOutline |
+| `n`  | `<leader>tl` | `Trouble`        | Toggle Trouble |
+
+
++ **lspsaga**
+
+| mode | keymaping    | cmd or keymaping                | description        |
+| ---- | ------------ | ------------------------------- | ------------------ |
+| `n`  | `<leader>lk` | `Lspsaga hover_doc`             | 查看文档           |
+| `n`  | `<leader>lh` | `Lspsaga lsp_finder`            |                    |
+| `n`  | `<leader>la` | `Lspsaga code_action`           | codeaction         |
+| `n`  | `<leader>ls` | `Lspsaga signature_help`        | 查看 function 参数 |
+| `n`  | `<leader>lr` | `Lspsaga rename`                | 重命名             |
+| `n`  | `<leader>ld` | `Lspsaga preview_definition`    | 快速查看定义       |
+| `n`  | `<leader>lo` | `Lspsaga show_line_diagnostics` |                    |
+| `n`  | `<leader>ln` | `Lspsaga diagnostic_jump_next`  | 跳转到下一个错误   |
+| `n`  | `<leader>lp` | `Lspsaga diagnostic_jump_prev`  | 跳转到上一个错误   |
+| `n`  | `<leader>lf` | `FormatWrite`                   | 格式化文档         |
+
+
+
++ **comment**
+
+| mode | keymaping    | cmd or keymaping                 | description |
+| ---- | ------------ | -------------------------------- | ----------- |
+| `n`  | `<leader>ci` | `<Plug>kommentary_line_increase` | 注释        |
+| `n`  | `<leader>cd` | `<Plug>kommentary_line_decrease` | 取消注释    |
 

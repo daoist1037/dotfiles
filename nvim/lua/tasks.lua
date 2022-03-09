@@ -37,6 +37,16 @@ tasks.dap = function(type)
         return
     end
     if packer_plugins["nvim-dap"].loaded then
+        if type == "continue" then
+            local extension = vim.fn.expand("%:e")
+            if extension == "cpp" or extension == "c" then
+                vim.cmd("YabsTask build")
+            end
+        elseif type == "disconnect" then
+            vim.api.nvim_command([[lua require'dap'.disconnect()]])
+            -- vim.api.nvim_command([[lua require'dap'.close()]])
+            return
+        end
         vim.api.nvim_command([[lua require'dap'.]] .. type .. [[()]])
     else
         async.run(function()

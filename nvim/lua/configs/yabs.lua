@@ -2,11 +2,13 @@ return function()
     local yabs = require("yabs")
     local tasksbuild = function()
         local filepath = vim.fn.expand("%:p")
-        local outputFile = vim.fn.expand("%:p:r")
+        -- local outputFile = vim.fn.expand("%:p:r")
+        local outputFile = vim.loop.cwd() .. "/bin/" .. vim.fn.expand("%:t:r")
+        -- return "c++ -g " .. filepath .. " -o " .. outputFile
         return "clang++ -g " .. filepath .. " -o " .. outputFile
     end
     local tasksrun = function()
-        local exe = vim.fn.expand("%:p:r")
+        local exe = vim.loop.cwd() .. "/bin/" .. vim.fn.expand("%:t:r")
         return exe
     end
     yabs:setup({

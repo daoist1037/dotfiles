@@ -59,13 +59,15 @@ ui["dstein64/nvim-scrollview"] = {
 ui["olimorris/onedarkpro.nvim"] = {
     opt = true,
 }
-ui['titanzero/zephyrium'] = {
+ui["titanzero/zephyrium"] = {
     opt = true,
+}
+ui["p00f/nvim-ts-rainbow"] = {
+    opt = true,
+    after = "nvim-treesitter",
 }
 return ui
 
 --     "akinsho/bufferline.nvim",
 --     "kdheepak/tabline.nvim",
 --     "noib3/nvim-cokeline",
---     "sainnhe/sonokai",
---     "folke/tokyonight.nvim",

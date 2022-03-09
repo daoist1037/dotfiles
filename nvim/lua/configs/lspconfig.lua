@@ -1,4 +1,10 @@
 return function()
+    local function custom_cwd()
+        if vim.loop.cwd() == vim.loop.os_homedir() then
+            return vim.fn.expand("%:p:h")
+        end
+        return vim.loop.cwd()
+    end
     -- local function lsp_highlight_document(client)
     --     if client.resolved_capabilities.document_highlight then
     --         vim.api.nvim_exec(
@@ -78,10 +84,10 @@ return function()
 
     local servers = {}
     servers["pyright"] = {
-        cmd = {
-            server_path .. "/python/node_modules/.bin/pyright-langserver",
-            "--stdio",
-        },
+        -- cmd = {
+        --     server_path .. "/python/node_modules/.bin/pyright-langserver",
+        --     "--stdio",
+        -- },
         on_attach = function(client, bufnr)
             custom_attach(client, bufnr)
         end,
@@ -89,7 +95,20 @@ return function()
         flags = {
             debounce_text_changes = 150,
         },
-        root_dir = lspconfig.util.root_pattern("__pycache__", ".git", ".vscode"),
+        root_dir = custom_cwd,
+        -- root_dir = lspconfig.util.root_pattern("__pycache__", ".git", ".vscode"),
+        settings = {
+            python = {
+                analysis = {
+                    useLibraryCodeForTypes = false,
+                    autoImportCompletions = true,
+                    autoSearchPaths = true,
+                    diagnosticMode = "openFilesOnly",
+                    -- diagnosticMode = "workspace",
+                    typeCheckingMode = "basic",
+                },
+            },
+        },
     }
     servers["clangd"] = {
         on_attach = function(client, bufnr)
@@ -97,10 +116,9 @@ return function()
             custom_attach(client, bufnr)
         end,
         capabilities = custom_capabilities,
-        cmd = {
-            server_path .. "/clangd/clangd/bin/clangd",
-            -- "clangd",
-        },
+        -- cmd = {
+        --     server_path .. "/clangd/clangd/bin/clangd",
+        -- },
         args = {
             "--background-index",
             "-std=c++20",
@@ -119,9 +137,7 @@ return function()
         },
         filetypes = { "c", "cpp", "objc", "objcpp" },
         single_file_support = true,
-        root_dir = function()
-            return vim.fn.getcwd()
-        end,
+        root_dir = custom_cwd,
         -- root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git", ".vscode"),
     }
     local runtime_path = vim.split(package.path, ";")
@@ -132,12 +148,14 @@ return function()
             custom_attach(client, bufnr)
         end,
         capabilities = custom_capabilities,
-        cmd = {
-            server_path .. "/sumneko_lua/extension/server/bin/lua-language-server",
-            "-E",
-            server_path .. "/sumneko_lua/extension/server/bin/main.lua",
-        },
-        root_dir = lspconfig.util.root_pattern(".git", ".vscode"),
+        cmd = { "lua-language-server", string.format("--logpath=%s/.cache/nvim/sumneko_lua", vim.loop.os_homedir()) },
+        -- cmd = {
+        --     server_path .. "/sumneko_lua/extension/server/bin/lua-language-server",
+        --     "-E",
+        --     server_path .. "/sumneko_lua/extension/server/bin/main.lua",
+        -- },
+        -- root_dir = lspconfig.util.root_pattern(".git", ".vscode"),
+        root_dir = custom_cwd,
         filetypes = { "lua" },
         single_file_support = true,
         settings = {
@@ -148,7 +166,8 @@ return function()
                 },
                 diagnostics = {
                     enable = true,
-                    globals = { "vim", "packer_plugins" },
+                    -- globals = { "vim", "packer_plugins" },
+                    globals = { "vim", "packer_plugins", "awesome", "use", "client", "root", "s", "screen" },
                 },
                 workspace = {
                     -- Make the server aware of Neovim runtime files
@@ -170,6 +189,55 @@ return function()
         },
     }
     local lsp_installer = require("nvim-lsp-installer")
+
+    lsp_installer.settings({
+        ui = {
+            icons = {
+                server_installed = "✓ ",
+                server_pending = "➜ ",
+                server_uninstalled = "✗ ",
+            },
+            -- icons = {
+            --     -- The list icon to use for installed servers.
+            --     server_installed = "◍",
+            --     -- The list icon to use for servers that are pending installation.
+            --     server_pending = "◍",
+            --     -- The list icon to use for servers that are not installed.
+            --     server_uninstalled = "◍",
+            -- },
+            keymaps = {
+                -- Keymap to expand a server in the UI
+                toggle_server_expand = "<CR>",
+                -- Keymap to install a server
+                install_server = "i",
+                -- Keymap to reinstall/update a server
+                update_server = "u",
+                -- Keymap to update all installed servers
+                update_all_servers = "U",
+                -- Keymap to uninstall a server
+                uninstall_server = "X",
+            },
+        },
+
+        -- The directory in which to install all servers.
+        install_root_dir = vim.fn.stdpath("data") .. "/lsp_servers",
+
+        pip = {
+            -- These args will be added to `pip install` calls. Note that setting extra args might impact intended behavior
+            -- and is not recommended.
+            --
+            -- Example: { "--proxy", "https://proxyserver" }
+            install_args = {},
+        },
+
+        -- Controls to which degree logs are written to the log file. It's useful to set this to vim.log.levels.DEBUG when
+        -- debugging issues with server installations.
+        log_level = vim.log.levels.INFO,
+
+        -- Limit for the maximum amount of servers to be installed at the same time. Once this limit is reached, any further
+        -- servers that are requested to be installed will be put in a queue.
+        max_concurrent_installers = 4,
+    })
     lsp_installer.on_server_ready(function(server)
         local opts = servers[server.name]
         if opts then
