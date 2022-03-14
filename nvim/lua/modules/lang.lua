@@ -1,11 +1,6 @@
 local lang = {}
 lang["nathom/filetype.nvim"] = {
-    config = function()
-        vim.g.did_load_filetypes = 1
-        require("filetype").setup({
-            overrides = {},
-        })
-    end,
+    config = require("configs.others").filetype,
 }
 lang["onsails/lspkind-nvim"] = {
     opt = true,

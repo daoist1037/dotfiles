@@ -43,7 +43,6 @@ return function()
         ["<leader>fg"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
         ["<leader>fG"] = { "<cmd>Telescope grep_string<cr>", "grep_string" },
         ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "help tags" },
-        ["<leader>fp"] = { "<cmd>Telescope projects<cr>", "projects" },
         ["<leader>fd"] = { "<cmd>Telescope diagnostics<cr>", "diagnostics" },
         ["<leader>fs"] = { "<cmd>w!<cr>", "Save File" },
         ["<leader>fe"] = { "<cmd>edit ~/dotfiles/nvim/lua/utils.lua<cr>", "Edit utils.lua" },

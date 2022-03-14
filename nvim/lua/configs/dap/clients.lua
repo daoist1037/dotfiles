@@ -7,7 +7,7 @@ return function()
         local stderr = vim.loop.new_pipe(false)
 
         -- CHANGE THIS!
-        local cmd = "/home/daoist/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/adapter/codelldb"
+        local cmd = os.getenv("HOME").. "/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/adapter/codelldb"
 
         local handle, pid_or_err
         local opts = {
@@ -53,7 +53,7 @@ return function()
     end
     -- dap.adapters.cppdbg = {
     --     type = "executable",
-    --     command = "/home/daoist/.vscode/extensions/ms-vscode.cpptools-1.7.1/debugAdapters/bin/OpenDebugAD7",
+    --     command = os.getenv("HOME") .."/.vscode/extensions/ms-vscode.cpptools-1.7.1/debugAdapters/bin/OpenDebugAD7",
     --     name = "cppdbg",
     -- }
     -- dap.adapters.lldb = {

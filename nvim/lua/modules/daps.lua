@@ -12,7 +12,7 @@ daps["rcarriga/nvim-dap-ui"] = {
     -- module = "dapui",
 }
 daps["theHamsta/nvim-dap-virtual-text"] = {
-    config = require("configs.dap.virtualtext"),
+    config = require("configs.others").virtualtext,
     after = "nvim-dap",
 }
 daps["pianocomposer321/yabs.nvim"] = {

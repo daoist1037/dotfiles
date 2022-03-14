@@ -166,8 +166,8 @@ return function()
                 },
                 diagnostics = {
                     enable = true,
-                    -- globals = { "vim", "packer_plugins" },
-                    globals = { "vim", "packer_plugins", "awesome", "use", "client", "root", "s", "screen" },
+                    globals = { "vim", "packer_plugins" },
+                    -- globals = { "vim", "packer_plugins", "awesome", "use", "client", "root", "s", "screen" },
                 },
                 workspace = {
                     -- Make the server aware of Neovim runtime files

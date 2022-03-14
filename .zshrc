@@ -4,6 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+xset b off
 
 
 export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890
@@ -12,6 +13,7 @@ export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890
 #export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
 #export PATH=${CUDA_HOME}bin:${PATH}
 export EDITOR=/usr/bin/nvim
+export TERMINAL=alacritty
 # export PYTHONPATH=/opt/miniconda/bin/python
 source ~/.local/share/zsh/antigen/antigen.zsh
 
@@ -20,6 +22,8 @@ antigen use oh-my-zsh
 # antigen bundle heroku
 antigen bundle sudo
 antigen bundle extract
+antigen bundle z
+antigen bundle archlinux
 # antigen bundle lein
 antigen bundle command-not-found
 
@@ -28,7 +32,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 
-antigen bundle skywind3000/z.lua
+# antigen bundle skywind3000/z.lua
 
 antigen theme romkatv/powerlevel10k
 # antigen theme robbyrussell
@@ -41,7 +45,7 @@ alias activate="source /opt/miniconda/bin/activate"
 # alias deactivate="source /opt/miniconda/bin/deactivate"
 alias deactivate="conda deactivate"
 alias stylua="/home/daoist/dotfiles/stylua"
-alias vim-startuptime="/home/daoist/dotfiles/vim-startuptime -vimpath nvim | nvim"
+alias vim-startuptime="/home/daoist/Programs/vim-startuptime -vimpath nvim | nvim"
 # alias conda="/opt/miniconda/bin/conda"
 # alias cnpm="npm --registry=https://registry.npmmirror.com \
 # --cache=$HOME/.npm/.cache/cnpm \

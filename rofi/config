@@ -1,0 +1,5 @@
+configuration {
+    modi: "window,combi,ssh,drun";
+}
+
+@theme "~/.config/rofi/awel.rasi"

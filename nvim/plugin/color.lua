@@ -44,7 +44,7 @@ elseif theme == "onedarkpro" then
             }, -- Where italic, bold, underline and NONE are possible values for styles.
             options = {
                 bold = false, -- Use the themes opinionated bold styles?
-                italic = true, -- Use the themes opinionated italic styles?
+                italic = false, -- Use the themes opinionated italic styles?
                 underline = false, -- Use the themes opinionated underline styles?
                 undercurl = false, -- Use the themes opinionated undercurl styles?
                 cursorline = true, -- Use cursorline highlighting?

@@ -1,4 +1,4 @@
-local vim_path = vim.fn.stdpath("config")
+-- local  config_dir = vim.fn.stdpath("config")
 local data_dir = vim.fn.stdpath("data") .. "/site/"
 -- local packer_compiled = vim_path .. "/plugin/_compiled.vim"
 -- local convert_to_lua = vim_path .. "/plugin/_compiled.lua"

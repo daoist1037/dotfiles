@@ -7,3 +7,5 @@ network-manager-applet
 optimus-manager
 os-prober
 xprop | grep WM_CLASS
+
+env GTK_THEME=Adwaita:light 

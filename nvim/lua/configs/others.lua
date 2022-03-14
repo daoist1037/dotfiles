@@ -86,7 +86,7 @@ others.wilder = function()
     vim.cmd([[
     call wilder#setup({'modes': [':', '/', '?']})
     call wilder#set_option('pipeline', [wilder#branch(wilder#cmdline_pipeline({'use_python': 0,'fuzzy': 1, 'fuzzy_filter': wilder#lua_fzy_filter()}),wilder#vim_search_pipeline(), [wilder#check({_, x -> empty(x)}), wilder#history(), wilder#result({'draw': [{_, x -> ' ' . x}]})])])
-    call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({ 'pumblend': 20,,'highlights': { 'border': 'Normal', }, 'border': 'rounded',  'left': [wilder#popupmenu_devicons()], 'right': [' ', wilder#popupmenu_scrollbar()]})))
+    call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({ 'pumblend': 20,'highlights': { 'border': 'Normal', }, 'border': 'rounded',  'left': [wilder#popupmenu_devicons()], 'right': [' ', wilder#popupmenu_scrollbar()]})))
     call wilder#set_option('use_python_remote_plugin', 0)
 ]])
     -- call wilder#set_option('renderer', wilder#renderer_mux({':': wilder#popupmenu_renderer({'highlighter': wilder#lua_fzy_highlighter(), 'left': [wilder#popupmenu_devicons()], 'right': [' ', wilder#popupmenu_scrollbar()]}), '/': wilder#wildmenu_renderer({'highlighter': wilder#lua_fzy_highlighter()})}))
@@ -118,5 +118,28 @@ others.easyaign = function()
            xmap ga <Plug>(EasyAlign)
            nmap ga <Plug>(EasyAlign)
       ]])
+end
+others.virtualtext = function()
+    local nvim_dap_virtual_text = require("nvim-dap-virtual-text")
+    nvim_dap_virtual_text.setup({
+        enabled = true, -- enable this plugin (the default)
+        enabled_commands = true, -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
+        highlight_changed_variables = false, -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText
+        highlight_new_as_changed = false, -- highlight new variables in the same way as changed variables (if highlight_changed_variables)
+        show_stop_reason = true, -- show stop reason when stopped for exceptions
+        commented = false, -- prefix virtual text with comment string
+        -- experimental features:
+        virt_text_pos = "eol", -- position of virtual text, see `:h nvim_buf_set_extmark()`
+        all_frames = true, -- show virtual text for all stack frames not only current. Only works for debugpy on my machine.
+        virt_lines = false, -- show virtual lines instead of virtual text (will flicker!)
+        virt_text_win_col = nil, -- position the virtual text at a fixed window column (starting from the first text column) ,
+        -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
+    })
+end
+others.filetype = function()
+    vim.g.did_load_filetypes = 1
+    require("filetype").setup({
+        overrides = {},
+    })
 end
 return others
