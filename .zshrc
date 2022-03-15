@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 xset b off
+set -o emacs
 
 
 export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890
@@ -13,7 +14,6 @@ export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890
 #export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
 #export PATH=${CUDA_HOME}bin:${PATH}
 export EDITOR=/usr/bin/nvim
-export TERMINAL=alacritty
 # export PYTHONPATH=/opt/miniconda/bin/python
 source ~/.local/share/zsh/antigen/antigen.zsh
 

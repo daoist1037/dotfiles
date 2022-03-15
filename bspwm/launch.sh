@@ -1,6 +1,6 @@
 #! /bin/bash
 # arr=("sxhkd" "xfce4-power-manager" "copyq" "fcitx5" "dunst" "xdman" "qv2ray" "redshift-gtk" "mpd" "picom" "conky" "~/.config/bspwm/bin/bspbar")
-arr=( "sxhkd" "fcitx5" "picom" "optimus-manager-qt" "nm-applet" )
+arr=( "sxhkd"  "picom" "fcitx5"  )
 for value in ${arr[@]}
 do
     isExist=`ps -ef | grep "$value" | grep -v grep | wc -l`
@@ -9,6 +9,7 @@ do
         exec "$value" &
     fi
 done
+# fcitx5 -d &
 # picom 
 # optimus-manager-qt
 # nm-applet

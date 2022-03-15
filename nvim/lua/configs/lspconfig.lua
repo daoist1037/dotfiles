@@ -19,7 +19,7 @@ return function()
     --         )
     --     end
     -- end
-    vim.g.Illuminate_ftblacklist = { "NvimTree" }
+    vim.g.Illuminate_ftblacklist = { "NvimTree", "Outline" }
     -- vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
     -- vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
     -- vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])

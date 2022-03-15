@@ -4,12 +4,13 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	kitty
 
 
 # program launcher
-super + {_,shift + }@space
-	rofi -show {drun,run} -theme Arc-Dark
+super + @space
+	/home/daoist/.config/bspwm/rofi.sh
+
 super + alt + f
 	firefox
 

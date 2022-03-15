@@ -12,7 +12,8 @@
 
 # bspc monitor -d I II III IV V VI VII VIII IX X
 # bspc monitor -d TERM BROWSER VIDEO IRC OTHER 
-bspc monitor -d I II III IV V 
+# bspc monitor -d           ﬏   
+bspc monitor -d      ﬏     
 
 bspc config border_width         4
 bspc config window_gap          10
@@ -33,8 +34,9 @@ bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a firefox desktop='^2' follow=on
 bspc rule -a vlc desktop='^3' follow=on
-bspc rule -a tim.exe desktop='^4' follow=on 
-bspc rule -a Wine desktop='^4'  follow=on
+bspc rule -a tim.exe desktop='^4' border=off 
+bspc rule -a Wine desktop='^4' border=off 
+bspc rule -a Code desktop='^5'  follow=on
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
