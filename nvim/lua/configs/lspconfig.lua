@@ -19,7 +19,7 @@ return function()
     --         )
     --     end
     -- end
-    vim.g.Illuminate_ftblacklist = { "NvimTree", "Outline" }
+    -- vim.g.Illuminate_ftblacklist = { "NvimTree", "Outline" }
     -- vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
     -- vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
     -- vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])
@@ -69,7 +69,7 @@ return function()
             vim.lsp.diagnostic.on_publish_diagnostics,
             lsp_publish_diagnostics_options
         )
-        require("illuminate").on_attach(client)
+        -- require("illuminate").on_attach(client)
         require("lsp_signature").on_attach({
             bind = false, -- This is mandatory, otherwise border config won't get registered.
             floating_window = false,
@@ -79,8 +79,8 @@ return function()
         -- lsp_highlight_document(client)
     end
 
-    local lspconfig = require("lspconfig")
-    local server_path = vim.fn.stdpath("data") .. "/lsp_servers"
+    -- local lspconfig = require("lspconfig")
+    -- local server_path = vim.fn.stdpath("data") .. "/lsp_servers"
 
     local servers = {}
     servers["pyright"] = {
@@ -123,14 +123,14 @@ return function()
             "--background-index",
             "-std=c++20",
             "--pch-storage=memory",
-            -- "--compile-commands-dir=build",
+            "--compile-commands-dir=build",
             "--clang-tidy",
             -- "--clang-tidy-checks=performance-*,bugprone-*",
-            -- "--all-scopes-completion",
-            -- "--completion-style=detailed",
-            -- "--query-driver=/usr/bin/clang++",
+            "--all-scopes-completion",
+            "--completion-style=detailed",
+            "--query-driver=/usr/bin/clang++",
             "--suggest-missing-includes",
-            -- "--header-insertion=iwyu",
+            "--header-insertion=iwyu",
         },
         flags = {
             debounce_text_changes = 150,

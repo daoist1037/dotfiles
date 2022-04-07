@@ -9,11 +9,14 @@ do
         exec "$value" &
     fi
 done
+# ibus-daemon &
 # fcitx5 -d &
 # picom 
 # optimus-manager-qt
 # nm-applet
-xrandr --dpi 108 --output eDP-1 &
+# xrandr --dpi 108 --output eDP-1 &
 /usr/bin/feh --bg-center /home/daoist/Pictures/firewatch/illust_84655195_20201001_013416.jpg &
+# /usr/bin/feh --bg-center /home/daoist/Pictures/firewatch/cyan.jpg &
+wmname LG3D &
 # exec "/usr/bin/feh" "--bg" "/home/daoist/Pictures/firewatch/illust_84655195_20201001_013416.jpg"
 bash /home/daoist/.config/polybar/launch.sh 

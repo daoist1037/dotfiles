@@ -20,7 +20,8 @@ tool["https://gitlab.com/yorickpeterse/nvim-window.git"] = {
     event = "BufRead",
 }
 tool["h-hg/fcitx.nvim"] = {
-    event = { "BufReadPre", "BufNewFile" },
+    opt = true,
+    -- event = { "BufReadPre", "BufNewFile" },
 }
 tool["nvim-telescope/telescope-fzf-native.nvim"] = {
     run = "make",
@@ -57,10 +58,14 @@ tool["folke/which-key.nvim"] = {
 tool["airblade/vim-rooter"] = {
     event = "BufRead",
     config = function()
-        vim.g.rooter_patterns = { ".vscode", ".git" }
+        vim.g.rooter_patterns = { ".vscode", ".git", "README.md" }
     end,
 }
 tool["dstein64/vim-startuptime"] = {}
+tool["ethanholz/nvim-lastplace"] = {
+    event = "BufRead",
+    config = require("configs.others").lastplace
+}
 return tool
 --     "ygm2/rooter.nvim", -- nvim-tree don't work well
 --     "ms-jpq/chadtree",

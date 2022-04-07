@@ -3,13 +3,16 @@ return function()
     local tasksbuild = function()
         local filepath = vim.fn.expand("%:p")
         -- local outputFile = vim.fn.expand("%:p:r")
-        local outputFile = vim.loop.cwd() .. "/bin/" .. vim.fn.expand("%:t:r")
+        local outputFile = vim.loop.cwd() .. "/build/" .. vim.fn.expand("%:t:r")
         -- return "c++ -g " .. filepath .. " -o " .. outputFile
         return "clang++ -g " .. filepath .. " -o " .. outputFile
     end
     local tasksrun = function()
-        local exe = vim.loop.cwd() .. "/bin/" .. vim.fn.expand("%:t:r")
+        local exe = vim.loop.cwd() .. "/build/" .. vim.fn.expand("%:t:r")
         return exe
+    end
+    local cmakebuild = function()
+        return "cd " .. vim.loop.cwd() .. "/build" .. " && cmake .. && make"
     end
     yabs:setup({
         languages = { -- List of languages in vim's `filetype` format
@@ -18,6 +21,7 @@ return function()
                 tasks = {
                     build = {
                         command = tasksbuild,
+                        -- command = cmakebuild,
                         output = "quickfix", -- Where to show output of the
                         -- command. Can be `buffer`,
                         -- `consolation`, `echo`,

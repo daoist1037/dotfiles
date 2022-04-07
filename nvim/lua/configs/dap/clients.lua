@@ -7,7 +7,10 @@ return function()
         local stderr = vim.loop.new_pipe(false)
 
         -- CHANGE THIS!
-        local cmd = os.getenv("HOME").. "/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/adapter/codelldb"
+        -- local cmd = "/absolute/path/to/codelldb/extension/adapter/codelldb"
+        -- local cmd = os.getenv("HOME") .. "/.local/share/nvim/lsp_servers/codelldb/adapter/codelldb"
+        local cmd = "/home/daoist/.local/share/nvim/debugger/codelldb/adapter/codelldb"
+        -- local cmd = "/home/daoist/.local/share/nvim/site/pack/packer/opt/vimspector/gadgets/linux/CodeLLDB/adapter/codelldb"
 
         local handle, pid_or_err
         local opts = {
@@ -51,35 +54,88 @@ return function()
             end
         end)
     end
-    -- dap.adapters.cppdbg = {
-    --     type = "executable",
-    --     command = os.getenv("HOME") .."/.vscode/extensions/ms-vscode.cpptools-1.7.1/debugAdapters/bin/OpenDebugAD7",
-    --     name = "cppdbg",
-    -- }
-    -- dap.adapters.lldb = {
-    --     type = "executable",
-    --     -- command = "lldb-mi", -- adjust as needed
-    --     command = "/usr/bin/lldb-vscode", -- adjust as needed
-    --     name = "lldb",
-    -- }
+    dap.adapters.cppdbg = {
+        id = "cppdbg",
+        type = "executable",
+        command = os.getenv("HOME")
+            .. "/.local/share/nvim/debugger/cpptools/debugAdapters/bin/OpenDebugAD7",
+    }
     dap.configurations.cpp = {
+        -- {
+        --     name = "Launch file with codelldb",
+        --     type = "codelldb",
+        --     -- type = "lldb",
+        --     request = "launch",
+        --     -- program = vim.fn.getcwd() .. "/bin/" .. "${fileBasenameNoExtension}",
+        --     -- program = vim.loop.cwd() .. "/bin/" .. "${fileBasenameNoExtension}",
+        --     program = vim.fn.getcwd() .. "/build/" .. "demo",
+        --     cwd = "${workspaceFolder}",
+        --     -- cwd = "${fileDirname}",
+        --     -- stopOnEntry = false,
+        --     stopOnEntry = true,
+        --     -- externalConsole= true,
+        --     -- MIMode = "gdb",
+        --     -- miDebuggerPath = "/usr/bin/gdb",
+        --     -- args = {},
+        --     -- console = "integratedTerminal",
+        --     -- terminal = "integrated",
+        --     -- runInTerminal = true,
+        -- },
         {
             name = "Launch file",
-            -- type = "lldb",
-            type = "codelldb",
+            type = "cppdbg",
             request = "launch",
-            program = vim.fn.getcwd() .. "/bin/" .. "${fileBasenameNoExtension}",
+            program = vim.fn.getcwd() .. "/build/" .. "demo",
+            -- program = function()
+            --     return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            -- end,
             cwd = "${workspaceFolder}",
-            -- cwd = "${fileDirname}",
-            stopOnEntry = false,
-            -- terminal = "external",
-            -- externalConsole= true,
-            -- MIMode = "gdb",
-            -- miDebuggerPath = "/usr/bin/gdb",
-            -- args = {},
-            -- console = "integratedTerminal",
-            terminal = "integrated",
-            -- runInTerminal = true,
+            stopOnEntry = true,
+            setupCommands = {
+                {
+                    description = "enable pretty printing",
+                    text = "-enable-pretty-printing",
+                    ignoreFailures = false,
+                },
+            },
+        },
+        -- attach process
+        {
+            name = "Attach process",
+            type = "cppdbg",
+            request = "attach",
+            processId = require("dap.utils").pick_process,
+            program = function()
+                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            end,
+            cwd = "${workspaceFolder}",
+            setupCommands = {
+                {
+                    description = "enable pretty printing",
+                    text = "-enable-pretty-printing",
+                    ignoreFailures = false,
+                },
+            },
+        },
+        -- attach server
+        {
+            name = "Attach to gdbserver :1234",
+            type = "cppdbg",
+            request = "launch",
+            MIMode = "gdb",
+            miDebuggerServerAddress = "localhost:1234",
+            miDebuggerPath = "/usr/bin/gdb",
+            cwd = "${workspaceFolder}",
+            program = function()
+                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            end,
+            setupCommands = {
+                {
+                    text = "-enable-pretty-printing",
+                    description = "enable pretty printing",
+                    ignoreFailures = false,
+                },
+            },
         },
     }
 

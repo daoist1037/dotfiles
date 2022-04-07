@@ -11,9 +11,10 @@
 # pgrep -x polybar || polybar example
 
 # bspc monitor -d I II III IV V VI VII VIII IX X
+# bspc monitor -d I II III IV V VI VII VIII 
 # bspc monitor -d TERM BROWSER VIDEO IRC OTHER 
 # bspc monitor -d           ﬏   
-bspc monitor -d      ﬏     
+bspc monitor -d     ﬏     
 
 bspc config border_width         4
 bspc config window_gap          10
@@ -37,8 +38,13 @@ bspc rule -a vlc desktop='^3' follow=on
 bspc rule -a tim.exe desktop='^4' border=off 
 bspc rule -a Wine desktop='^4' border=off 
 bspc rule -a Code desktop='^5'  follow=on
-bspc rule -a mplayer2 state=floating
+bspc rule -a jetbrains-pycharm-ce desktop='^5' follow=on
+bspc rule -a Evince desktop='^7' follow=on
+bspc rule -a Zathura desktop='^7' border=off  state=floating follow=on
+# bspc rule -a "libreoffice-writer" desktop='^7' border=off  state=floating follow=on
+# bspc rule -a "libreoffice" desktop='^7' border=off  state=floating follow=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+# bspc config external_rules_command "$(which external_rules)"
 
 bash /home/daoist/dotfiles/bspwm/launch.sh

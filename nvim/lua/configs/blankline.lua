@@ -3,10 +3,9 @@ return function()
     vim.opt.list = true
     -- vim.opt.listchars:append("space:⋅")
     vim.opt.listchars:append("eol:↴")
-    -- vim.g.indent_blankline_use_treesitter = true
     local indent_blankline = require("indent_blankline")
     indent_blankline.setup({
-        -- show_end_of_line = false,
+        show_end_of_line = true,
         indentLine_enabled = 1,
         char = "▏",
         use_treesitter = true,

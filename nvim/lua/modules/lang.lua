@@ -18,8 +18,8 @@ lang["j-hui/fidget.nvim"] = {
     config = function()
         require("fidget").setup()
     end,
-    -- after = "nvim-lspconfig"
-    ft = { "cpp", "c", "lua", "python" },
+    after = "nvim-lspconfig",
+    -- ft = { "cpp", "c", "lua", "python" },
 }
 lang["ray-x/lsp_signature.nvim"] = {
     opt = true,

@@ -27,12 +27,13 @@ local function load_options()
     vim.g.python_host_skip_check = 1
     vim.g.python3_host_skip_check = 1
     vim.g.python3_host_prog = "~/.conda/envs/tools/bin/python"
-    vim.g.fcitx5_remote = "/usr/bin/fcitx5-remote"
+    -- vim.g.vimspector_enable_mappings ='VISUAL_STUDIO'
+    -- vim.g.fcitx5_remote = "/usr/bin/fcitx5-remote"
     local options = require("options")
     for o, v in pairs(options) do
         vim.opt[o] = v
     end
-    vim.cmd([[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]])
+    -- vim.cmd([[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]])
     vim.cmd([[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]])
     vim.cmd([[
         augroup relative_numbser

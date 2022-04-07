@@ -13,6 +13,8 @@ M.maps = {
     { "n", "<F3>", "<cmd>lua require'tasks'.yabstask('build')<CR>" },
     { "n", "<F4>", "<cmd>lua require'tasks'.dapui()<CR>" },
     { "n", "<F5>", "<cmd>lua require'tasks'.dap('continue')<CR>" },
+    -- { "n", "<F5>", "<Plug>VimspectorContinue<CR>" },
+    -- { "n", "<F5>", "<Plug>VimspectorContinue" },
     { "n", "<F9>", "<cmd>lua require'tasks'.dap('toggle_breakpoint')<CR>" },
     { "n", "<F10>", "<cmd>lua require'tasks'.dap('step_over')<CR>" },
     { "n", "<F11>", "<cmd>lua require'tasks'.dap('step_into')<CR>" },
