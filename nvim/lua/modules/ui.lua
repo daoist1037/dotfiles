@@ -37,9 +37,9 @@ ui["lewis6991/gitsigns.nvim"] = {
 }
 ui["lukas-reineke/indent-blankline.nvim"] = {
     config = require("configs.blankline"),
-    -- opt = true,
+    opt = true,
     -- event = "BufReadPre",
-    after = "nvim-treesitter",
+    -- after = "nvim-treesitter",
 }
 ui["akinsho/toggleterm.nvim"] = {
     config = require("configs.toggleterm"),
@@ -61,6 +61,9 @@ ui["olimorris/onedarkpro.nvim"] = {
     opt = true,
 }
 ui["titanzero/zephyrium"] = {
+    opt = true,
+}
+ui["NTBBloodbath/doom-one.nvim"] = {
     opt = true,
 }
 ui["p00f/nvim-ts-rainbow"] = {

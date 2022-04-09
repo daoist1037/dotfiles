@@ -2,10 +2,12 @@ local opt_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/"
 local onedark_path = opt_path .. "onedark.nvim"
 local onedarkpro_path = opt_path .. "onedarkpro.nvim"
 local zephyrium_path = opt_path .. "zephyrium"
+local doom_path = opt_path .. "doom-one.nvim"
 
 -- local theme = "onedark"
-local theme = "onedarkpro"
--- local theme = "zephyrium"
+-- local theme = "onedarkpro"
+local theme = "zephyrium"
+-- local theme = "doom-one"
 if theme == "onedark" then
     if vim.loop.fs_stat(onedark_path) then
         vim.cmd([[packadd onedark.nvim]])
@@ -60,6 +62,37 @@ elseif theme == "zephyrium" then
     if vim.loop.fs_stat(zephyrium_path) then
         vim.cmd([[packadd zephyrium]])
         vim.cmd[[colorscheme zephyrium]]
+    end
+elseif theme == "doom-one" then
+    if vim.loop.fs_stat(doom_path) then
+        vim.cmd([[packadd doom-one.nvim]])
+        require('doom-one').setup({
+            cursor_coloring = false,
+            terminal_colors = false,
+            italic_comments = false,
+            enable_treesitter = true,
+            transparent_background = false,
+            pumblend = {
+                enable = true,
+                transparency_amount = 20,
+            },
+            plugins_integrations = {
+                neorg = true,
+                barbar = true,
+                bufferline = false,
+                gitgutter = false,
+                gitsigns = true,
+                telescope = false,
+                neogit = true,
+                nvim_tree = true,
+                dashboard = true,
+                startify = true,
+                whichkey = true,
+                indent_blankline = true,
+                vim_illuminate = true,
+                lspsaga = false,
+            },
+        })
     end
 end
 -- vim.cmd([[highlight HighlightedyankRegion cterm=reverse gui=reverse]])

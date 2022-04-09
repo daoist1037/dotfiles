@@ -59,7 +59,7 @@ return function()
         },
         view = {
             width = 30,
-            side = "left",
+            side = "right",
             auto_resize = true,
             mappings = {
                 custom_only = false,

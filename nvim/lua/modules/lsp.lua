@@ -46,9 +46,9 @@ lsp["hrsh7th/nvim-cmp"] = {
 }
 lsp["williamboman/nvim-lsp-installer"] = {
     opt = true,
-    ft = { "cpp", "lua", "python", "c" },
-    -- wants = { "cmp-nvim-lsp", "lsp_signature.nvim", "nvim-lspconfig", "vim-illuminate" },
-    wants = { "cmp-nvim-lsp", "lsp_signature.nvim", "nvim-lspconfig" },
+    ft = { "cpp", "lua", "python", "c", "java" },
+    wants = { "cmp-nvim-lsp", "lsp_signature.nvim", "nvim-lspconfig", "vim-illuminate" },
+    -- wants = { "cmp-nvim-lsp", "lsp_signature.nvim", "nvim-lspconfig" },
     config = require("configs.lspconfig"),
     -- cmd = "LspInstall",
 }

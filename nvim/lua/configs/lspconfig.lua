@@ -19,7 +19,7 @@ return function()
     --         )
     --     end
     -- end
-    -- vim.g.Illuminate_ftblacklist = { "NvimTree", "Outline" }
+    vim.g.Illuminate_ftblacklist = { "NvimTree", "Outline" }
     -- vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
     -- vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
     -- vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])
@@ -69,7 +69,7 @@ return function()
             vim.lsp.diagnostic.on_publish_diagnostics,
             lsp_publish_diagnostics_options
         )
-        -- require("illuminate").on_attach(client)
+        require("illuminate").on_attach(client)
         require("lsp_signature").on_attach({
             bind = false, -- This is mandatory, otherwise border config won't get registered.
             floating_window = false,
@@ -79,10 +79,18 @@ return function()
         -- lsp_highlight_document(client)
     end
 
-    -- local lspconfig = require("lspconfig")
+    local lspconfig = require("lspconfig")
     -- local server_path = vim.fn.stdpath("data") .. "/lsp_servers"
 
     local servers = {}
+    servers['jdtls'] = {
+        on_attach = function(client, bufnr)
+            custom_attach(client, bufnr)
+        end,
+        capabilities = custom_capabilities,
+        root_dir = custom_cwd,
+        single_file_support = true,
+    }
     servers["pyright"] = {
         -- cmd = {
         --     server_path .. "/python/node_modules/.bin/pyright-langserver",
@@ -137,8 +145,9 @@ return function()
         },
         filetypes = { "c", "cpp", "objc", "objcpp" },
         single_file_support = true,
-        root_dir = custom_cwd,
+        -- root_dir = custom_cwd,
         -- root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git", ".vscode"),
+        root_dir = lspconfig.util.root_pattern("CmakeLists.txt", ".git", ".vscode"),
     }
     local runtime_path = vim.split(package.path, ";")
     table.insert(runtime_path, "lua/?.lua")

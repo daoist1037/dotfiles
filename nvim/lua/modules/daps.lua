@@ -27,5 +27,8 @@ daps["puremourning/vimspector"] = {
     --     vim.g.vimspector_enable_mappings  =  ' VISUAL_STUDIO '
     -- end,
 }
+daps["mfussenegger/nvim-jdtls"] = {
+    ft = {"java"},
+}
 
 return daps
