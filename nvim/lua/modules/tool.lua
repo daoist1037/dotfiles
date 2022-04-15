@@ -17,7 +17,12 @@ tool["junegunn/vim-easy-align"] = {
 }
 tool["https://gitlab.com/yorickpeterse/nvim-window.git"] = {
     config = require("configs.window"),
+    -- opt = true,
     event = "BufRead",
+}
+tool['sindrets/winshift.nvim'] = {
+    event = "BufRead",
+    config = require("configs.winshift")
 }
 tool["h-hg/fcitx.nvim"] = {
     opt = true,

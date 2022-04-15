@@ -69,11 +69,15 @@ return function()
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        completion = {
-            completeopt = "menu,menuone,noinsert",
-        },
-        documentation = {
-            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        window = {
+            -- completion = cmp.config.window.bordered(),
+            -- documentation = cmp.config.window.bordered(),
+            completion = {
+                completeopt = "menu,menuone,noinsert",
+            },
+            documentation = {
+                border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+            },
         },
         snippet = {
             expand = function(args)
@@ -138,5 +142,4 @@ return function()
             native_menu = false,
         },
     })
-
 end

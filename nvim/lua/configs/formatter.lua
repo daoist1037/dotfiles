@@ -7,7 +7,7 @@ return function()
                     return {
                         exe = "clang-format",
                         args = {
-                            "--style='{BasedOnStyle: Microsoft, IndentWidth: 4}'",
+                            -- "--style='{BasedOnStyle: Microsoft, IndentWidth: 4}'",
                             "--assume-filename",
                             vim.api.nvim_buf_get_name(0),
                         },

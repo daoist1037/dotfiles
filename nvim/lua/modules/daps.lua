@@ -30,5 +30,8 @@ daps["puremourning/vimspector"] = {
 daps["mfussenegger/nvim-jdtls"] = {
     ft = {"java"},
 }
-
+daps['Shatur/neovim-cmake'] = {
+    config = require("configs.dap.cmake"),
+    ft = {"cpp"},
+}
 return daps

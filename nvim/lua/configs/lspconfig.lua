@@ -83,14 +83,14 @@ return function()
     -- local server_path = vim.fn.stdpath("data") .. "/lsp_servers"
 
     local servers = {}
-    servers['jdtls'] = {
-        on_attach = function(client, bufnr)
-            custom_attach(client, bufnr)
-        end,
-        capabilities = custom_capabilities,
-        root_dir = custom_cwd,
-        single_file_support = true,
-    }
+    -- servers['jdtls'] = {
+    --     on_attach = function(client, bufnr)
+    --         custom_attach(client, bufnr)
+    --     end,
+    --     capabilities = custom_capabilities,
+    --     root_dir = custom_cwd,
+    --     single_file_support = true,
+    -- }
     servers["pyright"] = {
         -- cmd = {
         --     server_path .. "/python/node_modules/.bin/pyright-langserver",

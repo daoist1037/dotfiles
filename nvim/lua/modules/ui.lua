@@ -37,8 +37,8 @@ ui["lewis6991/gitsigns.nvim"] = {
 }
 ui["lukas-reineke/indent-blankline.nvim"] = {
     config = require("configs.blankline"),
-    opt = true,
-    -- event = "BufReadPre",
+    -- opt = true,
+    event = "BufReadPre",
     -- after = "nvim-treesitter",
 }
 ui["akinsho/toggleterm.nvim"] = {
