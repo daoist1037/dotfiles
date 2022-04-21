@@ -5,9 +5,9 @@ local zephyrium_path = opt_path .. "zephyrium"
 local doom_path = opt_path .. "doom-one.nvim"
 
 -- local theme = "onedark"
-local theme = "onedarkpro"
+-- local theme = "onedarkpro"
 -- local theme = "zephyrium"
--- local theme = "doom-one"
+local theme = "doom-one"
 if theme == "onedark" then
     if vim.loop.fs_stat(onedark_path) then
         vim.cmd([[packadd onedark.nvim]])

@@ -20,13 +20,13 @@ daps["pianocomposer321/yabs.nvim"] = {
     ft = { "cpp" },
     wants = { "plenary.nvim" },
 }
-daps["puremourning/vimspector"] = {
-    opt = true,
-    -- ft = { "cpp", "python" },
-    -- config = function()
-    --     vim.g.vimspector_enable_mappings  =  ' VISUAL_STUDIO '
-    -- end,
-}
+-- daps["puremourning/vimspector"] = {
+--     opt = true,
+--     -- ft = { "cpp", "python" },
+--     -- config = function()
+--     --     vim.g.vimspector_enable_mappings  =  ' VISUAL_STUDIO '
+--     -- end,
+-- }
 daps["mfussenegger/nvim-jdtls"] = {
     ft = {"java"},
 }

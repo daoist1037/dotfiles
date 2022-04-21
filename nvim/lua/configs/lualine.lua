@@ -94,14 +94,14 @@ return function()
                 -- "Trouble",
             }, -- "dapui_scopes", "dapui_breakpoints", "dapui_stacks", "dapui_watches", "dap-repl" "vista_kind",
         },
-        tabline = {
-            lualine_a = { buffers },
-            lualine_b = { "" },
-            lualine_c = { "" },
-            lualine_x = {},
-            lualine_y = { diagnostics, "diff" },
-            lualine_z = { { "tabs" } },
-        },
+        -- tabline = {
+        --     lualine_a = { buffers },
+        --     lualine_b = { "" },
+        --     lualine_c = { "" },
+        --     lualine_x = {},
+        --     lualine_y = { diagnostics, "diff" },
+        --     lualine_z = { { "tabs" } },
+        -- },
         sections = {
             lualine_a = { { "mode" } },
             lualine_b = { "branch" },

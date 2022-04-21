@@ -115,7 +115,7 @@ return function()
                     fallback()
                 end
             end, { "i", "s" }),
-            ["<M-k>"] = cmp.mapping(function(fallback)
+            ["<M-K>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
                 elseif require("luasnip").jumpable(-1) then
@@ -132,8 +132,8 @@ return function()
             { name = "luasnip" },
             { name = "buffer" },
             { name = "nvim_lua" },
-            { name = "spell" },
-            { name = "latex_symbols" },
+            -- { name = "spell" },
+            -- { name = "latex_symbols" },
             { name = "path" },
             { name = "rg" },
         },

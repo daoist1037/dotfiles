@@ -27,7 +27,10 @@ return function()
             -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
             -- Using this option may slow down your editor, and you may see some duplicate highlights.
             -- Instead of true it can also be a list of languages
-            additional_vim_regex_highlighting = false,
+            -- additional_vim_regex_highlighting = false,
+        },
+        matchup = {
+            enable = true,
         },
         rainbow = {
             enable = true,
@@ -40,11 +43,14 @@ return function()
         textobjects = {
             select = {
                 enable = true,
+                lookhead = true,
                 keymaps = {
                     ["af"] = "@function.outer",
                     ["if"] = "@function.inner",
                     ["ac"] = "@class.outer",
                     ["ic"] = "@class.inner",
+                    ["ab"] = "@block.outer",
+                    ["ib"] = "@block.inner",
                 },
             },
             move = {
@@ -68,25 +74,5 @@ return function()
                 },
             },
         },
-        -- textobjects = {
-        --     move = {
-        --         enable = true,
-        --         set_jumps = true,
-        --         goto_previous_start = {
-        --             ["[["] = "@parameter.inner",
-        --         },
-        --         goto_next_start = {
-        --             ["]]"] = "@parameter.inner",
-        --         },
-        --     },
-        --     select = {
-        --         enable = true,
-        --         lookahead = true,
-        --         keymaps = {
-        --             ["iq"] = "@parameter.inner",
-        --             ["aq"] = "@parameter.outer",
-        --         },
-        --     },
-        -- },
     })
 end

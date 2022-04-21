@@ -23,6 +23,9 @@ ui["nvim-lualine/lualine.nvim"] = {
     wants = { "lsp_signature.nvim" },
     event = { "BufRead" },
 }
+ui["romgrk/barbar.nvim"] = {
+    event = { "BufRead" },
+}
 ui["kazhala/close-buffers.nvim"] = {
     event = "BufRead",
     config = require("configs.others").bufdelete,

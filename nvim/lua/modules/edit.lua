@@ -43,6 +43,7 @@ edit["simrat39/symbols-outline.nvim"] = {
     -- after = "nvim-lspconfig",
 }
 edit["abecodes/tabout.nvim"] = {
+    -- wants = { "nvim-treesitter", "nvim-treesitter-context" },
     wants = { "nvim-treesitter" },
     after = { "nvim-cmp" },
     config = require("configs.others").tabout,
