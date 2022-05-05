@@ -6,7 +6,6 @@ return function()
         folders = 1,
         files = 1,
         folder_arrows = 0,
-        -- tree_width = 35,
     }
 
     local nvim_tree = require("nvim-tree")
@@ -15,12 +14,7 @@ return function()
         hijack_netrw = true,
         open_on_setup = false,
         ignore_ft_on_setup = {},
-        auto_close = false,
         open_on_tab = false,
-        update_to_buf_dir = {
-            enable = true,
-            auto_open = true,
-        },
         hijack_cursor = true,
         update_cwd = true,
         update_focused_file = {
@@ -69,7 +63,6 @@ return function()
         view = {
             width = 30,
             side = "right",
-            auto_resize = true,
             mappings = {
                 custom_only = false,
                 list = {},
