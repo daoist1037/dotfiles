@@ -1,13 +1,4 @@
 return function()
-    local g = vim.g
-    g.nvim_tree_root_folder_modifier = table.concat({ ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" })
-    g.nvim_tree_show_icons = {
-        git = 0,
-        folders = 1,
-        files = 1,
-        folder_arrows = 0,
-    }
-
     local nvim_tree = require("nvim-tree")
     nvim_tree.setup({
         disable_netrw = true,
@@ -36,8 +27,8 @@ return function()
             },
         },
         git = {
-            enable = false,
-            ignore = false,
+            enable = true,
+            ignore = true,
             timeout = 500,
         },
         filters = {
@@ -59,6 +50,43 @@ return function()
                     none = "  ",
                 },
             },
+            icons = {
+                webdev_colors = true,
+                git_placement = "before",
+                padding = " ",
+                symlink_arrow = " ➛ ",
+                show = {
+                    file = true,
+                    folder = true,
+                    folder_arrow = true,
+                    git = true,
+                },
+                glyphs = {
+                    default = "",
+                    symlink = "",
+                    folder = {
+                        arrow_closed = "",
+                        arrow_open = "",
+                        default = "",
+                        open = "",
+                        empty = "",
+                        empty_open = "",
+                        symlink = "",
+                        symlink_open = "",
+                    },
+                    git = {
+                        unstaged = "✗",
+                        staged = "✓",
+                        unmerged = "",
+                        renamed = "➜",
+                        untracked = "★",
+                        deleted = "",
+                        ignored = "◌",
+                    },
+                },
+            },
+            -- special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+            special_files = {},
         },
         view = {
             width = 30,
